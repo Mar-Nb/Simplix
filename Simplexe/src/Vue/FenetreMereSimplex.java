@@ -1,16 +1,19 @@
 package Vue;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class FenetreMereSimplex extends JFrame{
+public class FenetreMereSimplex extends JFrame implements ActionListener{
 	
 	PanelGeneralSimplex contentPane = new PanelGeneralSimplex();
 	
 	public FenetreMereSimplex() {
-		super("API Simplexe - Matrice");
+		super("API Simplexe");
 		
 		this.setContentPane(contentPane);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -25,10 +28,14 @@ public class FenetreMereSimplex extends JFrame{
 		
 		fichier.setActionCommand("fichier");
 		save.setActionCommand("save");
+		save.addActionListener(this);
 		charger.setActionCommand("charger");
+		charger.addActionListener(this);
 		onglet.setActionCommand("onglet");
 		aPropos.setActionCommand("aPropos");
+		aPropos.addActionListener(this);
 		quitter.setActionCommand("quitter");
+		quitter.addActionListener(this);
 		
 		fichier.add(save);
 		fichier.add(charger);
@@ -50,6 +57,15 @@ public class FenetreMereSimplex extends JFrame{
 		
 		new FenetreMereSimplex();
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+		if(e.getActionCommand().equals("quitter"))
+			dispose();
+		
 	}
 
 }
