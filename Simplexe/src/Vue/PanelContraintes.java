@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import Controleur.Controleur;
 
 public class PanelContraintes extends JPanel {
+	
+	
 	JButton boutonCreer;
 	Integer [] box = new Integer[10];
 	JTextField[][]zonesEcrituresContraintes;
@@ -23,7 +25,7 @@ public class PanelContraintes extends JPanel {
 		
 		int ligne = nombreContraintes;
 		int colonne = nombreMonome;
-		
+
 		zonesEcrituresContraintes = new JTextField[ligne][colonne];
 		zonesEcrituresFonctionEco=new JTextField[ligne];
 		zonesEcrituresValeursMaxi=new JTextField[ligne];
@@ -64,34 +66,29 @@ public class PanelContraintes extends JPanel {
 		}
 		
 		contrainte.gridx =1;
-		contrainte.gridy++;
+		contrainte.gridy+=3;
 		boutonCreer = new JButton("Creer");
 		this.add(boutonCreer, contrainte);
 
 	}
 	
-	public void enregistreEcouteur(Controleur controleur) {
-		// TODO Auto-generated method stub
-		for(int i =0;i<=zonesEcrituresContraintes.length;i++){
-			for(int j=0;j<=zonesEcrituresContraintes[0].length;j++) {
-				zonesEcrituresContraintes[i][j].addActionListener(controleur);
-				zonesEcrituresContraintes[i][j].setActionCommand(Integer.toString(i)+"j"+Integer.toString(j));
-			}
-		}
+	public void enregistreEcouteur(Controleur parControleur) {
+
+		boutonCreer.addActionListener(parControleur);
+		boutonCreer.setActionCommand("Cr");
 		
-		for(int i=0;i<=zonesEcrituresFonctionEco.length;i++) {
-			zonesEcrituresFonctionEco[i].addActionListener(controleur);
-			zonesEcrituresFonctionEco[i].setActionCommand("e"+Integer.toString(i));
-		}
-		
-		for(int i=0;i<=zonesEcrituresValeursMaxi.length;i++) {
-			zonesEcrituresValeursMaxi[i].addActionListener(controleur);
-			zonesEcrituresValeursMaxi[i].setActionCommand("v"+Integer.toString(i));
-		}
-		
-		boutonCreer.setActionCommand("Creer");
-		boutonCreer.addActionListener(controleur);
-		
+	}
+
+	public JTextField[][] getZonesEcrituresContraintes() {
+		return zonesEcrituresContraintes;
+	}
+
+	public JTextField[] getZonesEcrituresFonctionEco() {
+		return zonesEcrituresFonctionEco;
+	}
+
+	public JTextField[] getZonesEcrituresValeursMaxi() {
+		return zonesEcrituresValeursMaxi;
 	}
 
 }
