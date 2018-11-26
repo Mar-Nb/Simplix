@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 public class FenetreMereSimplex extends JFrame implements ActionListener{
 	
@@ -36,6 +37,7 @@ public class FenetreMereSimplex extends JFrame implements ActionListener{
 		aPropos.addActionListener(this);
 		quitter.setActionCommand("quitter");
 		quitter.addActionListener(this);
+		quitter.setMnemonic('Q');
 		
 		fichier.add(save);
 		fichier.add(charger);
@@ -65,6 +67,9 @@ public class FenetreMereSimplex extends JFrame implements ActionListener{
 		
 		if(e.getActionCommand().equals("quitter"))
 			dispose();
+		else if(e.getActionCommand().equals("aPropos"))
+			JOptionPane.showMessageDialog(null, "Projet Simplexe version 1.0\n On espère qu'il sera utile. Ici sera mis une"
+					+ "notice d'utilisation du programme.", "A propos", JOptionPane.INFORMATION_MESSAGE);
 		
 	}
 
