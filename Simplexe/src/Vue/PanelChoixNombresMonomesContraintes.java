@@ -37,6 +37,7 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 
 		this.add(nbMonome);
 		JLabel labelNbContraintes = new JLabel("Nombre de contraintes : ", JLabel.CENTER);
+		this.add(labelNbContraintes);
 		this.add(nbContraintes);
 		
 		ok = new JButton("Ok");
@@ -46,8 +47,8 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 	
 	public void enregistreEcouteur(Controleur parControleur) {
-		ok.addActionListener(parControleur);
 		ok.setActionCommand("ok");
+		ok.addActionListener(parControleur);
 	}
 
 	public JComboBox<Integer> getNbMonome() {

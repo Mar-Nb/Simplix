@@ -67,16 +67,14 @@ public class PanelContraintes extends JPanel {
 		
 		contrainte.gridx =1;
 		contrainte.gridy+=3;
-		boutonCreer = new JButton("Creer");
+		boutonCreer = new JButton("Créer");
 		this.add(boutonCreer, contrainte);
 
 	}
 	
 	public void enregistreEcouteur(Controleur parControleur) {
-
-		boutonCreer.addActionListener(parControleur);
 		boutonCreer.setActionCommand("Cr");
-		
+		boutonCreer.addActionListener(parControleur);
 	}
 
 	public JTextField[][] getZonesEcrituresContraintes() {

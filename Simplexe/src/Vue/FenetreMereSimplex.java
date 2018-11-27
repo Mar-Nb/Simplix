@@ -24,8 +24,10 @@ public class FenetreMereSimplex extends JFrame implements ActionListener{
 		JMenuItem save = new JMenuItem("Sauvegarder");
 		JMenuItem charger = new JMenuItem("Charger un fichier");
 		JMenu onglet = new JMenu("Onglet");
-		JMenu aPropos = new JMenu("A propos");
-		JMenu quitter = new JMenu("Quitter");
+		JMenu aide = new JMenu("?");
+		JMenuItem aPropos = new JMenuItem("A propos");
+		JMenu fermer = new JMenu("Quitter");
+		JMenuItem quitter = new JMenuItem("Fermer la fenêtre");
 		
 		fichier.setActionCommand("fichier");
 		save.setActionCommand("save");
@@ -41,10 +43,12 @@ public class FenetreMereSimplex extends JFrame implements ActionListener{
 		
 		fichier.add(save);
 		fichier.add(charger);
+		aide.add(aPropos);
+		fermer.add(quitter);
 		menu.add(fichier);
 		menu.add(onglet);
-		menu.add(aPropos);
-		menu.add(quitter);
+		menu.add(aide);
+		menu.add(fermer);
 		
 		this.setJMenuBar(menu);
 		this.setSize(800,400); this.setVisible(true); this.setLocation(200,300);
@@ -66,10 +70,11 @@ public class FenetreMereSimplex extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if(e.getActionCommand().equals("quitter"))
-			dispose();
-		else if(e.getActionCommand().equals("aPropos"))
-			JOptionPane.showMessageDialog(null, "Projet Simplexe version 1.0\n On espère qu'il sera utile. Ici sera mis une"
-					+ "notice d'utilisation du programme.", "A propos", JOptionPane.INFORMATION_MESSAGE);
+			this.dispose();
+		else if(e.getActionCommand().equals("aPropos")) {
+			JOptionPane.showMessageDialog(null, "Projet Simplexe version 1.0\nOn espère qu'il sera utile. Ici sera mis une"
+					+ " notice d'utilisation du programme.", "A propos", JOptionPane.INFORMATION_MESSAGE);
+		}
 		
 	}
 

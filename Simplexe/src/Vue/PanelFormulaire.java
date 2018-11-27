@@ -34,7 +34,6 @@ public class PanelFormulaire extends JPanel{
 		panelCMC = new PanelChoixNombresMonomesContraintes();
 		panelC=new PanelContraintes(1, 1);
 		this.add(panelCMC, "ChoixMonomesContraintes");
-		
 	
 	}
 
