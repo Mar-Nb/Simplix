@@ -9,10 +9,10 @@ public class FonctionEco {
 	List monomes;
 	
 	public FonctionEco() {
-		monomes = new LinkedList();
+		monomes = new LinkedList(); //changer en map
 	}
 	public void ajouterMonome(Monome m) {
-		monomes.add(m);
+		monomes.add(m); // transformer pour que ça s'adapte à la map
 	}
 	
 	public String toString() {
