@@ -20,14 +20,15 @@ public class PanelContraintes extends JPanel {
 	JTextField[][]zonesEcrituresContraintes;
 	JTextField[] zonesEcrituresFonctionEco;
 	JTextField[] zonesEcrituresValeursMaxi;
+	int nombreMonome;
 	
 	public PanelContraintes(Integer nombreMonome, Integer nombreContraintes) {
-		
+		this.nombreMonome=nombreMonome;
 		int ligne = nombreContraintes;
 		int colonne = nombreMonome;
 
 		zonesEcrituresContraintes = new JTextField[ligne][colonne];
-		zonesEcrituresFonctionEco=new JTextField[ligne];
+		zonesEcrituresFonctionEco=new JTextField[colonne];
 		zonesEcrituresValeursMaxi=new JTextField[ligne];
 		
 		this.setLayout(new GridBagLayout());
@@ -72,9 +73,21 @@ public class PanelContraintes extends JPanel {
 
 	}
 	
+	public int getNombreMonome() {
+		return nombreMonome;
+	}
+
+	public void setNombreMonome(int nombreMonome) {
+		this.nombreMonome = nombreMonome;
+	}
+
 	public void enregistreEcouteur(Controleur parControleur) {
 		boutonCreer.setActionCommand("Cr");
 		boutonCreer.addActionListener(parControleur);
+	}
+	
+	public void desenregistreEcouteur(Controleur parControleur) {
+		boutonCreer.removeActionListener(parControleur);
 	}
 
 	public JTextField[][] getZonesEcrituresContraintes() {

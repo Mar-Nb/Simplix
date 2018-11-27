@@ -32,7 +32,7 @@ public class PanelFormulaire extends JPanel{
 		this.setLayout(gestionnaireDeCartes);
 		
 		panelCMC = new PanelChoixNombresMonomesContraintes();
-		panelC=new PanelContraintes(1, 1);
+		//panelC=new PanelContraintes(1, 1);
 		this.add(panelCMC, "ChoixMonomesContraintes");
 	
 	}
@@ -40,9 +40,13 @@ public class PanelFormulaire extends JPanel{
 	public void enregistreEcouteur(Controleur controleur) {
 		// TODO Auto-generated method stub
 		
-		panelC.enregistreEcouteur(controleur);
+		
 		panelCMC.enregistreEcouteur(controleur);
 		
+	}
+	
+	public void enregistreEcouteurC(Controleur controleur) {
+		panelC.enregistreEcouteur(controleur);
 	}
 
 	public CardLayout getGestionnaireDeCartes() {
@@ -51,6 +55,10 @@ public class PanelFormulaire extends JPanel{
 
 	public PanelContraintes getPanelC() {
 		return panelC;
+	}
+	
+	public void setPanelC(PanelContraintes panC) {
+		this.panelC = panC;
 	}
 
 	public PanelChoixNombresMonomesContraintes getPanelCMC() {

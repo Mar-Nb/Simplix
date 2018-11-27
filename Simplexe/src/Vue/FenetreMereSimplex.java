@@ -9,9 +9,14 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import Controleur.Controleur;
+
 public class FenetreMereSimplex extends JFrame implements ActionListener{
 	
-	PanelGeneralSimplex contentPane = new PanelGeneralSimplex();
+	//PanelGeneralSimplex contentPane = new PanelGeneralSimplex();
+	
+	PanelFormulaire contentPane = new PanelFormulaire();
+	Controleur controleur = new Controleur(contentPane);
 	
 	public FenetreMereSimplex() {
 		super("API Simplexe");

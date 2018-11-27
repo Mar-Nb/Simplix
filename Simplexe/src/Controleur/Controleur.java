@@ -32,9 +32,12 @@ public class Controleur implements ActionListener {
 			JTextField[] tabLimites=panelFormulaire.getPanelC().getZonesEcrituresValeursMaxi();
 			LinkedList contraintes=new LinkedList<ContrainteExplicite>();
 			for(int i=0;i<tabContraintes.length;i++) {
-				ContrainteExplicite ce = new ContrainteExplicite(Integer.parseInt(tabLimites[i].getText()), "x"+Integer.toString(i+panelFormulaire.getPanelCMC().getNombreMonome()));
+				System.out.println("Echec");
+				System.out.println(tabLimites[i].getText());
+				System.out.println(panelFormulaire.getPanelC().getNombreMonome());
+				ContrainteExplicite ce = new ContrainteExplicite(Integer.parseInt(tabLimites[i].getText()), "x"+Integer.toString(i+1+panelFormulaire.getPanelC().getNombreMonome()));
 				for(int j=0;j<tabContraintes[0].length;j++) {
-					Monome m = new Monome(Integer.parseInt(tabContraintes[i][j].getText()), "x"+Integer.toString(j));
+					Monome m = new Monome(Integer.parseInt(tabContraintes[i][j].getText()), "x"+Integer.toString(j+1));
 					ce.ajouterMonome(m);
 				}
 				contraintes.add(ce);
@@ -44,7 +47,7 @@ public class Controleur implements ActionListener {
 			FonctionEco fonctionEco = new FonctionEco();
 			JTextField[] tabMonomesFonctionEco = panelFormulaire.getPanelC().getZonesEcrituresFonctionEco();
 			for(int i=0;i<tabMonomesFonctionEco.length;i++) {
-				Monome m = new Monome(Integer.parseInt(tabMonomesFonctionEco[i].getText()), "x"+Integer.toString(i));
+				Monome m = new Monome(Integer.parseInt(tabMonomesFonctionEco[i].getText()), "x"+Integer.toString(i+1));
 				fonctionEco.ajouterMonome(m);
 			}
 			
@@ -56,7 +59,8 @@ public class Controleur implements ActionListener {
 		if(evt.getActionCommand().equals("ok")) {
 
 			PanelContraintes choixContraintesPanel = new PanelContraintes(panelFormulaire.getPanelCMC().getNbMonome().getItemAt(panelFormulaire.getPanelCMC().getNbMonome().getSelectedIndex()), panelFormulaire.getPanelCMC().getNbContraintes().getItemAt(panelFormulaire.getPanelCMC().getNbContraintes().getSelectedIndex()));
-			panelFormulaire.enregistreEcouteur(this);
+			panelFormulaire.setPanelC(choixContraintesPanel);
+			panelFormulaire.enregistreEcouteurC(this);
 			panelFormulaire.add(choixContraintesPanel, "Contraintes");
 			panelFormulaire.getGestionnaireDeCartes().show(panelFormulaire, "Contraintes");
 		}
