@@ -17,6 +17,10 @@ public class Monome {
 		this.coefficient += m.getCoefficient();
 	}
 
+	public void multiplier(float constante) { // ADD FRACTION
+		this.coefficient *= constante;
+	}
+	
 	public int getCoefficient() {
 		return coefficient;
 	}

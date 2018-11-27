@@ -6,8 +6,8 @@ public class TestSimplexe {
 
 	public static void main(String[] args) {
 		Monome m1 = new Monome(2, "x1");
-		Monome m2 = new Monome(3, "x2");
-		Monome m3 = new Monome(-2, "x3");
+		Monome m2 = new Monome(4, "x2");
+		Monome m3 = new Monome(4, "x3");
 		FonctionEco ec = new FonctionEco();
 		ec.ajouterMonome(m1);
 		ec.ajouterMonome(m2);
@@ -23,21 +23,25 @@ public class TestSimplexe {
 		x5.ajouterMonome(m1);
 		x5.ajouterMonome(m2);
 		x5.ajouterMonome(m3);
+		
+		
 		ContrainteExplicite x6 = new ContrainteExplicite(23, "x6");
 		x6.ajouterMonome(m1);
 		x6.ajouterMonome(m2);
 		x6.ajouterMonome(m3);
 		
-		x6.additionnerLigne(x5);
 		
 		LinkedList contraintes= new LinkedList();
-		contraintes.add(x4);contraintes.add(x5);contraintes.add(x6);
+		//contraintes.add(x4);
+		contraintes.add(x5);
+		//contraintes.add(x6);
 		
 		Simplexe simp = new Simplexe(contraintes,ec);
-		System.out.println(simp);
+		System.out.println(simp + "\n");
 		simp.passageDico1();
-		System.out.println(simp);
-		
+		System.out.println(simp + "\n");
+		x5.echanger(m1);
+		System.out.println(simp + "\n");
 
 	}
 

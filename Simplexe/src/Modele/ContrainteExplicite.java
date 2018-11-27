@@ -26,7 +26,7 @@ public class ContrainteExplicite {
 	public void passageDico1() {
 		for (Iterator i = monomes.keySet().iterator(); i.hasNext(); ) {
 			String clé = (String) i.next();
-			((Monome)monomes.get(clé)).setCoefficient(((Monome)monomes.get(clé)).getCoefficient() * (-1));
+			((Monome)monomes.get(clé)).multiplier(-1);
 		}
 		Monome m = new Monome(inferieurA, " ");
 		this.ajouterMonome(m);
@@ -87,7 +87,31 @@ public class ContrainteExplicite {
 		}
 	}
 	
-
+	public void echanger(Monome m) {
+		Iterator i = monomes.keySet().iterator();
+		while(i.hasNext()) { // On parcours notre contrainte
+			String clé = (String) i.next();
+			if (clé.equals(m.getInconnue())) { // on tombe sur le bon Xi
+				int coeff = ((Monome)monomes.get(clé)).getCoefficient(); // on récupère le coefficient du monome à switch
+				String tmp = this.nom;
+				Monome switched = new Monome(-1,this.nom); // on met -1 car on le switch donc son coeff devient négatif. Il va ensuite être divisé par le coeff de m
+				this.nom = ((Monome)monomes.get(clé)).getInconnue(); // On remplace le nom de la contrainte par l'inconnue de m
+				monomes.remove(clé);
+				monomes.put(switched.getInconnue(),switched);
+				division((float)coeff * -1); //ADD FRACTION
+				break;
+			}
+		}
+	}
+	
+	public void division(float coeff) { //ADD FRACTION
+		Iterator i = monomes.keySet().iterator();
+		while(i.hasNext()) {
+			String clé = (String) i.next();
+			((Monome) monomes.get(clé)).multiplier(1 / coeff); //revient a diviser par le coeff --> pour les non matheux
+		}
+	}
+	
 	public String getNom() {
 		return nom;
 	}
