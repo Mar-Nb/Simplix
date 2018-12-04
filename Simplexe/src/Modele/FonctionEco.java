@@ -1,30 +1,53 @@
 package Modele;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 public class FonctionEco {
-	List monomes;
+	Map monomes;
 	
 	public FonctionEco() {
-		monomes = new LinkedList(); //changer en map
+		monomes = new HashMap(); //changer en map
 	}
 	public void ajouterMonome(Monome m) {
-		monomes.add(m); // transformer pour que ça s'adapte à la map
+		monomes.put(m.getInconnue(), m); // transformer pour que ça s'adapte à la map
 	}
 	
 	public String toString() {
 		String chaineFinale = new String();
 		chaineFinale += "z = ";
-		for(int i=0; i<monomes.size(); i++) {
-			chaineFinale += ((Monome) monomes.get(i)).getCoefficient() + ((Monome) monomes.get(i)).getInconnue();
-			if(i <= (monomes.size()-2) && ((Monome) monomes.get(i+1)).getCoefficient()> 0) {
+		for(Iterator i = monomes.keySet().iterator(); i.hasNext(); ) {
+			String inconnue = (String) i.next();
+			chaineFinale += ((Monome) monomes.get(inconnue)).getCoefficient() + ((Monome) monomes.get(inconnue)).getInconnue();
+			if(i.hasNext() && ((Monome) monomes.get(inconnue)).getCoefficient()> 0) {
 				chaineFinale+="+";
 			}
 		}
 		
 		return chaineFinale;
+	}
+	
+	public void echanger(ContrainteExplicite ce, String inconnue) {
+		Monome aEchanger = ((Monome)monomes.get(inconnue));
+		int coeff = aEchanger.getCoefficient(); //FRACTION
+		monomes.remove(inconnue);
+		
+		for (Iterator i = ce.getMonomes().keySet().iterator(); i.hasNext();) {
+			String clé = (String) i.next();
+			Monome temp = new Monome(((Monome) ce.getMonomes().get(clé)).getCoefficient(), ((Monome) ce.getMonomes().get(clé)).getInconnue());
+			temp.multiplier(coeff); //FRACTION
+			if(monomes.get(clé)!=null) {
+				((Monome)monomes.get(clé)).additionner(temp);
+			}
+			else {
+				Monome ajout = new Monome(coeff*((Monome)ce.getMonomes().get(clé)).getCoefficient(), clé);
+				monomes.put(clé, ajout);
+			}
+			
+		}
+		
 	}
 }

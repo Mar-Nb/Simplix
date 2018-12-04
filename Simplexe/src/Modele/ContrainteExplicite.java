@@ -87,11 +87,11 @@ public class ContrainteExplicite {
 		}
 	}
 	
-	public void echanger(Monome m) {
+	public void rentrerBase(String inconnue) {
 		Iterator i = monomes.keySet().iterator();
 		while(i.hasNext()) { // On parcours notre contrainte
 			String clé = (String) i.next();
-			if (clé.equals(m.getInconnue())) { // on tombe sur le bon Xi
+			if (clé.equals(inconnue)) { // on tombe sur le bon Xi
 				int coeff = ((Monome)monomes.get(clé)).getCoefficient(); // on récupère le coefficient du monome à switch
 				String tmp = this.nom;
 				Monome switched = new Monome(-1,this.nom); // on met -1 car on le switch donc son coeff devient négatif. Il va ensuite être divisé par le coeff de m
@@ -102,6 +102,28 @@ public class ContrainteExplicite {
 				break;
 			}
 		}
+	}
+	
+	
+	public void echanger(ContrainteExplicite ce, String inconnue) {
+		Monome aEchanger = ((Monome)monomes.get(inconnue));
+		int coeff = aEchanger.getCoefficient(); //FRACTION
+		monomes.remove(inconnue);
+		
+		for (Iterator i = ce.getMonomes().keySet().iterator(); i.hasNext();) {
+			String clé = (String) i.next();
+			Monome temp = new Monome(((Monome) ce.getMonomes().get(clé)).getCoefficient(), ((Monome) ce.getMonomes().get(clé)).getInconnue());
+			temp.multiplier(coeff); //FRACTION
+			if(monomes.get(clé)!=null) {
+				((Monome)monomes.get(clé)).additionner(temp);
+			}
+			else {
+				Monome ajout = new Monome(coeff*((Monome)ce.getMonomes().get(clé)).getCoefficient(), clé);
+				monomes.put(clé, ajout);
+			}
+			
+		}
+		
 	}
 	
 	public void division(float coeff) { //ADD FRACTION

@@ -41,7 +41,6 @@ public class Controleur implements ActionListener {
 					ce.ajouterMonome(m);
 				}
 				contraintes.add(ce);
-				
 			}
 			
 			FonctionEco fonctionEco = new FonctionEco();
