@@ -30,12 +30,12 @@ public class Simplexe {
 	
 	public void echanger(String inconnueHorsBase, String inconnueBase) {
 		int mem=-1;
-		ContrainteExplicite memCE=new ContrainteExplicite(0, "");
+		ContrainteExplicite memCE=new ContrainteExplicite(new Fraction(1,1), "");
 		for(int i = 0; i<contraintes.size();i++) {
 			if(((ContrainteExplicite) contraintes.get(i)).getNom().equals(inconnueHorsBase)) {
 				memCE = ((ContrainteExplicite) contraintes.get(i));
 				memCE.rentrerBase(inconnueBase);
-				System.out.println("AVANT UPDATE DE LA FONCTION ECO : \n" + this.toString());
+				System.out.println("******AVANT UPDATE FONCTION ECO ******* \n" + this.toString() + "\n*******APRES UPDATE FONCTION ECO******");
 				fonctionEco.echanger(memCE, inconnueBase);
 				mem=i;
 				

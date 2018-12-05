@@ -9,10 +9,10 @@ import java.util.Map;
 public class ContrainteExplicite {
 	String nom;
 	Map monomes;
-	int inferieurA;
+	Fraction inferieurA;
 	int nombreInconnues;
 	
-	public ContrainteExplicite(int limite, String nom){
+	public ContrainteExplicite(Fraction limite, String nom){
 		this.monomes = new HashMap();
 		inferieurA=limite;
 		nombreInconnues=0;
@@ -26,7 +26,7 @@ public class ContrainteExplicite {
 	public void passageDico1() {
 		for (Iterator i = monomes.keySet().iterator(); i.hasNext(); ) {
 			String clé = (String) i.next();
-			((Monome)monomes.get(clé)).multiplier(-1);
+			((Monome)monomes.get(clé)).setCoefficient((((Monome)monomes.get(clé)).getCoefficient().FMultiplication(new Fraction(-1,1))));
 		}
 		Monome m = new Monome(inferieurA, " ");
 		this.ajouterMonome(m);
@@ -44,10 +44,7 @@ public class ContrainteExplicite {
 		
 		while(i.hasNext()) {
 			String clé = (String) i.next();
-			if(((Monome) monomes.get(clé)).getCoefficient() >=0) {
-				chaineFinale+=" + ";
-			}
-			chaineFinale += ((Monome) monomes.get(clé)).toString();
+			chaineFinale += " + " + ((Monome) monomes.get(clé)).toString();
 		}
 		chaineFinale+= " <= "+ this.inferieurA;
 		return chaineFinale;
@@ -66,10 +63,7 @@ public class ContrainteExplicite {
 		
 		while(i.hasNext()) {
 			String clé = (String) i.next();
-			if(((Monome) monomes.get(clé)).getCoefficient() >=0) {
-				chaineFinale+=" + ";
-			}
-			chaineFinale += ((Monome) monomes.get(clé)).toString();
+			chaineFinale += " + " + ((Monome) monomes.get(clé)).toString();
 		}
 		return chaineFinale;
 
@@ -92,13 +86,13 @@ public class ContrainteExplicite {
 		while(i.hasNext()) { // On parcours notre contrainte
 			String clé = (String) i.next();
 			if (clé.equals(inconnue)) { // on tombe sur le bon Xi
-				int coeff = ((Monome)monomes.get(clé)).getCoefficient(); // on récupère le coefficient du monome à switch
+				Fraction coeff = ((Monome)monomes.get(clé)).getCoefficient(); // on récupère le coefficient du monome à switch
 				String tmp = this.nom;
-				Monome switched = new Monome(-1,this.nom); // on met -1 car on le switch donc son coeff devient négatif. Il va ensuite être divisé par le coeff de m
+				Monome switched = new Monome(new Fraction(-1,1),this.nom); // on met -1 car on le switch donc son coeff devient négatif. Il va ensuite être divisé par le coeff de m
 				this.nom = ((Monome)monomes.get(clé)).getInconnue(); // On remplace le nom de la contrainte par l'inconnue de m
 				monomes.remove(clé);
 				monomes.put(switched.getInconnue(),switched);
-				division((float)coeff * -1); //ADD FRACTION
+				division(coeff); //ADD FRACTION
 				break;
 			}
 		}
@@ -107,18 +101,19 @@ public class ContrainteExplicite {
 	
 	public void echanger(ContrainteExplicite ce, String inconnue) {
 		Monome aEchanger = ((Monome)monomes.get(inconnue));
-		int coeff = aEchanger.getCoefficient(); //FRACTION
+		Fraction coeff = aEchanger.getCoefficient(); //FRACTION
 		monomes.remove(inconnue);
 		
 		for (Iterator i = ce.getMonomes().keySet().iterator(); i.hasNext();) {
 			String clé = (String) i.next();
-			Monome temp = new Monome(((Monome) ce.getMonomes().get(clé)).getCoefficient(), ((Monome) ce.getMonomes().get(clé)).getInconnue());
-			temp.multiplier(coeff); //FRACTION
+			coeff.setNumerateur(-coeff.getNumerateur());
+			Monome temp = new Monome(((Monome) ce.getMonomes().get(clé)).getCoefficient().FMultiplication(coeff), ((Monome) ce.getMonomes().get(clé)).getInconnue());
 			if(monomes.get(clé)!=null) {
 				((Monome)monomes.get(clé)).additionner(temp);
+				monomes.put(clé, temp);
 			}
 			else {
-				Monome ajout = new Monome(coeff*((Monome)ce.getMonomes().get(clé)).getCoefficient(), clé);
+				Monome ajout = new Monome(coeff.FMultiplication(((Monome)ce.getMonomes().get(clé)).getCoefficient()), clé);
 				monomes.put(clé, ajout);
 			}
 			
@@ -126,11 +121,12 @@ public class ContrainteExplicite {
 		
 	}
 	
-	public void division(float coeff) { //ADD FRACTION
+	public void division(Fraction coeff) { //ADD FRACTION
 		Iterator i = monomes.keySet().iterator();
 		while(i.hasNext()) {
 			String clé = (String) i.next();
-			((Monome) monomes.get(clé)).multiplier(1 / coeff); //revient a diviser par le coeff --> pour les non matheux
+			coeff.setNumerateur(-coeff.getNumerateur());
+			((Monome) monomes.get(clé)).setCoefficient(((Monome) monomes.get(clé)).getCoefficient().FDivision(coeff)); 
 		}
 	}
 	
@@ -150,11 +146,11 @@ public class ContrainteExplicite {
 		this.monomes = monomes;
 	}
 
-	public int getInferieurA() {
+	public Fraction getInferieurA() {
 		return inferieurA;
 	}
 
-	public void setInferieurA(int inferieurA) {
+	public void setInferieurA(Fraction inferieurA) {
 		this.inferieurA = inferieurA;
 	}
 

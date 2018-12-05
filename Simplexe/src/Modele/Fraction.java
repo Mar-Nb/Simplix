@@ -84,6 +84,12 @@ public class Fraction {
 		return resultat;
 	}
 	
+	public Fraction swap() {
+		int denominateur = this.denominateur;
+		int numerateur = this.numerateur;
+		return new Fraction(denominateur,numerateur);
+	}
+	
 	//COMPARE
 	//compare deux fractions entre elles
 	public boolean FCompare(Fraction f) {
@@ -143,7 +149,7 @@ public class Fraction {
 		if(denominateur == 1) {
 			return Integer.toString(numerateur);
 		}
-		return numerateur + "/" + denominateur;
+		return "(" + numerateur + "/" + denominateur + ")";
 	}
 	
 	//TEST_MAIN
@@ -152,8 +158,8 @@ public class Fraction {
 		//FRACTION
 		System.out.println();
 		System.out.println("Fractions utilisées dans la suite du programme");
-		Fraction f1 = new Fraction(30,-14);
-		System.out.println("f1 = 30/(-14) = " + f1.toString());
+		Fraction f1 = new Fraction(30,1);
+		System.out.println("f1 = 30/(1) = " + f1.toString());
 		Fraction f2 = new Fraction(-2,26);
 		System.out.println("f2 = (-2)/26 = " + f2.toString());
 		System.out.println();

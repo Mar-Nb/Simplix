@@ -1,10 +1,10 @@
 package Modele;
 
 public class Monome {
-	int coefficient;
+	Fraction coefficient;
 	String inconnue;
 	
-	public Monome(int coeff, String inconnue) {
+	public Monome(Fraction coeff, String inconnue) {
 		coefficient=coeff;
 		this.inconnue=inconnue;
 	}
@@ -14,18 +14,19 @@ public class Monome {
 	}
 	
 	public void additionner(Monome m) {
-		this.coefficient += m.getCoefficient();
+		this.coefficient = this.coefficient.FAddition(m.getCoefficient());
+		
 	}
 
-	public void multiplier(float constante) { // ADD FRACTION
-		this.coefficient *= constante;
+	public void multiplier(Fraction constante) { // ADD FRACTION
+		this.coefficient.FMultiplication(constante);
 	}
 	
-	public int getCoefficient() {
+	public Fraction getCoefficient() {
 		return coefficient;
 	}
 
-	public void setCoefficient(int coefficient) {
+	public void setCoefficient(Fraction coefficient) {
 		this.coefficient = coefficient;
 	}
 

@@ -21,9 +21,9 @@ public class FonctionEco {
 		chaineFinale += "z = ";
 		for(Iterator i = monomes.keySet().iterator(); i.hasNext(); ) {
 			String inconnue = (String) i.next();
-			chaineFinale += ((Monome) monomes.get(inconnue)).getCoefficient() + ((Monome) monomes.get(inconnue)).getInconnue();
-			if(i.hasNext() && ((Monome) monomes.get(inconnue)).getCoefficient()> 0) {
-				chaineFinale+="+";
+			chaineFinale += " " + ((Monome) monomes.get(inconnue)).getCoefficient() + ((Monome) monomes.get(inconnue)).getInconnue();
+			if(i.hasNext() && ((Monome) monomes.get(inconnue)).getCoefficient().getNumerateur() > ((Monome) monomes.get(inconnue)).getCoefficient().getDenominateur()) {
+				chaineFinale+=" + ";
 			}
 		}
 		
@@ -32,7 +32,7 @@ public class FonctionEco {
 	
 	public void echanger(ContrainteExplicite ce, String inconnue) {
 		Monome aEchanger = ((Monome)monomes.get(inconnue));
-		int coeff = aEchanger.getCoefficient(); //FRACTION
+		Fraction coeff = aEchanger.getCoefficient(); //FRACTION
 		monomes.remove(inconnue);
 		
 		for (Iterator i = ce.getMonomes().keySet().iterator(); i.hasNext();) {
@@ -43,7 +43,7 @@ public class FonctionEco {
 				((Monome)monomes.get(clé)).additionner(temp);
 			}
 			else {
-				Monome ajout = new Monome(coeff*((Monome)ce.getMonomes().get(clé)).getCoefficient(), clé);
+				Monome ajout = new Monome(coeff.FMultiplication(((Monome)ce.getMonomes().get(clé)).getCoefficient()), clé);
 				monomes.put(clé, ajout);
 			}
 			
