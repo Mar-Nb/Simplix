@@ -1,0 +1,81 @@
+package Modele;
+
+import java.util.List;
+import java.util.Map;
+
+public class Simplexe {
+	List contraintes;
+	FonctionEco fonctionEco;
+	
+	public Simplexe(List contraintes, FonctionEco fonctionEco) {
+		this.contraintes=contraintes;
+		this.fonctionEco=fonctionEco;
+	}
+	
+	public Simplexe() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void passageDico1() {
+		for(int i = 0; i<contraintes.size();i++) {
+			((ContrainteExplicite)contraintes.get(i)).passageDico1();
+		}
+	}
+	
+	public String toString() {
+		String chaineFinale="<html><head></head><body>";
+		for(int i=0; i<contraintes.size(); i++) {
+			chaineFinale += "<p>"+((ContrainteExplicite) contraintes.get(i)).toString()+"</p><br>";
+			
+		}
+		chaineFinale+= "<p>"+fonctionEco.toString()+"</p></body></html>";
+		return chaineFinale;
+	}
+	
+	public String toString2() {
+		String chaineFinale="";
+		for(int i=0; i<contraintes.size(); i++) {
+			chaineFinale += ((ContrainteExplicite) contraintes.get(i)).toString() + "\n";
+			
+		}
+		chaineFinale+=fonctionEco.toString();
+		return chaineFinale;
+	}
+	
+	public void echanger(String inconnueHorsBase, String inconnueBase) {
+		int mem=-1;
+		ContrainteExplicite memCE=new ContrainteExplicite(new Fraction(1,1), "");
+		for(int i = 0; i<contraintes.size();i++) {
+			if(((ContrainteExplicite) contraintes.get(i)).getNom().equals(inconnueHorsBase)) {
+				memCE = ((ContrainteExplicite) contraintes.get(i));
+				memCE.rentrerBase(inconnueBase);
+				fonctionEco.echanger(memCE, inconnueBase);
+				mem=i;
+				
+			}
+		}
+		for(int i=0;i<contraintes.size();i++) {
+			if(i != mem) {
+				((ContrainteExplicite) contraintes.get(i)).echanger(memCE, inconnueBase);
+			}
+		}
+	}
+
+	public List getContraintes() {
+		return contraintes;
+	}
+
+	public void setContraintes(List contraintes) {
+		this.contraintes = contraintes;
+	}
+
+	public FonctionEco getFonctionEco() {
+		return fonctionEco;
+	}
+
+	public void setFonctionEco(FonctionEco fonctionEco) {
+		this.fonctionEco = fonctionEco;
+	}
+	
+	
+}
