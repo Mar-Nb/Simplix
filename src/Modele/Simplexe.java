@@ -1,5 +1,6 @@
 package Modele;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,17 @@ public class Simplexe {
 	
 	public Simplexe() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public Simplexe(Simplexe simp) {
+		List cont = new LinkedList<>();
+		for(int i=0;i<simp.contraintes.size();i++) {
+			ContrainteExplicite ce = (ContrainteExplicite) simp.contraintes.get(i);
+			cont.add(new ContrainteExplicite(ce));
+		}
+		contraintes=cont;
+		
+		fonctionEco=new FonctionEco(simp.getFonctionEco());
 	}
 
 	public void passageDico1() {

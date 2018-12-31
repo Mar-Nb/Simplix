@@ -9,8 +9,28 @@ public class Monome {
 		this.inconnue=inconnue;
 	}
 	
+	public Monome(Monome monome) {
+		coefficient=new Fraction(monome.getCoefficient());
+		inconnue=monome.getInconnue();
+	}
+
 	public String toString() {
-		return coefficient + inconnue;
+		if(coefficient.toString().equals("1") && inconnue.equals(" ")==false) {
+			return inconnue;
+		}
+		
+		if(coefficient.toString().equals("-1") && inconnue.equals(" ")==false) {
+			return "-"+inconnue;
+		}
+		
+		else if(coefficient.toString().equals("0")) {
+			return "";
+		}
+		else {
+			return coefficient + inconnue;
+		}
+		
+		
 	}
 	
 	public void additionner(Monome m) {

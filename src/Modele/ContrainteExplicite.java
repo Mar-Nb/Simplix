@@ -19,6 +19,18 @@ public class ContrainteExplicite {
 		this.nom=nom;
 	}
 	
+	public ContrainteExplicite(ContrainteExplicite ce) {
+		// TODO Auto-generated constructor stub
+		this.nom = ce.nom;
+		this.inferieurA = new Fraction(ce.inferieurA);
+		this.nombreInconnues = ce.nombreInconnues;
+		monomes = new HashMap();
+		for (Iterator i = ce.monomes.keySet().iterator(); i.hasNext(); ) {
+			String clé = (String) i.next();
+			this.ajouterMonome(new Monome((Monome)ce.monomes.get(clé)));;
+		}
+	}
+
 	public void ajouterMonome(Monome m) {
 		monomes.put(m.getInconnue(), m);
 	}

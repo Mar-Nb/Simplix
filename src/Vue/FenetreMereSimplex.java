@@ -1,6 +1,7 @@
 package Vue;
 
 import java.awt.CardLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,99 +14,56 @@ import javax.swing.JPanel;
 
 import Controleur.Controleur;
 
-public class FenetreMereSimplex extends JFrame implements ActionListener{
-	
-	/*PanelGeneralSimplex panGS = new PanelGeneralSimplex();
-	JPanel contentPane = new JPanel();
-	PanelFormulaire panF = new PanelFormulaire();
-	Controleur controleur = new Controleur(panF,panGS);
-	CardLayout gestionF = new CardLayout(5,5);
-	*/
-	
-	PanelGeneralSimplex contentPane = new PanelGeneralSimplex();
+public class FenetreMereSimplex extends JFrame {
+
+	PanelGeneral contentPane;
 	
 	public FenetreMereSimplex() {
 		super("API Simplexe");
 		
-		/*contentPane.setLayout(gestionF);
-		contentPane.add(panGS, "general");
-		contentPane.add(panF, "formulaire");*/
-		
+		contentPane = new PanelGeneral();
 		this.setContentPane(contentPane);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setSize(1000,600);
+		this.setVisible(true);
+		this.setLocation(100,100);
 		
-		JMenuBar menu = new JMenuBar();
-		JMenu fichier = new JMenu("Fichier");
-		JMenuItem save = new JMenuItem("Sauvegarder");
-		JMenuItem charger = new JMenuItem("Charger un fichier");
-		JMenu onglet = new JMenu("Onglet");
-		JMenuItem gen = new JMenuItem("Vue général");
-		JMenuItem formulaire = new JMenuItem("Formulaire Simplexe");
-		JMenu aide = new JMenu("?");
-		JMenuItem aPropos = new JMenuItem("A propos");
-		JMenu fermer = new JMenu("Quitter");
-		JMenuItem quitter = new JMenuItem("Fermer la fenêtre");
+		//Mise en place de la JMenuBar
+		JMenuBar menuBar=new JMenuBar();
+		this.setJMenuBar(menuBar);
+		menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
-		save.setActionCommand("save");
-		save.addActionListener(this);
-		charger.setActionCommand("charger");
-		charger.addActionListener(this);
-		gen.setActionCommand("general");
-		gen.addActionListener(this);
-		formulaire.setActionCommand("formulaire");
-		formulaire.addActionListener(this);
-		aPropos.setActionCommand("aPropos");
-		aPropos.addActionListener(this);
-		quitter.setActionCommand("quitter");
-		quitter.addActionListener(this);
-		fermer.setMnemonic('Q');
 		
-		fichier.add(save);
-		fichier.addSeparator();
-		fichier.add(charger);
-		onglet.add(gen);
-		onglet.addSeparator();
-		onglet.add(formulaire);
-		aide.add(aPropos);
-		fermer.add(quitter);
-		menu.add(fichier);
-		//menu.add(onglet);
-		menu.add(aide);
-		menu.add(fermer);
+		//JMenu Création
+		JMenu menuCreation=new JMenu("Fichier");
+		menuBar.add(menuCreation);
 		
-		this.setJMenuBar(menu);
-		this.setSize(850,600); this.setVisible(true); this.setLocation(270,85);
+		String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer Simplexe"};
+		JMenuItem[] menuItemsCreation = new JMenuItem[itemsCreation.length];
 		
-		//gestionF.show(contentPane, "formulaire");
+		for(int i=0; i<itemsCreation.length;i++) {
+			menuItemsCreation[i]=new JMenuItem(itemsCreation[i]);
+			menuCreation.add(menuItemsCreation[i]);
+			menuItemsCreation[i].setActionCommand(itemsCreation[i]);
+			menuItemsCreation[i].addActionListener((ActionListener)contentPane);
+		}
+		
+		//Tableau de MenuItem
+		String[] items = {"Affichage", "Annuler", "Quitter", "?"};
+		JMenuItem[] menuItem = new JMenuItem[items.length];
+		for(int i = 0; i<items.length;i++){
+			menuItem[i] = new JMenuItem(items[i]);
+			menuBar.add(menuItem[i]);
+			menuItem[i].setActionCommand(items[i]);
+			menuItem[i].addActionListener((ActionListener) contentPane);
+		}
 	}
 	
-	public void ecouteur(PanelGeneralSimplex pan) {
-		
-	}
-
+	//Main
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
 		new FenetreMereSimplex();
-
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-		if(e.getActionCommand().equals("quitter"))
-			this.dispose();
-		else if(e.getActionCommand().equals("aPropos")) {
-			JOptionPane.showMessageDialog(contentPane, "Projet Simplexe version 1.0\nOn espère qu'il sera utile. Ici sera mis une"
-					+ " notice d'utilisation du programme.", "A propos", JOptionPane.INFORMATION_MESSAGE);
-		}
-		/*else if(e.getActionCommand().equals("general")) {
-			gestionF.show(contentPane, "general");
-		}
-		else if(e.getActionCommand().equals("formulaire")) {
-			gestionF.show(contentPane, "formulaire");
-		}*/
-		
 	}
 
 }

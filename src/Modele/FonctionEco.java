@@ -12,6 +12,13 @@ public class FonctionEco {
 	public FonctionEco() {
 		monomes = new HashMap(); //changer en map
 	}
+	public FonctionEco(FonctionEco fonctionEco) {
+		monomes = new HashMap();
+		for (Iterator i = fonctionEco.monomes.keySet().iterator(); i.hasNext(); ) {
+			String clé = (String) i.next();
+			this.ajouterMonome(new Monome((Monome)fonctionEco.monomes.get(clé)));;
+		}
+	}
 	public void ajouterMonome(Monome m) {
 		monomes.put(m.getInconnue(), m); // transformer pour que ça s'adapte à la map
 	}

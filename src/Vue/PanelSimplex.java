@@ -27,12 +27,14 @@ public class PanelSimplex extends JPanel {
 	JButton[][] tabBoutonsInconnues;
 	
 	public PanelSimplex() {
+		tabBoutonsInconnues=new JButton[0][0];
+		b=new JButton("");
 		this.add(new JLabel("Panel Simplexe"),JLabel.CENTER);
 		this.setBorder(BorderFactory.createLoweredBevelBorder());
 	}
 
 	public PanelSimplex(Simplexe simp) {
-		// TODO Auto-generated constructor stub
+		
 		simplexe = simp;
 		
 		int nbContraintes = 0;
@@ -46,40 +48,77 @@ public class PanelSimplex extends JPanel {
 		gridLim.insets = new Insets(10,5,10,5);
 		gridLim.gridy = 0;
 		gridLim.gridx = 0;
-		
-		System.out.println("Contraintes : "+simplexe.getContraintes().size()+"\nMonomes : "+simplexe.getFonctionEco().getMonomes().size());
-		
+
 		for(Iterator j = simplexe.getContraintes().iterator(); j.hasNext();) {
-			System.out.println("nbContraintes : "+Integer.toString(nbContraintes)+"\nnbBoutons : "+Integer.toString(nbBoutons));
+			gridLim.gridx = 0;
 			ContrainteExplicite ce = (ContrainteExplicite) j.next();
 			JLabel lab = new JLabel(ce.getNom()+" =",JLabel.LEFT);
 			this.add(lab,gridLim);
 			gridLim.gridx++;
 			for(Object obj : ce.getMonomes().values()) {
 				Monome m = (Monome) obj;
-				if(m.getCoefficient().getNumerateur()>0){
-					lab = new JLabel("+ "+m.getCoefficient().toString());
-					this.add(lab,gridLim);
-					gridLim.gridx++;
+				String textLabel = "";
+				
+				//SIGNES
+				if(m.getCoefficient().getNumerateur()>0 && gridLim.gridx!=1) {
+					textLabel+="+";
+				}
+				//COEFF
+				if(!m.getCoefficient().toString().equals("1") || !m.getCoefficient().toString().equals("-1")) {
+					textLabel+=m.getCoefficient().toString();
+				}
+				
+				lab = new JLabel(textLabel);
+				this.add(lab,gridLim);
+				gridLim.gridx++;
+				
+				//BOUTON
+				
+				if(!m.getInconnue().equals(" ")) {
+					tabBoutonsInconnues[nbContraintes][nbBoutons] = new JButton(m.getInconnue());
+					this.add(tabBoutonsInconnues[nbContraintes][nbBoutons],gridLim);
+					nbBoutons++;
+				}
+				/*if(m.getCoefficient().getNumerateur()>0){
 					if(!m.getInconnue().equals(" ")){
-						b = new JButton(m.getInconnue());
-						this.add(b,gridLim);
-						tabBoutonsInconnues[nbContraintes][nbBoutons] = b;
-						nbBoutons++;
+						if(gridLim.gridx!=1) {
+							signe = "+ ";
+							
+						}
+						if(!m.getCoefficient().toString().equals("1")) {
+							lab = new JLabel(signe +m.getCoefficient().toString());
+							this.add(lab,gridLim);
+							gridLim.gridx++;
+						}
+						else {
+							lab = new JLabel(signe);
+							this.add(lab,gridLim);
+							gridLim.gridx++;
+						}
+						
 					}						
 				}
-				else{
-					lab = new JLabel(m.getCoefficient().toString());
-					this.add(lab,gridLim);
-					gridLim.gridx++;
+				if(m.getCoefficient().getNumerateur()<0) {
 					if(!m.getInconnue().equals(" ")){
-						b = new JButton(m.getInconnue());
-						this.add(b,gridLim);
-						tabBoutonsInconnues[nbContraintes][nbBoutons] = b;
+						if(gridLim.gridx!=1) {
+							signe = "- ";
+						}
+						if(!m.getCoefficient().toString().equals("-1")) {
+							lab = new JLabel(m.getCoefficient().toString());
+							this.add(lab,gridLim);
+							gridLim.gridx++;
+						}
+						else {
+							lab = new JLabel(signe);
+							this.add(lab,gridLim);
+							gridLim.gridx++;
+						}
+						tabBoutonsInconnues[nbContraintes][nbBoutons] = new JButton(m.getInconnue());
+						this.add(tabBoutonsInconnues[nbContraintes][nbBoutons],gridLim);
 						nbBoutons++;
 					}
 					
-				}
+				}*/
 				
 				gridLim.gridx++;
 			}
@@ -94,7 +133,6 @@ public class PanelSimplex extends JPanel {
 		JLabel lab = new JLabel(simplexe.getFonctionEco().toString());
 		this.add(lab,gridLim);
 		
-		//this.add(new JLabel(simp.toString()));
 		this.setBorder(BorderFactory.createLoweredBevelBorder());
 	}
 
@@ -115,20 +153,17 @@ public class PanelSimplex extends JPanel {
 	}
 	
 	public void enregistreEcouteur(Controleur controleur) {
-		/*for(JButton[] tabMonomes : tabBoutonsInconnues) {
-			for(JButton monomes : tabMonomes) {
-				System.out.println("Boutons : "+monomes.getText());
-				monomes.setActionCommand("monomes");
-				monomes.addActionListener(controleur);
-			}
-		}*/
-		
 		for(int i = 0; i < tabBoutonsInconnues.length; i++){
 			for(int j = 0; j < tabBoutonsInconnues[i].length; j++){
-				tabBoutonsInconnues[i][j].setActionCommand("monomes "+Integer.toString(i));
-				tabBoutonsInconnues[i][j].addActionListener(controleur);
+				if(tabBoutonsInconnues[i][j]!=null) {
+					tabBoutonsInconnues[i][j].setActionCommand("monomes "+Integer.toString(i));
+					tabBoutonsInconnues[i][j].addActionListener(controleur);
+				}
+				
+				
 			}
 		}
 	}
+	
 	
 }
