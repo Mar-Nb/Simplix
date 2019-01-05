@@ -1,6 +1,8 @@
 package Modele;
 
-public class Monome {
+import java.io.Serializable;
+
+public class Monome implements Serializable{
 	Fraction coefficient;
 	String inconnue;
 	

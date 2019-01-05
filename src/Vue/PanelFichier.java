@@ -30,6 +30,11 @@ public class PanelFichier extends JPanel{
 
 	}
 	
+	public void rechargerFichiers() {
+		this.remove(panelCharger);
+		panelCharger=new PanelChargerSimplexe();
+		this.add(panelCharger, "Charger Simplexe");
+	}
 
 	public CardLayout getGestionnaireDeCartes() {
 		return gestionnaireDeCartes;

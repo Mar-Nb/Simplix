@@ -76,6 +76,8 @@ public class PanelChargerSimplexe extends JPanel{
 		
 	}
 	
+	
+	
 	//ActionListener sur le bouton ajouter
 	/**
 	 * Met le controleur en paramètre à l'écoute du bouton Charger 

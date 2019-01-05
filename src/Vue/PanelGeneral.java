@@ -3,12 +3,14 @@ package Vue;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Controleur.Controleur;
 import Modele.Historique;
+import Modele.LectureEcriture;
 import Modele.Simplexe;
 
 public class PanelGeneral extends JPanel implements ActionListener {
@@ -102,6 +104,14 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		else if(evt.getActionCommand() == "Annuler") {
 			historique.etapePrecedente();
 			this.setHistorique(historique);
+		}
+		
+		else if(evt.getActionCommand() == "Enregistrer Simplexe") {
+			JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
+		    String nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.QUESTION_MESSAGE);
+		    File fichier = new File("simplexes"+File.separator+nomFichier+".ser");
+			LectureEcriture.ecriture(fichier, historique);
+			panelFichier.rechargerFichiers();
 		}
 		
 		else if(evt.getActionCommand() == "Affichage"){

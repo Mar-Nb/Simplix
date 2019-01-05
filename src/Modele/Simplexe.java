@@ -1,10 +1,11 @@
 package Modele;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Simplexe {
+public class Simplexe implements Serializable{
 	List contraintes;
 	FonctionEco fonctionEco;
 	

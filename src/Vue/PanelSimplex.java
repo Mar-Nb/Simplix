@@ -64,7 +64,7 @@ public class PanelSimplex extends JPanel {
 					textLabel+="+";
 				}
 				//COEFF
-				if(!m.getCoefficient().toString().equals("1") || !m.getCoefficient().toString().equals("-1")) {
+				if(!m.getCoefficient().toString().equals("1") || !m.getCoefficient().toString().equals("-1") || m.getCoefficient().getNumerateur()!=0) {
 					textLabel+=m.getCoefficient().toString();
 				}
 				
@@ -74,7 +74,7 @@ public class PanelSimplex extends JPanel {
 				
 				//BOUTON
 				
-				if(!m.getInconnue().equals(" ")) {
+				if(!m.getInconnue().equals(" ") && m.getCoefficient().getNumerateur()!=0) {
 					tabBoutonsInconnues[nbContraintes][nbBoutons] = new JButton(m.getInconnue());
 					this.add(tabBoutonsInconnues[nbContraintes][nbBoutons],gridLim);
 					nbBoutons++;

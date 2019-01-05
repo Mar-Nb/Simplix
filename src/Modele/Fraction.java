@@ -1,6 +1,8 @@
 package Modele;
 
-public class Fraction {
+import java.io.Serializable;
+
+public class Fraction implements Serializable{
 	private int numerateur;
 	private int denominateur;
 	
