@@ -62,8 +62,9 @@ public class TestSimplexe {
 		System.out.println(" ******* FIRST SIMPLEX ******* \n");
 		System.out.println(simp.toString2() + "\n");
 		System.out.println(" ******* EXCHANGING OF X1 AND X6 *******\n");
-		simp.echanger("x6", "x1");
+		simp.echanger("x7", "x3");
 		System.out.println(simp.toString2() + "\n");
+		System.out.println(simp.echangeJudicieux());
 
 	}
 

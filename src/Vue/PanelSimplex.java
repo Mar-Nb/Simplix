@@ -64,13 +64,15 @@ public class PanelSimplex extends JPanel {
 					textLabel+="+";
 				}
 				//COEFF
-				if(!m.getCoefficient().toString().equals("1") || !m.getCoefficient().toString().equals("-1") || m.getCoefficient().getNumerateur()!=0) {
+				if(Double.compare(m.getCoefficient().FMath(), 1)!=0 || Double.compare(m.getCoefficient().FMath(), -1)!=0 || m.getCoefficient().getNumerateur()!=0) {
 					textLabel+=m.getCoefficient().toString();
 				}
+				if(m.getCoefficient().getNumerateur()!=0) {
+					lab = new JLabel(textLabel);
+					this.add(lab,gridLim);
+					gridLim.gridx++;
+				}
 				
-				lab = new JLabel(textLabel);
-				this.add(lab,gridLim);
-				gridLim.gridx++;
 				
 				//BOUTON
 				
@@ -79,46 +81,7 @@ public class PanelSimplex extends JPanel {
 					this.add(tabBoutonsInconnues[nbContraintes][nbBoutons],gridLim);
 					nbBoutons++;
 				}
-				/*if(m.getCoefficient().getNumerateur()>0){
-					if(!m.getInconnue().equals(" ")){
-						if(gridLim.gridx!=1) {
-							signe = "+ ";
-							
-						}
-						if(!m.getCoefficient().toString().equals("1")) {
-							lab = new JLabel(signe +m.getCoefficient().toString());
-							this.add(lab,gridLim);
-							gridLim.gridx++;
-						}
-						else {
-							lab = new JLabel(signe);
-							this.add(lab,gridLim);
-							gridLim.gridx++;
-						}
-						
-					}						
-				}
-				if(m.getCoefficient().getNumerateur()<0) {
-					if(!m.getInconnue().equals(" ")){
-						if(gridLim.gridx!=1) {
-							signe = "- ";
-						}
-						if(!m.getCoefficient().toString().equals("-1")) {
-							lab = new JLabel(m.getCoefficient().toString());
-							this.add(lab,gridLim);
-							gridLim.gridx++;
-						}
-						else {
-							lab = new JLabel(signe);
-							this.add(lab,gridLim);
-							gridLim.gridx++;
-						}
-						tabBoutonsInconnues[nbContraintes][nbBoutons] = new JButton(m.getInconnue());
-						this.add(tabBoutonsInconnues[nbContraintes][nbBoutons],gridLim);
-						nbBoutons++;
-					}
-					
-				}*/
+				
 				
 				gridLim.gridx++;
 			}

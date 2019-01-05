@@ -107,7 +107,9 @@ public class Controleur implements ActionListener {
 		}
 		
 		if(evt.getActionCommand().equals("indice")) {
-			panelG.getPanelSimplex().setPanelIndi("WAAOW");
+			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().toString2());
+			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
+			panelG.miseAJourIndication(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
 		}
 
 	}

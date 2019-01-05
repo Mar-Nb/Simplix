@@ -55,6 +55,28 @@ public class Simplexe implements Serializable{
 		return chaineFinale;
 	}
 	
+	public String echangeJudicieux() {
+		String inconnueBase = fonctionEco.monomeCoeffMax();
+		String inconnueHorsBase = "";
+		
+		double max=100000000000000.0;
+		
+		for(int i=0; i<contraintes.size(); i++) {
+			
+			if(((ContrainteExplicite)contraintes.get(i)).getMonomes().get(inconnueBase)!=null) {
+				if(((ContrainteExplicite)contraintes.get(i)).majorant(inconnueBase)<max){
+				
+				inconnueHorsBase = ((ContrainteExplicite)contraintes.get(i)).getNom();
+				}
+			}
+			
+		}
+		if(inconnueHorsBase == "") {
+			return "Vous avez atteint le bénéfice maximum";
+		}
+		return "Echange à effectuer :" + inconnueBase + " & " + inconnueHorsBase;
+	}
+	
 	public void echanger(String inconnueHorsBase, String inconnueBase) {
 		int mem=-1;
 		ContrainteExplicite memCE=new ContrainteExplicite(new Fraction(1,1), "");

@@ -40,7 +40,7 @@ public class PanelGeneralSimplex extends JPanel{
 
 		
 	}
-	
+
 	public PanelSimplex getPanelSimp() {
 		return panelSimp;
 	}

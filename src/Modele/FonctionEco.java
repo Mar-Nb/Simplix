@@ -64,6 +64,22 @@ public class FonctionEco implements Serializable{
 		
 	}
 	
+	public String monomeCoeffMax() {
+		Fraction max = new Fraction(0);
+		String res=new String();
+		
+		for (Iterator i = monomes.keySet().iterator(); i.hasNext();) {
+			String clé = (String) i.next();
+			if(((Monome)monomes.get(clé)).getCoefficient().FSup(max) && !((Monome)monomes.get(clé)).getInconnue().equals(" ")) {
+				max=new Fraction(((Monome)monomes.get(clé)).getCoefficient());
+				res=((Monome)monomes.get(clé)).getInconnue();
+			}
+			
+		}
+		return res;
+		
+	}
+	
 	public Map getMonomes() {
 		return monomes;
 	}

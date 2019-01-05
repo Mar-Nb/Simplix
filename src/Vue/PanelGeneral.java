@@ -74,7 +74,13 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		return historique;
 	}
 
-
+	public void miseAJourIndication(String message) {
+		panelSimplex.setPanelIndi(message);
+		panelSimplex.getPanelIndi().enregistreEcouteur(controleur);
+		this.add(panelSimplex, intitulesPanneaux[1]);
+		gestionnaireCartes.show(this, intitulesPanneaux[1]);
+		
+	}
 
 	public void setHistorique(Historique historique) {
 		

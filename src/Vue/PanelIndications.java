@@ -15,6 +15,8 @@ public class PanelIndications extends JPanel{
 	}
 	public PanelIndications(String enonce) {
 		removeAll();
+		indice=new JButton("?");
+		this.add(indice);
 		this.add(new LabelIndications(enonce));
 	}
 	public void enregistreEcouteur(Controleur parControleur) {

@@ -138,6 +138,14 @@ public class ContrainteExplicite implements Serializable{
 		
 	}
 	
+	public double majorant(String inconnue) {
+		double constante = ((Monome)monomes.get(" ")).getCoefficient().FMath();
+		double coeffInconnue = ((Monome)monomes.get(inconnue)).getCoefficient().FMath();
+		return Math.abs(constante/coeffInconnue);
+		
+		
+	}
+	
 	public void division(Fraction coeff) { //ADD FRACTION
 		Iterator i = monomes.keySet().iterator();
 		coeff.setNumerateur(-coeff.getNumerateur());
