@@ -38,7 +38,7 @@ public class FenetreMereSimplex extends JFrame {
 		JMenu menuCreation=new JMenu("Fichier");
 		menuBar.add(menuCreation);
 		
-		String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer Simplexe"};
+		String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous"};
 		JMenuItem[] menuItemsCreation = new JMenuItem[itemsCreation.length];
 		
 		for(int i=0; i<itemsCreation.length;i++) {

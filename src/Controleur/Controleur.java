@@ -68,6 +68,8 @@ public class Controleur implements ActionListener {
 			Historique histo = new Historique();
 			histo.add(simplexe);
 			panelG.setHistorique(histo);
+
+			panelG.setNomFichier(null);
 			
 			
 			
@@ -98,8 +100,14 @@ public class Controleur implements ActionListener {
 		}
 		
 		if(evt.getActionCommand().equals("Charger")) {
+			System.out.println("ok");
 			File fichier = new File("simplexes"+File.separator+panelFichier.getPanelCharger().getNomFichier());
 			panelG.setHistorique((Historique) LectureEcriture.lecture(fichier));
+			panelG.setNomFichier(panelFichier.getPanelCharger().getNomFichier());
+		}
+		
+		if(evt.getActionCommand().equals("indice")) {
+			panelG.getPanelSimplex().setPanelIndi("WAAOW");
 		}
 
 	}
