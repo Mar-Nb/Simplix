@@ -29,7 +29,7 @@ public class PanelChargerSimplexe extends JPanel{
 		GridBagConstraints contrainteEvenement = new GridBagConstraints();
 		contrainteEvenement.insets = new Insets(3,3,3,3);
 		
-		//Cration d'une etiquette
+		//Création d'une etiquette
 	
 		JLabel nomDuFichier=new JLabel("Nom du fichier");
 		
