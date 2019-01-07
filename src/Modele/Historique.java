@@ -1,10 +1,11 @@
 package Modele;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 import Modele.Simplexe;
 
-public class Historique{
+public class Historique implements Serializable{
 	
 	private LinkedList <Simplexe> listeSimplexe;
 	

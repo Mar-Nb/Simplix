@@ -4,14 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.LinkedList;
 
 import javax.swing.JTextField;
-
 import Modele.ContrainteExplicite;
 import Modele.FonctionEco;
 import Modele.Fraction;
 import Modele.Historique;
+import Modele.LectureEcriture;
 import Modele.Monome;
 import Modele.Simplexe;
 import Vue.PanelContraintes;
@@ -67,6 +68,8 @@ public class Controleur implements ActionListener {
 			Historique histo = new Historique();
 			histo.add(simplexe);
 			panelG.setHistorique(histo);
+
+			panelG.setNomFichier(null);
 			
 			
 			
@@ -81,6 +84,7 @@ public class Controleur implements ActionListener {
 			panelFichier.getPanelFormulaire().getGestionnaireDeCartes().show(panelFichier.getPanelFormulaire(), "Contraintes");
 		}
 		
+
 		if(evt.getActionCommand().contains("monomes")){
 			JButton b = (JButton) evt.getSource();
 			String variableBase = b.getText();
@@ -97,9 +101,17 @@ public class Controleur implements ActionListener {
 		
 		if(evt.getActionCommand().equals("Charger")) {
 			System.out.println("ok");
+			File fichier = new File("simplexes"+File.separator+panelFichier.getPanelCharger().getNomFichier());
+			panelG.setHistorique((Historique) LectureEcriture.lecture(fichier));
+			panelG.setNomFichier(panelFichier.getPanelCharger().getNomFichier());
+		}
+		
+		if(evt.getActionCommand().equals("indice")) {
+			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().toString2());
+			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
+			panelG.miseAJourIndication(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
 		}
 
-		
 	}
 	
 }

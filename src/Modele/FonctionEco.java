@@ -1,12 +1,13 @@
 package Modele;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class FonctionEco {
+public class FonctionEco implements Serializable{
 	Map monomes;
 	
 	public FonctionEco() {
@@ -60,6 +61,22 @@ public class FonctionEco {
 			}
 			
 		}
+		
+	}
+	
+	public String monomeCoeffMax() {
+		Fraction max = new Fraction(0);
+		String res=new String();
+		
+		for (Iterator i = monomes.keySet().iterator(); i.hasNext();) {
+			String clé = (String) i.next();
+			if(((Monome)monomes.get(clé)).getCoefficient().FSup(max) && !((Monome)monomes.get(clé)).getInconnue().equals(" ")) {
+				max=new Fraction(((Monome)monomes.get(clé)).getCoefficient());
+				res=((Monome)monomes.get(clé)).getInconnue();
+			}
+			
+		}
+		return res;
 		
 	}
 	

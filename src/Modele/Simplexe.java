@@ -1,10 +1,11 @@
 package Modele;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Simplexe {
+public class Simplexe implements Serializable{
 	List contraintes;
 	FonctionEco fonctionEco;
 	
@@ -52,6 +53,28 @@ public class Simplexe {
 		}
 		chaineFinale+=fonctionEco.toString();
 		return chaineFinale;
+	}
+	
+	public String echangeJudicieux() {
+		String inconnueBase = fonctionEco.monomeCoeffMax();
+		String inconnueHorsBase = "";
+		
+		double max=100000000000000.0;
+		
+		for(int i=0; i<contraintes.size(); i++) {
+			
+			if(((ContrainteExplicite)contraintes.get(i)).getMonomes().get(inconnueBase)!=null) {
+				if(((ContrainteExplicite)contraintes.get(i)).majorant(inconnueBase)<max){
+				
+				inconnueHorsBase = ((ContrainteExplicite)contraintes.get(i)).getNom();
+				}
+			}
+			
+		}
+		if(inconnueHorsBase == "") {
+			return "Vous avez atteint le bénéfice maximum";
+		}
+		return "Echange à effectuer :" + inconnueBase + " & " + inconnueHorsBase;
 	}
 	
 	public void echanger(String inconnueHorsBase, String inconnueBase) {
