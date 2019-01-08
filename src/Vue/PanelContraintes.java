@@ -44,11 +44,19 @@ public class PanelContraintes extends JPanel {
 			contrainte.gridx = 0; contrainte.gridy = i;
 			contrainte.gridheight = 1; contrainte.gridwidth = 1;
 			
-			this.add(new JLabel("Contrainte : ",JLabel.CENTER),contrainte);
+			this.add(new JLabel("x"+Integer.toString(colonne+1+i)+" = ",JLabel.CENTER),contrainte);
 			for(int j=0;j<colonne;j++) {
-				contrainte.gridx = j+1; contrainte.gridy = i;
-				zonesEcrituresContraintes[i][j]=new JTextField(Integer.toString(j+1),2);
+				contrainte.gridx++; contrainte.gridy = i;
+				zonesEcrituresContraintes[i][j]=new JTextField(2);
 				this.add(zonesEcrituresContraintes[i][j],contrainte);
+				contrainte.gridx++;
+				if(j==colonne-1) {
+					this.add(new JLabel("x"+Integer.toString(j+1)), contrainte);
+				}
+				else {
+					this.add(new JLabel("x"+Integer.toString(j+1)+ "  +  "), contrainte);
+				}
+				
 				
 			}
 			contrainte.gridx++;
@@ -62,9 +70,19 @@ public class PanelContraintes extends JPanel {
 		contrainte.gridy++;
 		
 		/*FONCTION ECO*/
+		this.add(new JLabel("z = "), contrainte);
+		contrainte.gridx++;
 		for(int k=0;k<colonne;k++) {
-			zonesEcrituresFonctionEco[k]=new JTextField("eco"+Integer.toString(k),4);
+			zonesEcrituresFonctionEco[k]=new JTextField(4);
 			this.add(zonesEcrituresFonctionEco[k], contrainte);
+			
+			contrainte.gridx++;
+			if(k==colonne-1) {
+				this.add(new JLabel("x"+Integer.toString(k+1)), contrainte);
+			}
+			else {
+				this.add(new JLabel("x"+Integer.toString(k+1)+ "  +  "), contrainte);
+			}
 			contrainte.gridx++;
 		}
 		
@@ -74,6 +92,22 @@ public class PanelContraintes extends JPanel {
 		boutonCreer = new JButton("Créer");
 		this.add(boutonCreer, contrainte);
 
+	}
+	
+	public void viderFormulaire() {
+		
+		for(int i=0; i<zonesEcrituresContraintes.length; i++) {
+			for(int j=0; j<zonesEcrituresContraintes[0].length;j++){
+				zonesEcrituresContraintes[i][j].setText("");
+			}
+		}
+		
+		for(int i=0;i<zonesEcrituresFonctionEco.length;i++) {
+			zonesEcrituresFonctionEco[i].setText("");
+		}
+		for(int i=0;i<zonesEcrituresValeursMaxi.length;i++) {
+			zonesEcrituresValeursMaxi[i].setText("");
+		}
 	}
 	
 	public int getNombreMonome() {

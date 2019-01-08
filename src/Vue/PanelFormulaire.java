@@ -31,17 +31,21 @@ public class PanelFormulaire extends JPanel{
 		this.setLayout(gestionnaireDeCartes);
 		
 		panelCMC = new PanelChoixNombresMonomesContraintes();
-		//panelC=new PanelContraintes(1, 1);
 		this.add(panelCMC, "ChoixMonomesContraintes");
 	
 	}
 
 	public void enregistreEcouteur(Controleur controleur) {
 		// TODO Auto-generated method stub
-		
-		
+
 		panelCMC.enregistreEcouteur(controleur);
 		
+	}
+	
+	public void viderFormulaire() {
+		panelC.viderFormulaire();
+		panelCMC.viderFormulaire();
+		gestionnaireDeCartes.show(this, "ChoixMonomesContraintes");
 	}
 	
 	public void enregistreEcouteurC(Controleur controleur) {

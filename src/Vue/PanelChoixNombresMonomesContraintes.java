@@ -70,6 +70,11 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 		ok.setActionCommand("ok");
 		ok.addActionListener(parControleur);
 	}
+	
+	public void viderFormulaire() {
+		nbMonome.setSelectedIndex(0);
+		nbContraintes.setSelectedIndex(0);
+	}
 
 	public JComboBox<Integer> getNbMonome() {
 		return nbMonome;

@@ -23,6 +23,7 @@ import Vue.PanelGeneralSimplex;
 import Vue.PanelHistorique;
 import Vue.PanelSimplex;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class Controleur implements ActionListener {
 	private PanelGeneral panelG;
@@ -46,8 +47,16 @@ public class Controleur implements ActionListener {
 			JTextField[] tabLimites=panelFichier.getPanelFormulaire().getPanelC().getZonesEcrituresValeursMaxi();
 			LinkedList contraintes=new LinkedList<ContrainteExplicite>();
 			for(int i=0;i<tabContraintes.length;i++) {
+				if(tabLimites[i].getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Veuillez entrer des coefficients valides", "Erreur", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				ContrainteExplicite ce = new ContrainteExplicite(new Fraction(Integer.parseInt(tabLimites[i].getText()),1), "x"+Integer.toString(i+1+panelFichier.getPanelFormulaire().getPanelC().getNombreMonome()));
 				for(int j=0;j<tabContraintes[0].length;j++) {
+					if(tabContraintes[i][j].getText().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "Veuillez entrer des coefficients valides", "Erreur", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
 					Monome m = new Monome(new Fraction(Integer.parseInt(tabContraintes[i][j].getText()),1), "x"+Integer.toString(j+1));
 					ce.ajouterMonome(m);
 				}
@@ -58,6 +67,10 @@ public class Controleur implements ActionListener {
 			FonctionEco fonctionEco = new FonctionEco();
 			JTextField[] tabMonomesFonctionEco = panelFichier.getPanelFormulaire().getPanelC().getZonesEcrituresFonctionEco();
 			for(int i=0;i<tabMonomesFonctionEco.length;i++) {
+				if(tabMonomesFonctionEco[i].getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Veuillez entrer des coefficients valides", "Erreur", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				Monome m = new Monome(new Fraction(Integer.parseInt(tabMonomesFonctionEco[i].getText()),1), "x"+Integer.toString(i+1));
 				fonctionEco.ajouterMonome(m);
 			}
@@ -68,9 +81,8 @@ public class Controleur implements ActionListener {
 			Historique histo = new Historique();
 			histo.add(simplexe);
 			panelG.setHistorique(histo);
-
 			panelG.setNomFichier(null);
-			
+			panelFichier.getPanelFormulaire().viderFormulaire();
 			
 			
 		}
