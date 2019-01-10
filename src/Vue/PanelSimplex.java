@@ -1,6 +1,7 @@
 package Vue;
 
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -22,6 +23,7 @@ public class PanelSimplex extends JPanel {
 	
 	private Simplexe simplexe;
 	public GridBagConstraints gridLim = new GridBagConstraints() ;
+	public final Font police = new Font("Times New Roman", Font.PLAIN, 25);
 	
 	JButton b;
 	JButton[][] tabBoutonsInconnues;
@@ -53,6 +55,7 @@ public class PanelSimplex extends JPanel {
 			gridLim.gridx = 0;
 			ContrainteExplicite ce = (ContrainteExplicite) j.next();
 			JLabel lab = new JLabel(ce.getNom()+" =",JLabel.LEFT);
+			lab.setFont(police);
 			this.add(lab,gridLim);
 			gridLim.gridx++;
 			for(Object obj : ce.getMonomes().values()) {
@@ -69,6 +72,7 @@ public class PanelSimplex extends JPanel {
 				}
 				if(m.getCoefficient().getNumerateur()!=0) {
 					lab = new JLabel(textLabel);
+					lab.setFont(police);
 					this.add(lab,gridLim);
 					gridLim.gridx++;
 				}
@@ -78,6 +82,8 @@ public class PanelSimplex extends JPanel {
 				
 				if(!m.getInconnue().equals(" ") && m.getCoefficient().getNumerateur()!=0) {
 					tabBoutonsInconnues[nbContraintes][nbBoutons] = new JButton(m.getInconnue());
+					tabBoutonsInconnues[nbContraintes][nbBoutons].setToolTipText("Une variable hors base à échanger");
+					tabBoutonsInconnues[nbContraintes][nbBoutons].setFont(police);
 					this.add(tabBoutonsInconnues[nbContraintes][nbBoutons],gridLim);
 					nbBoutons++;
 				}
@@ -94,6 +100,7 @@ public class PanelSimplex extends JPanel {
 		gridLim.gridy++;
 		gridLim.gridx = 0;
 		JLabel lab = new JLabel(simplexe.getFonctionEco().toString());
+		lab.setFont(police);
 		this.add(lab,gridLim);
 		
 		this.setBorder(BorderFactory.createLoweredBevelBorder());
@@ -122,8 +129,6 @@ public class PanelSimplex extends JPanel {
 					tabBoutonsInconnues[i][j].setActionCommand("monomes "+Integer.toString(i));
 					tabBoutonsInconnues[i][j].addActionListener(controleur);
 				}
-				
-				
 			}
 		}
 	}

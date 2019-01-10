@@ -1,9 +1,11 @@
 package Vue;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -11,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.border.EmptyBorder;
 
 import Modele.Historique;
 import Modele.Simplexe;
@@ -18,7 +21,7 @@ import Modele.Simplexe;
 public class PanelHistorique extends JPanel {
 	
 	private Historique historique;
-	
+	public final Font police = new Font("Times New Roman", Font.PLAIN, 17);
 	
 	public PanelHistorique(){
 		JLabel vide = new JLabel("L'historique est vide.",JLabel.CENTER);
@@ -36,9 +39,12 @@ public class PanelHistorique extends JPanel {
 		GridBagConstraints contrainte = new GridBagConstraints() ;
 		contrainte.gridx=0;
 		contrainte.gridy=0;
+		contrainte.insets = new Insets(5,25,5,25);
 		
 		for(int i =0 ; i<histo.getListeSimplexe().size() ; i++) {
-			contenu.add(new JLabel(histo.getListeSimplexe().get(i).toString()), contrainte);
+			JLabel simp = new JLabel(histo.getListeSimplexe().get(i).toString());
+			simp.setFont(police);
+			contenu.add(simp, contrainte);
 			contrainte.gridy++;
 		}
 
@@ -55,9 +61,4 @@ public class PanelHistorique extends JPanel {
 		this.historique = historique;
 	}
 	
-	public JLabel labelSimplex(Simplexe s) {
-		JLabel lab = new JLabel(s.toString());
-		return lab;
-	}
-
 }
