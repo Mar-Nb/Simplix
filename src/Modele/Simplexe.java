@@ -64,9 +64,10 @@ public class Simplexe implements Serializable{
 		for(int i=0; i<contraintes.size(); i++) {
 			
 			if(((ContrainteExplicite)contraintes.get(i)).getMonomes().get(inconnueBase)!=null) {
-				if(((ContrainteExplicite)contraintes.get(i)).majorant(inconnueBase)<max){
+				if(((ContrainteExplicite)contraintes.get(i)).majorant(inconnueBase)<max /*&& ((ContrainteExplicite)contraintes.get(i)*/){
 				
 				inconnueHorsBase = ((ContrainteExplicite)contraintes.get(i)).getNom();
+				max=((ContrainteExplicite)contraintes.get(i)).majorant(inconnueBase);
 				}
 			}
 			

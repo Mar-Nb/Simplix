@@ -136,14 +136,22 @@ public class PanelGeneral extends JPanel implements ActionListener {
 				JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
 			    nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.PLAIN_MESSAGE);
 			}
+			if(nomFichier.equals("")) {
+				JOptionPane.showMessageDialog(null, "Veuillez entrer un nom de fichier valide", "Erreur", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 		    File fichier = new File("simplexes"+File.separator+nomFichier+".ser");
 			LectureEcriture.ecriture(fichier, historique);
 			this.miseAJourEnregistrement();
 		}
 		
 		else if(evt.getActionCommand() == "Enregistrer sous") {
-			JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-		    nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.PLAIN_MESSAGE);
+			JOptionPane jop = new JOptionPane();
+		    nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.QUESTION_MESSAGE);
+		    if(nomFichier.equals("")) {
+				JOptionPane.showMessageDialog(null, "Veuillez entrer un nom de fichier valide", "Erreur", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 		    File fichier = new File("simplexes"+File.separator+nomFichier+".ser");
 			LectureEcriture.ecriture(fichier, historique);
 			this.miseAJourEnregistrement();
@@ -165,7 +173,10 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		}
 		
 		else if(evt.getActionCommand() == "?") {
-			JOptionPane.showMessageDialog(null, "API Simplexe version 2.1", "A propos du projet", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Cette application vous permet de manipuler des Simplexes.\n"
+					+ "Pour créer ou charger un simplexe, déroulez le menu Fichier et sélectionnez une option.\n"
+					+ "Pour effectuer des échanges de variables, cliquez sur les boutons dans votre simplexe.\n"
+					+ "Pour obtenir des indications quant à l'échange le plus judicieux, appuyez sur le bouton ? dans l'Affichage", "Aide", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 }
