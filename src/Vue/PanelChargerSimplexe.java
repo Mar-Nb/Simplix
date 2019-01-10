@@ -60,6 +60,7 @@ public class PanelChargerSimplexe extends JPanel{
 		
 		contrainteEvenement.gridx=0;
 		contrainteEvenement.gridy=1;
+		contrainteEvenement.insets = new Insets(20,3,3,3);
 		this.add(charger,contrainteEvenement);
 		
 	}

@@ -91,7 +91,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		gestionnaireCartes.show(this, intitulesPanneaux[1]);
 	}
 	
-	public void miseAJourEngeristrement() {
+	public void miseAJourEnregistrement() {
 		panelFichier=new PanelFichier();
 		panelFichier.enregistreEcouteur(controleur);
 		this.add(panelFichier, intitulesPanneaux[0]);
@@ -134,24 +134,25 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		else if(evt.getActionCommand() == "Enregistrer") {
 			if(nomFichier == null) {
 				JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-			    nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.QUESTION_MESSAGE);
+			    nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.PLAIN_MESSAGE);
 			}
 		    File fichier = new File("simplexes"+File.separator+nomFichier+".ser");
 			LectureEcriture.ecriture(fichier, historique);
-			this.miseAJourEngeristrement();
+			this.miseAJourEnregistrement();
 		}
 		
 		else if(evt.getActionCommand() == "Enregistrer sous") {
 			JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-		    nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.QUESTION_MESSAGE);
+		    nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.PLAIN_MESSAGE);
 		    File fichier = new File("simplexes"+File.separator+nomFichier+".ser");
 			LectureEcriture.ecriture(fichier, historique);
-			this.miseAJourEngeristrement();
+			this.miseAJourEnregistrement();
 		}
 		
 		else if(evt.getActionCommand() == "Affichage"){
 			gestionnaireCartes.show(this, intitulesPanneaux[1]);
 		}
+		
 		else if(evt.getActionCommand() == "Quitter"){
 			
 			JOptionPane confirmation=new JOptionPane();
@@ -161,6 +162,10 @@ public class PanelGeneral extends JPanel implements ActionListener {
 			System.exit(code);
 			} // Pop up avec confirmation du choix
 			
+		}
+		
+		else if(evt.getActionCommand() == "?") {
+			JOptionPane.showMessageDialog(null, "API Simplexe version 2.1", "A propos du projet", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 }
