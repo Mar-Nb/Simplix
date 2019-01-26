@@ -36,12 +36,11 @@ public class Simplexe implements Serializable{
 	}
 	
 	public String toString() {
-		String chaineFinale="<html><head></head><body>";
+		String chaineFinale="";
 		for(int i=0; i<contraintes.size(); i++) {
 			chaineFinale += "<p>"+((ContrainteExplicite) contraintes.get(i)).toString()+"</p><br>";
-			
 		}
-		chaineFinale+= "<p>"+fonctionEco.toString()+"</p></body></html>";
+		chaineFinale+= "<p>"+fonctionEco.toString()+"</p><br><hr><br>";
 		return chaineFinale;
 	}
 	
