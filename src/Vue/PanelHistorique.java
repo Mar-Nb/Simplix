@@ -1,6 +1,7 @@
 package Vue;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -42,7 +43,7 @@ public class PanelHistorique extends JPanel {
 		contrainte.insets = new Insets(5,25,5,25);
 		
 		for(int i =0 ; i<histo.getListeSimplexe().size() ; i++) {
-			JLabel simp = new JLabel("<html><head></head><body><p> Dictionnaire n°"+Integer.toString(i)+":</p><br>"
+			JLabel simp = new JLabel("<html><head></head><body><p> Dictionnaire n°"+Integer.toString(i+1)+":</p>"
 			+histo.getListeSimplexe().get(i).toString()+"</body></html>");
 			
 			simp.setFont(police);
@@ -51,7 +52,8 @@ public class PanelHistorique extends JPanel {
 		}
 
 		JScrollPane scrollPane = new JScrollPane(contenu, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-		ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);	
+		ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setPreferredSize(new Dimension(300,1000));
 		this.add(scrollPane);
 	}
 

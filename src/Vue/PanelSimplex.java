@@ -23,7 +23,7 @@ public class PanelSimplex extends JPanel {
 	
 	private Simplexe simplexe;
 	public GridBagConstraints gridLim = new GridBagConstraints() ;
-	public final Font police = new Font("Times New Roman", Font.PLAIN, 25);
+	public final Font police = new Font("Times New Roman", Font.PLAIN, 20);
 	
 	JButton b;
 	JButton[][] tabBoutonsInconnues;

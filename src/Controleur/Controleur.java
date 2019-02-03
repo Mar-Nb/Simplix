@@ -114,7 +114,11 @@ public class Controleur implements ActionListener {
 		if(evt.getActionCommand().equals("Charger")) {
 			System.out.println("ok");
 			File fichier = new File("simplexes"+File.separator+panelFichier.getPanelCharger().getNomFichier());
+			panelG.getPanelSimplex().remove(panelG.getPanelSimplex().getPanelH());
 			panelG.setHistorique((Historique) LectureEcriture.lecture(fichier));
+			panelG.getPanelSimplex().getPanelH().setHistorique(panelG.getHistorique());
+			
+			panelG.getPanelSimplex().add(panelG.getPanelSimplex().getPanelH(),BorderLayout.EAST);
 			panelG.setNomFichier(panelFichier.getPanelCharger().getNomFichier());
 		}
 		
