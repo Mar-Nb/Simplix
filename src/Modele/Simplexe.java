@@ -3,7 +3,6 @@ package Modele;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class Simplexe implements Serializable{
 	List contraintes;
@@ -74,7 +73,7 @@ public class Simplexe implements Serializable{
 		if(inconnueHorsBase == "") {
 			return "Vous avez atteint le bénéfice maximum";
 		}
-		return "Echange à effectuer :" + inconnueBase + " & " + inconnueHorsBase;
+		return "Echange à effectuer : " + inconnueBase + " & " + inconnueHorsBase;
 	}
 	
 	public void echanger(String inconnueHorsBase, String inconnueBase) {

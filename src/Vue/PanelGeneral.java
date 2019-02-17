@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import Controleur.Controleur;
 import Modele.Historique;
 import Modele.LectureEcriture;
-import Modele.Simplexe;
 
 public class PanelGeneral extends JPanel implements ActionListener {
 	String[] intitulesPanneaux = {"Fichier","Affichage", "Annuler", "Quitter", "?"};
@@ -133,8 +132,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		else if(evt.getActionCommand() == "Enregistrer") {
 			if(nomFichier == null) {
-				JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-			    nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.PLAIN_MESSAGE);
+			    nomFichier = JOptionPane.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.PLAIN_MESSAGE);
 			}
 			if(nomFichier.equals("")) {
 				JOptionPane.showMessageDialog(null, "Veuillez entrer un nom de fichier valide", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -146,8 +144,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		}
 		
 		else if(evt.getActionCommand() == "Enregistrer sous") {
-			JOptionPane jop = new JOptionPane();
-		    nomFichier = jop.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.QUESTION_MESSAGE);
+		    nomFichier = JOptionPane.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.QUESTION_MESSAGE);
 		    if(nomFichier.equals("")) {
 				JOptionPane.showMessageDialog(null, "Veuillez entrer un nom de fichier valide", "Erreur", JOptionPane.ERROR_MESSAGE);
 				return;
@@ -163,11 +160,9 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		else if(evt.getActionCommand() == "Quitter"){
 			
-			JOptionPane confirmation=new JOptionPane();
-		
-			int code= confirmation.showConfirmDialog(null, "Voulez vous vraiment quitter?","Arret du programme",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+			int code= JOptionPane.showConfirmDialog(null, "Voulez vous vraiment quitter?","Arrêt du programme",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 			if(code== JOptionPane.OK_OPTION) {
-			System.exit(code);
+				System.exit(code);
 			} // Pop up avec confirmation du choix
 			
 		}

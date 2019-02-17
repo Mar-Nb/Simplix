@@ -17,11 +17,7 @@ import Modele.Monome;
 import Modele.Simplexe;
 import Vue.PanelContraintes;
 import Vue.PanelFichier;
-import Vue.PanelFormulaire;
 import Vue.PanelGeneral;
-import Vue.PanelGeneralSimplex;
-import Vue.PanelHistorique;
-import Vue.PanelSimplex;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -45,7 +41,7 @@ public class Controleur implements ActionListener {
 			
 			JTextField[][] tabContraintes =panelFichier.getPanelFormulaire().getPanelC().getZonesEcrituresContraintes();
 			JTextField[] tabLimites=panelFichier.getPanelFormulaire().getPanelC().getZonesEcrituresValeursMaxi();
-			LinkedList contraintes=new LinkedList<ContrainteExplicite>();
+			LinkedList<ContrainteExplicite> contraintes=new LinkedList<ContrainteExplicite>();
 			for(int i=0;i<tabContraintes.length;i++) {
 				if(tabLimites[i].getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Veuillez entrer des coefficients valides", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -99,7 +95,6 @@ public class Controleur implements ActionListener {
 
 		if(evt.getActionCommand().contains("monomes")){
 			JButton b = (JButton) evt.getSource();
-			String variableBase = b.getText();
 			String str = ""+b.getActionCommand().charAt(8);
 			int indice = Integer.parseInt(str) ;
 			String horsBaseindice= ((ContrainteExplicite)panelG.getPanelSimplex().getPanelSimp().getSimplexe().getContraintes().get(indice)).getNom();

@@ -13,8 +13,6 @@ public class PanelGeneralSimplex extends JPanel{
 	PanelIndications panelIndi;
 	Historique historique;
 	
-
-
 	public PanelGeneralSimplex(Historique historique) {
 		this.setLayout(new BorderLayout(20,5));
 		this.historique=historique;
