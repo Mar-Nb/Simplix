@@ -9,9 +9,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Controleur.Controleur;
+import Modele.GenerePdf;
 import Modele.Historique;
 import Modele.LectureEcriture;
 
+@SuppressWarnings("serial")
 public class PanelGeneral extends JPanel implements ActionListener {
 	String[] intitulesPanneaux = {"Fichier","Affichage", "Annuler", "Quitter", "?"};
 	String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous"};
@@ -156,6 +158,10 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		else if(evt.getActionCommand() == "Affichage"){
 			gestionnaireCartes.show(this, intitulesPanneaux[1]);
+		}
+		
+		else if(evt.getActionCommand() == "PDF") {
+			new GenerePdf();
 		}
 		
 		else if(evt.getActionCommand() == "Quitter"){

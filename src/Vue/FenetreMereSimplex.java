@@ -1,9 +1,7 @@
 package Vue;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
@@ -11,12 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import Controleur.Controleur;
 
+@SuppressWarnings("serial")
 public class FenetreMereSimplex extends JFrame {
 
 	PanelGeneral contentPane;
@@ -60,13 +56,14 @@ public class FenetreMereSimplex extends JFrame {
 		}
 		
 		//Tableau de MenuItem et ajout de raccourci
-		String[] items = {"Affichage", "Annuler", "Quitter", "?"};
+		String[] items = {"Affichage", "Annuler","PDF", "Quitter", "?"};
 		
 		KeyStroke affi = KeyStroke.getKeyStroke(KeyEvent.VK_A,KeyEvent.CTRL_DOWN_MASK);
 		KeyStroke annu = KeyStroke.getKeyStroke(KeyEvent.VK_Z, KeyEvent.CTRL_DOWN_MASK);
 		KeyStroke qui = KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_DOWN_MASK);
 		KeyStroke info = KeyStroke.getKeyStroke(KeyEvent.VK_I, KeyEvent.CTRL_DOWN_MASK);
-		KeyStroke[] key = {affi,annu,qui,info};
+		KeyStroke pdf = KeyStroke.getKeyStroke(KeyEvent.VK_P, KeyEvent.CTRL_DOWN_MASK);
+		KeyStroke[] key = {affi,annu,pdf,qui,info};
 		
 		JMenuItem[] menuItem = new JMenuItem[items.length];
 		for(int i = 0; i<items.length;i++){
