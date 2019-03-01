@@ -4,8 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import javax.swing.JTextField;
 import Modele.ContrainteExplicite;
@@ -26,13 +29,13 @@ public class Controleur implements ActionListener {
 	
 	public GridBagConstraints contrainte = new GridBagConstraints() ;
 	private PanelFichier panelFichier;
-
-
+	
 	public Controleur(PanelFichier panelFichier, PanelGeneral panelSimplex) {
 		// TODO Auto-generated constructor stub
 		this.panelFichier=panelFichier;
 		this.panelFichier.enregistreEcouteur(this);
 		this.panelG=panelSimplex;
+		
 	}
 
 	public void actionPerformed(ActionEvent evt) {
@@ -44,7 +47,7 @@ public class Controleur implements ActionListener {
 			LinkedList<ContrainteExplicite> contraintes=new LinkedList<ContrainteExplicite>();
 			for(int i=0;i<tabContraintes.length;i++) {
 				if(tabLimites[i].getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Veuillez entrer des coefficients valides", "Erreur", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Veuillez entrer des coefficients valides.", "Erreur", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				ContrainteExplicite ce = new ContrainteExplicite(new Fraction(Integer.parseInt(tabLimites[i].getText()),1), "x"+Integer.toString(i+1+panelFichier.getPanelFormulaire().getPanelC().getNombreMonome()));
@@ -90,6 +93,8 @@ public class Controleur implements ActionListener {
 			panelFichier.getPanelFormulaire().enregistreEcouteurC(this);
 			panelFichier.getPanelFormulaire().add(choixContraintesPanel, "Contraintes");
 			panelFichier.getPanelFormulaire().getGestionnaireDeCartes().show(panelFichier.getPanelFormulaire(), "Contraintes");
+			
+			this.panelFichier.requestFocusInWindow();
 		}
 		
 

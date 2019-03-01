@@ -1,12 +1,10 @@
 package Vue;
 
-import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -137,6 +135,10 @@ public class PanelContraintes extends JPanel {
 
 	public JTextField[] getZonesEcrituresValeursMaxi() {
 		return zonesEcrituresValeursMaxi;
+	}
+	
+	public JButton getBouton() {
+		return boutonCreer;
 	}
 
 }

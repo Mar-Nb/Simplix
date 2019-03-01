@@ -1,23 +1,9 @@
 package Vue;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Insets;
-import java.util.LinkedList;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Controleur.Controleur;
-import Modele.ContrainteExplicite;
-import Modele.FonctionEco;
-import Modele.Monome;
 
 public class PanelFormulaire extends JPanel{
 

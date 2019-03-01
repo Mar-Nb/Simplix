@@ -1,11 +1,7 @@
 package Vue;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 
 import javax.swing.JButton;
@@ -69,6 +65,10 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	public void enregistreEcouteur(Controleur parControleur) {
 		ok.setActionCommand("ok");
 		ok.addActionListener(parControleur);
+	}
+	
+	public JButton getBouton() {
+		return ok;
 	}
 	
 	public void viderFormulaire() {

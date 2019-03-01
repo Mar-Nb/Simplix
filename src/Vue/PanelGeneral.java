@@ -15,6 +15,7 @@ import Modele.LectureEcriture;
 
 @SuppressWarnings("serial")
 public class PanelGeneral extends JPanel implements ActionListener {
+	
 	String[] intitulesPanneaux = {"Fichier","Affichage", "Annuler", "Quitter", "?"};
 	String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous"};
 	private CardLayout gestionnaireCartes;
@@ -69,8 +70,6 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		this.panelFichier = panelFichier;
 	}
 
-
-
 	public Historique getHistorique() {
 		return historique;
 	}
@@ -98,19 +97,13 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		this.add(panelFichier, intitulesPanneaux[0]);
 	}
 
-
-
 	public String getNomFichier() {
 		return nomFichier;
 	}
 
-
-
 	public void setNomFichier(String nomFichier) {
 		this.nomFichier = nomFichier;
 	}
-
-
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
@@ -140,7 +133,15 @@ public class PanelGeneral extends JPanel implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Veuillez entrer un nom de fichier valide", "Erreur", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-		    File fichier = new File("simplexes"+File.separator+nomFichier+".ser");
+			
+			File fichier;
+			
+			if(nomFichier.contains(".ser")) {
+				fichier = new File("simplexes"+File.separator+nomFichier);
+			}
+			else {
+				fichier = new File("simplexes"+File.separator+nomFichier+".ser");
+			}
 			LectureEcriture.ecriture(fichier, historique);
 			this.miseAJourEnregistrement();
 		}
@@ -161,7 +162,10 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		}
 		
 		else if(evt.getActionCommand() == "PDF") {
-			new GenerePdf();
+			if(!this.historique.getListeSimplexe().isEmpty())
+				new GenerePdf(this.historique);
+			else
+				JOptionPane.showMessageDialog(null, "Pas de simplexe, pas de pdf.", "Erreur - Génération du PDF", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		else if(evt.getActionCommand() == "Quitter"){
