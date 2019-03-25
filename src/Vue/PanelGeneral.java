@@ -17,7 +17,7 @@ import Modele.LectureEcriture;
 public class PanelGeneral extends JPanel implements ActionListener {
 	
 	String[] intitulesPanneaux = {"Fichier","Affichage", "Annuler", "Quitter", "?"};
-	String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous"};
+	String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous", "Mode Démo"};
 	private CardLayout gestionnaireCartes;
 	Controleur controleur;
 	private Historique historique;
@@ -155,6 +155,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		    File fichier = new File("simplexes"+File.separator+nomFichier+".ser");
 			LectureEcriture.ecriture(fichier, historique);
 			this.miseAJourEnregistrement();
+		}
+		
+		else if(evt.getActionCommand() == "Mode Démo") {
+			System.out.println("ok");
+			new FenetreDemo();
 		}
 		
 		else if(evt.getActionCommand() == "Affichage"){

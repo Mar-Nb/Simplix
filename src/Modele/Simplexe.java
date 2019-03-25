@@ -73,7 +73,7 @@ public class Simplexe implements Serializable{
 		if(inconnueHorsBase == "") {
 			return "Vous avez atteint le bénéfice maximum";
 		}
-		return "Echange à effectuer : " + inconnueBase + " & " + inconnueHorsBase;
+		return inconnueBase + " & " + inconnueHorsBase;
 	}
 	
 	public void echanger(String inconnueHorsBase, String inconnueBase) {

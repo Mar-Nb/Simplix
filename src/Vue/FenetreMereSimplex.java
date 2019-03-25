@@ -39,7 +39,7 @@ public class FenetreMereSimplex extends JFrame {
 		menuCreation.setMnemonic('F');
 		menuBar.add(menuCreation);
 		
-		String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous"};
+		String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous", "Mode Démo"};
 		JMenuItem[] menuItemsCreation = new JMenuItem[itemsCreation.length];
 		
 		// Les items de la JMenuBar sont ajoutés et mis écouté par le contrôleur

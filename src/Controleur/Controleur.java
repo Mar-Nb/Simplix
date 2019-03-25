@@ -112,7 +112,6 @@ public class Controleur implements ActionListener {
 		}
 		
 		if(evt.getActionCommand().equals("Charger")) {
-			System.out.println("ok");
 			File fichier = new File("simplexes"+File.separator+panelFichier.getPanelCharger().getNomFichier());
 			panelG.getPanelSimplex().remove(panelG.getPanelSimplex().getPanelH());
 			panelG.setHistorique((Historique) LectureEcriture.lecture(fichier));
@@ -125,7 +124,7 @@ public class Controleur implements ActionListener {
 		if(evt.getActionCommand().equals("indice")) {
 			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().toString2());
 			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
-			panelG.miseAJourIndication(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
+			panelG.miseAJourIndication("Echange à effectuer : " + panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
 		}
 
 	}
