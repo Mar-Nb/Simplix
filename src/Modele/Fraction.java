@@ -8,6 +8,11 @@ public class Fraction implements Serializable{
 	
 	//FRACTION
 	//une fraction composee d'une numerateur et d'un denominateur
+	/**
+	 * Construit un objet Fraction à partir d'un numérateur(int) et d'un dénominateur(int)
+	 * @param int parNum
+	 * @param int parDen
+	 */
 	public Fraction(int parNum, int parDen) {
 		if(parDen == 0) {
 			throw new RuntimeException("Division par zero");
@@ -17,12 +22,23 @@ public class Fraction implements Serializable{
 		reduire();   //A voir si on veut que la fraction soit reduite directement ou non
 	}
 	//si la fraction est un nombre entier
+	/**
+	 * Construit un objet Fraction à partir d'un numérateur(int).Le dénominateur étant égal à 0, la Fraction sera en réalité 
+	 * un entier
+	 * 
+	 * @param int parVal
+	 */
 	public Fraction(int parVal) {
 		numerateur = parVal;
 		denominateur = 1;
 		reduire();
 	}
 	//copie d'une fraction
+	/**
+	 * Construit un objet Fraction à partir d'un autre objet Fraction donné en paramètre et copie ses champs numerateur et denominateur 
+	 * dans les champs numerateur et denominateur du nouvel objet à créer
+	 * @param Fraction parFac
+	 */
 	public Fraction(Fraction parFac) {
 		numerateur = parFac.getNumerateur();
 		denominateur = parFac.getDenominateur();
@@ -30,25 +46,46 @@ public class Fraction implements Serializable{
 	}
 	
 	//GETTER
+	/**
+	 * Renvoie le champs numerateur (int) de this
+	 * @return int numerateur
+	 */
 	public int getNumerateur() {
 		return numerateur;
 	}
-	
+	/**
+	 * Renvoie le champs denominateur (int) de this
+	 * @return int denominateur
+	 */
 	public int getDenominateur() {
 		return denominateur;
 	}
 	
 	//SETTER (ne pas oublier de recreer la fraction apres pour qu'elle soit réduite)
+	/**
+	 * Défini le champs numerateur de this avec l'int donné en paramètre
+	 * @param int parNum
+	 */
 	public void setNumerateur(int parNum) {
 		this.numerateur = parNum;
 	}
 	
+	/**
+	 * Défini le champs dénominateur de this avec l'int donné en paramètre
+	 * @param int parDen
+	 */
 	public void setDenominateur(int parDen) {
 		this.denominateur = parDen;
 	}
 	
 	//CALCUL PGCD
 	//calcul le pgcd entre deux nombres ; utilise pour reduire une fraction
+	/**
+	 * Renvoie le PGCD(plus grand diviseur commun) du numérateur et du dénominateur fournit en paramètre
+	 * @param int Num
+	 * @param int Den
+	 * @return int CalculPGCD(Den, Num % Den)
+	 */
 	public int CalculPGCD(int Num, int Den) {
 		if(Num % Den == 0) {
 			return Den;
@@ -58,6 +95,10 @@ public class Fraction implements Serializable{
 	
 	//REDUIRE reduit de facon definitive
 	//reduit la fraction jusqu'a ce qu'elle soit irreductible
+	/**
+	 * Reduit une fraction à partir de la méthode CalculPGCD jusqu'à la rendre irréductible
+	 *@return Fraction new Fraction
+	 */
 	void reduire() {
 		if(denominateur < 0) { //pour mettre le - devant
 			numerateur *= -1;
@@ -70,6 +111,11 @@ public class Fraction implements Serializable{
 	
 	//REDUIREV2 reduit juste pour l'affichage
 	//reduit la fraction jusqu'a ce qu'elle soit irreductible -- ne sert a rien si "reduire()" est activé dans les constructeur "Fraction"
+	/**
+	 * Reduit une Fraction dans l'affichage
+	 * @param Fraction frac
+	 * @return Fraction new Fraction
+	 */
 	public Fraction reduireV2(Fraction frac) {
 		int pgcd = CalculPGCD(frac.getNumerateur(),frac.getDenominateur());
 		frac.setNumerateur(frac.getNumerateur()/pgcd);
@@ -79,6 +125,10 @@ public class Fraction implements Serializable{
 	
 	//ECRITURE NON FRACTIONNELLE (voir si utilise float ou double)
 	//ecrit une fraction sous le format a virgule (float : 7 chiffres apres la virgule || double = 15 chiffres apres la virgule)
+	/**
+	 * Renvoie une Fraction sous forme de nombre à virgule (double : max 15 chiffres après la virgule)
+	 * @return double resultat
+	 */
 	public double FMath() {
 		double nume = this.getNumerateur();
 		double deno = this.getDenominateur();
@@ -86,6 +136,10 @@ public class Fraction implements Serializable{
 		return resultat;
 	}
 	
+	/**
+	 * Echange le numérateur et le dénominateur d'une fonction
+	 * @return Fraction new Fraction
+	 */
 	public Fraction swap() {
 		int denominateur = this.denominateur;
 		int numerateur = this.numerateur;
@@ -94,6 +148,11 @@ public class Fraction implements Serializable{
 	
 	//COMPARE
 	//compare deux fractions entre elles
+	/**
+	 * Compare deux Fractions.Si elles ont le même numérateur et dénominateur renvoie True, sinon False
+	 * @param Fraction f 
+	 * @return boolean True/False
+	 */
 	public boolean FCompare(Fraction f) {
 		if((this.getNumerateur() == f.getNumerateur()) && (this.getDenominateur() == f.getDenominateur())) {
 			return true;
@@ -104,6 +163,11 @@ public class Fraction implements Serializable{
 	}
 	
 	//donne l'ordre de deux fractions ( < ou > )  true si sup
+	/**
+	 * Compare deux fractions , renvoie True si la Fraction sur laquelle la méthode est appelée est supérieure , False sinon
+	 * @param Fraction f
+	 * @return boolean True/False
+	 */
 	public boolean FSup(Fraction f) {
 		if(this.FMath() > f.FMath()) {
 			return true;
@@ -115,6 +179,11 @@ public class Fraction implements Serializable{
 	
 	//ADDITION
 	//addition deux fractions entre elles
+	/**
+	 * Additionne deux Fraction entre elles
+	 * @param Fraction frac
+	 * @return Fraction new Fraction
+	 */
 	public Fraction FAddition(Fraction frac) {
 		int num = ( (numerateur * frac.getDenominateur()) + (frac.getNumerateur() * denominateur) );
 		int den = denominateur * frac.getDenominateur();
@@ -123,6 +192,11 @@ public class Fraction implements Serializable{
 	
 	//SOUSTRACTION
 	//soustrait deux fractions entre elles
+	/**
+	 * Soustrait deux Fraction entre elles
+	 * @param Fraction frac
+	 * @return Fraction new Fraction
+	 */
 	public Fraction FSoustraction(Fraction frac) {
 		int num = ( (numerateur * frac.denominateur) - (frac.numerateur * denominateur) );
 		int den = denominateur * frac.denominateur;
@@ -131,6 +205,11 @@ public class Fraction implements Serializable{
 	
 	//MULTIPLICATION
 	//multiplie deux fractions entre elles
+	/**
+	 * Multiplie deux Fraction
+	 * @param Fraction frac
+	 * @return Fraction new Fraction
+	 */
 	public Fraction FMultiplication(Fraction frac) {
 		int num = numerateur * frac.getNumerateur();
 		int den = denominateur * frac.getDenominateur();
@@ -139,6 +218,11 @@ public class Fraction implements Serializable{
 	
 	//DIVISION
 	//divise deux fractions entre elles
+	/**
+	 * Divise deux Fraction entre elles
+	 * @param Fraction frac
+	 * @return Fraction new Fraction
+	 */
 	public Fraction FDivision(Fraction frac) {
 		int num = numerateur * frac.getDenominateur();
 		int den = denominateur * frac.getNumerateur();
@@ -147,6 +231,10 @@ public class Fraction implements Serializable{
 	
 	//TOSTRING
 	//ecrit une fraction
+	/**
+	 * Affiche une Fraction sous la forme d'une String
+	 *@return String numerateur + "/" + denominateur
+	 */
 	public String toString() {
 		if(denominateur == 1) {
 			return Integer.toString(numerateur);

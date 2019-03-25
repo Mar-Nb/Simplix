@@ -9,6 +9,11 @@ import javax.swing.JPanel;
 
 public class AfficheFraction extends JPanel {
 	
+	/**
+	 * Construit un objet AfficheFraction correspondant à un BorderLayout dans lequel sera afficher une fraction
+	 * @param int num
+	 * @param int denom
+	 */
 	public AfficheFraction(int num,int denom) {
 		this.setLayout(new BorderLayout());
 		JLabel frac = new JLabel("<html><head></head><body>"

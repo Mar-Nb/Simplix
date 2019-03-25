@@ -21,6 +21,9 @@ public class PanelChargerSimplexe extends JPanel{
 	private JComboBox fichiers;
 	private String[] listeFichiers;
 	
+	/**
+	 * Construit un objet PanelChargerSimplexe permettant à l'utilisateur de charger un Simplexe déjà existant
+	 */
 	public PanelChargerSimplexe() {
 		
 		//GridBagLayout
@@ -68,7 +71,7 @@ public class PanelChargerSimplexe extends JPanel{
 	
 	//getter
 	/**
-	 * <font color="red">Renvoie le nom du fichier choisi dans la JComboBox</font>
+	 * Renvoie le nom du fichier choisi dans la JComboBox
 	 * @return String
 	 */
 	public String getNomFichier(){

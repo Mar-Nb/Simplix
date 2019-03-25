@@ -23,6 +23,10 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	private Integer nombreContraintes;
 	JButton ok;
 	
+	/**
+	 * Construit un objet PanelChoixNombresMonomesContraintes permettant à l'utilisateur de choisir le nombre de contraintes et de 
+	 * monomes souhaité dans le Simplexe
+	 */
 	public PanelChoixNombresMonomesContraintes() {
 		//On ajoute nbMonome, nbContrainte et leur label dans la partie Nord
 		//du formulaire
@@ -62,32 +66,59 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 		
 	}
 	
+	/**
+	 * Met le contrôleur en paramètre à l'écoute du bouton ok
+	 * @param parControleur
+	 */
 	public void enregistreEcouteur(Controleur parControleur) {
 		ok.setActionCommand("ok");
 		ok.addActionListener(parControleur);
 	}
 	
+	/**
+	 * Renvoie le champ ok de this
+	 * @return JButton ok
+	 */
 	public JButton getBouton() {
 		return ok;
 	}
 	
+	/**
+	 * remet le nombre de monomes et de contraintes souhaité à 0
+	 */
 	public void viderFormulaire() {
 		nbMonome.setSelectedIndex(0);
 		nbContraintes.setSelectedIndex(0);
 	}
 
+	/**
+	 * Renvoie le nombre de monome choisi dans la JComboBox
+	 * @return JComboBox<Integer> nbMonome
+	 */
 	public JComboBox<Integer> getNbMonome() {
 		return nbMonome;
 	}
 
+	/**
+	 * Renvoie le nombre de contrainte choisi dans la JComboBox
+	 * @return JComboBox<Integer> nbContraintes
+	 */
 	public JComboBox<Integer> getNbContraintes() {
 		return nbContraintes;
 	}
 
+	/**
+	 * Renvoie le champ nombreMonome de this
+	 * @return Integer nombreMonome
+	 */
 	public Integer getNombreMonome() {
 		return nombreMonome;
 	}
 
+	/**
+	 * Renvoie le champ nombreContraintes de this
+	 * @return Integer nombreContraintes
+	 */
 	public Integer getNombreContraintes() {
 		return nombreContraintes;
 	}

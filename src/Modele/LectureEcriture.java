@@ -8,6 +8,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class LectureEcriture {
+	/**
+	 * Permet la lecture d'un fichier
+	 * @param File parFichier
+	 * @return Object objetlu
+	 */
 	public static Object lecture (File parFichier) {
 		ObjectInputStream flux;
 		Object objetLu = null;
@@ -31,6 +36,11 @@ public class LectureEcriture {
 		return objetLu;
 	}
 	
+	/**
+	 * Permet l'écriture dans un fichier
+	 * @param File parFichier
+	 * @param Object parObjet
+	 */
 	public static void ecriture (File parFichier, Object parObjet) {
 		ObjectOutputStream flux=null;
 		

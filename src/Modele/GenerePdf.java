@@ -32,6 +32,12 @@ public class GenerePdf {
 		}
 	}
 	
+	/**
+	 * Construit un objet GenerePdf à partir d'un Historique et d'une String donnés en paramètre, la String correspondant au nom du fichier
+	 * @param Historique histo
+	 * @param String nomFichier
+	 */
+	
 	public GenerePdf(Historique histo, String nomFichier) {
 		
 		document = new Document();
@@ -49,9 +55,22 @@ public class GenerePdf {
 		}
 	}
 	
+	/**
+	 * Ajoute un paragraphe au document pdf 
+	 * @param Document doc
+	 * @throws DocumentException
+	 */
+	
 	public void populate(Document doc) throws DocumentException{
 		doc.add(new Paragraph("Hello iText"));
 	}
+	
+	/**
+	 * Ajoute des paragraphes correspondant à chaque Simplexe composant l'Historique donné en paramètre dans le document pdf
+	 * @param Document doc
+	 * @param Historique histo
+	 * @throws DocumentException
+	 */
 	
 	public void populate(Document doc, Historique histo) throws DocumentException {
 		Font f = new Font(FontFamily.COURIER);

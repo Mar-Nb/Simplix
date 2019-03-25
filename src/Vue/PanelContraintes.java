@@ -21,6 +21,12 @@ public class PanelContraintes extends JPanel {
 	JTextField[] zonesEcrituresValeursMaxi;
 	int nombreMonome;
 	
+	/**
+	 * Construit un objet PanelContraintes à partir des paramètres nombreMonome(Integer) et nombreContraintes(Integer).
+	 * Ce panel permet à l'utilisateur de choisir les valeurs des coefficients de chaque monome et de la fonction économique.
+	 * @param Integer nombreMonome
+	 * @param Integer nombreContraintes
+	 */
 	public PanelContraintes(Integer nombreMonome, Integer nombreContraintes) {
 		this.nombreMonome=nombreMonome;
 		int ligne = nombreContraintes;
@@ -92,6 +98,9 @@ public class PanelContraintes extends JPanel {
 
 	}
 	
+	/**
+	 * Permet de remettre les valeurs des champs du formulaire à 0
+	 */
 	public void viderFormulaire() {
 		
 		for(int i=0; i<zonesEcrituresContraintes.length; i++) {
@@ -108,35 +117,67 @@ public class PanelContraintes extends JPanel {
 		}
 	}
 	
+	/**
+	 * Renvoie le champ nombreMonome de this
+	 * @return int nombreMonome
+	 */
 	public int getNombreMonome() {
 		return nombreMonome;
 	}
 
+	/**
+	 * Définit le champ nombreMonome avec la valeur fournit en paramètre
+	 * @param int nombreMonome
+	 */
 	public void setNombreMonome(int nombreMonome) {
 		this.nombreMonome = nombreMonome;
 	}
 
+	/**
+	 * Met le Controleur en paramètre à l'écoute du bouton boutonCreer
+	 * @param Controleur parControleur
+	 */
 	public void enregistreEcouteur(Controleur parControleur) {
 		boutonCreer.setActionCommand("Cr");
 		boutonCreer.addActionListener(parControleur);
 	}
 	
+	/**
+	 * Lorsque cette méthode est appelée,le Controleur fourni en paramètre n'est plus à l'écoute du bouton boutonCreer
+	 * @param Controleur parControleur
+	 */
 	public void desenregistreEcouteur(Controleur parControleur) {
 		boutonCreer.removeActionListener(parControleur);
 	}
 
+	/**
+	 * Renvoie le champ zonesEcrituresContraintes de this
+	 * @return JTextField[][] zonesEcrituresContraintes
+	 */
 	public JTextField[][] getZonesEcrituresContraintes() {
 		return zonesEcrituresContraintes;
 	}
 
+	/**
+	 * Renvoie le champ zonesEcrituresFonctionEco de this
+	 * @return JTextField[] zonesEcrituresFonctionEco
+	 */
 	public JTextField[] getZonesEcrituresFonctionEco() {
 		return zonesEcrituresFonctionEco;
 	}
-
+	
+	/**
+	 * Renvoie le champ zonesEcrituresValeursMaxi de this
+	 * @return JTextField[] zoneEcrituresValeursMaxi
+	 */
 	public JTextField[] getZonesEcrituresValeursMaxi() {
 		return zonesEcrituresValeursMaxi;
 	}
 	
+	/**
+	 * Renvoie le champ boutonCreer de this
+	 * @return JButton boutonCreer
+	 */
 	public JButton getBouton() {
 		return boutonCreer;
 	}

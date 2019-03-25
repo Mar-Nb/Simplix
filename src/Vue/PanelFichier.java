@@ -11,6 +11,9 @@ public class PanelFichier extends JPanel{
 	private PanelChargerSimplexe panelCharger;
 	private CardLayout gestionnaireDeCartes;
 
+	/**
+	 * Construit un objet PanelFichier permettant à l'utilisateur de rentrer un fichier à charger en tant que Simplexe
+	 */
 	public PanelFichier(){
 		
 		//Création des panel fils
@@ -31,6 +34,10 @@ public class PanelFichier extends JPanel{
 	}
 	
 
+	/**
+	 * Renvoie le champ gestionnaireDeCartes de this
+	 * @return CardLayout gestionnaireDeCartes
+	 */
 	public CardLayout getGestionnaireDeCartes() {
 		return gestionnaireDeCartes;
 	}
@@ -47,21 +54,37 @@ public class PanelFichier extends JPanel{
 	}
 
 
+	/**
+	 * Renvoie le champ panelformulaire de this
+	 * @return PanelFormulaire panelFormulaire
+	 */
 	public PanelFormulaire getPanelFormulaire() {
 		return panelFormulaire;
 	}
 
 
+	/**
+	 * Renvoie le champ panelCharger de this
+	 * @return PanelChargerSimplexe panelCharger
+	 */
 	public PanelChargerSimplexe getPanelCharger() {
 		return panelCharger;
 	}
 
 
+	/**
+	 * Définit le champ panelCharger de this avec le PanelChargerSimplexe fourni en paramètre
+	 * @param PanelChargerSimplexe panelCharger
+	 */
 	public void setPanelCharger(PanelChargerSimplexe panelCharger) {
 		this.panelCharger = panelCharger;
 	}
 
 
+	/**
+	 * Défini le champs panelFormulaire de this avec le PanelFormulaire fourni en paramètre
+	 * @param panelFormulaire
+	 */
 	public void setPanelFormulaire(PanelFormulaire panelFormulaire) {
 		this.panelFormulaire = panelFormulaire;
 	}

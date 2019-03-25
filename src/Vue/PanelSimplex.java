@@ -35,6 +35,10 @@ public class PanelSimplex extends JPanel {
 		this.setBorder(BorderFactory.createLoweredBevelBorder());
 	}
 
+	/**
+	 * Construit un objet PanelSimplexe à partir d'un objet Simplexe permettant l'affichage d'un Simplexe
+	 * @param Simplexe simp
+	 */
 	public PanelSimplex(Simplexe simp) {
 		
 		simplexe = simp;
@@ -106,22 +110,42 @@ public class PanelSimplex extends JPanel {
 		this.setBorder(BorderFactory.createLoweredBevelBorder());
 	}
 
+	/**
+	 * Renvoie le champ simplexe de this
+	 * @return Simplexe simplexe
+	 */
 	public Simplexe getSimplexe() {
 		return simplexe;
 	}
 
+	/**
+	 * Définit le champ simplexe de this à partir du Simplexe donné en paramètre
+	 * @param simplexe
+	 */
 	public void setSimplexe(Simplexe simplexe) {
 		this.simplexe = simplexe;
 	}
 
+	/**
+	 * Renvoie le champ tabBoutonsInconnues de this
+	 * @return JButton[][] tabBoutonsInconnues
+	 */
 	public JButton[][] getTabBoutonsInconnues() {
 		return tabBoutonsInconnues;
 	}
 
+	/**
+	 * Définit le champ tabBoutonsInconnues de this avec le JButton[][] donné en paramètre
+	 * @param JButton[][] tabBoutonsInconnues
+	 */
 	public void setTabBoutonsInconnues(JButton[][] tabBoutonsInconnues) {
 		this.tabBoutonsInconnues = tabBoutonsInconnues;
 	}
 	
+	/**
+	 * Met le controleur donné en paramètre à l'écoute de chaque monome pour pouvoir les échanger
+	 * @param Controleur controleur
+	 */
 	public void enregistreEcouteur(Controleur controleur) {
 		for(int i = 0; i < tabBoutonsInconnues.length; i++){
 			for(int j = 0; j < tabBoutonsInconnues[i].length; j++){

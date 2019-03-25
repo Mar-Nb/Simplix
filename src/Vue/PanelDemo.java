@@ -31,6 +31,10 @@ public class PanelDemo extends JPanel implements ActionListener{
 	JButton retour;
 	JButton suivant;
 
+	
+	/**
+	 * Génère un panel contenant un diaporama d'images du dossier "images"
+	 */
 	public PanelDemo() {
 
 		gestionnaireDeCartes=new CardLayout(5,5);
@@ -80,6 +84,9 @@ public class PanelDemo extends JPanel implements ActionListener{
 		
 	}
 
+	/**
+	 * Permet le défilement du diaporama
+	 */
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 		if(evt.getActionCommand().equals("retour")) {

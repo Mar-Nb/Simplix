@@ -25,6 +25,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	private PanelGeneralSimplex panelSimplex;
 	private PanelFichier panelFichier;
 	
+	/**
+	 * Construit un objet PanelGeneral qui contient tous les autres panels
+	 */
+	
+	
 	public PanelGeneral(){
 		
 		//Instantiation de la chronologie
@@ -45,7 +50,10 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		
 	}
-
+/**
+ * Renvoie le panelGeneralSimplex du champ panelSimplex
+ * @return
+ */
 
 
 	public PanelGeneralSimplex getPanelSimplex() {
@@ -53,26 +61,44 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	}
 
 
-
+/**
+ * Remplace le panelGeneralSimplex du champ panelSimplex par un nouveau panel passé en paramètre
+ * @param panelSimplex
+ */
 	public void setPanelSimplex(PanelGeneralSimplex panelSimplex) {
 		this.panelSimplex = panelSimplex;
 	}
 
 
-
+/**
+ * Renvoie le panelFichier du champ PanelFichier
+ * @return
+ */
 	public PanelFichier getPanelFichier() {
 		return panelFichier;
 	}
 
-
+/**
+ * Remplace le panel du champ panelFichier par le panel passé en paramètre
+ * @param panelFichier
+ */
 
 	public void setPanelFichier(PanelFichier panelFichier) {
 		this.panelFichier = panelFichier;
 	}
 
+	/**
+	 * Renvoie l'Historique du champ historique
+	 * @return
+	 */
 	public Historique getHistorique() {
 		return historique;
 	}
+	
+	/**
+	 * Met à jour le panel Indications dans le panelSimplexe, puis recharge le panelSimplexe.
+	 * @param message
+	 */
 
 	public void miseAJourIndication(String message) {
 		panelSimplex.setPanelIndi(message);
@@ -82,6 +108,10 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 	}
 
+	/**
+	 * Remplace l'historique dans le champ historique par l'Historique passé en paramètre. Met ensuite à jour le panelSimplex
+	 * @param historique
+	 */
 	public void setHistorique(Historique historique) {
 		
 		this.historique=historique;
@@ -91,21 +121,38 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		gestionnaireCartes.show(this, intitulesPanneaux[1]);
 	}
 	
+	/**
+	 * Recharge un nouveau panelFichier, et remet le controleur à l'écoute de ce panel
+	 */
+	
 	public void miseAJourEnregistrement() {
 		panelFichier=new PanelFichier();
 		panelFichier.enregistreEcouteur(controleur);
 		this.add(panelFichier, intitulesPanneaux[0]);
 	}
 
+	/**
+	 * Renvoie la chaîne de caractères du champ "nomFichier"
+	 * @return nomFichier
+	 */
 	public String getNomFichier() {
 		return nomFichier;
 	}
+	
+	/**
+	 * Remplace le champ nomFichier par le paramètre nomFichier en paramètre
+	 * @param nomFichier
+	 */
 
 	public void setNomFichier(String nomFichier) {
 		this.nomFichier = nomFichier;
 	}
 
 	@Override
+	
+	/**
+	 * Permet d'être à l'écoute de tous les boutons de la fenêtre
+	 */
 	public void actionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
 		if(evt.getActionCommand() == "Nouveau Simplexe"){

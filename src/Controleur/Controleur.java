@@ -38,6 +38,10 @@ public class Controleur implements ActionListener {
 		
 	}
 
+	/**
+	 * @param ActionEvent evt : un évenement correspondant au choix de l'utilisateur
+	 * Permet de gérer les choix de l'utilisateur lors de son utilisation du programme Simplexe à partir du démarrage du programme.
+	 */
 	public void actionPerformed(ActionEvent evt) {
 		
 		if(evt.getActionCommand().equals("Cr")) {
@@ -112,6 +116,7 @@ public class Controleur implements ActionListener {
 		}
 		
 		if(evt.getActionCommand().equals("Charger")) {
+			System.out.println("ok");
 			File fichier = new File("simplexes"+File.separator+panelFichier.getPanelCharger().getNomFichier());
 			panelG.getPanelSimplex().remove(panelG.getPanelSimplex().getPanelH());
 			panelG.setHistorique((Historique) LectureEcriture.lecture(fichier));
@@ -124,7 +129,7 @@ public class Controleur implements ActionListener {
 		if(evt.getActionCommand().equals("indice")) {
 			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().toString2());
 			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
-			panelG.miseAJourIndication("Echange à effectuer : " + panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
+			panelG.miseAJourIndication(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
 		}
 
 	}
