@@ -20,6 +20,7 @@ import Modele.Simplexe;
 public class PanelDemo extends JPanel implements ActionListener{
 	
 	JPanel diapositives;
+	JLabel instructions;
 	CardLayout gestionnaireDeCartes;
 	int indice=0;
 	
@@ -42,6 +43,7 @@ public class PanelDemo extends JPanel implements ActionListener{
 		suivant.addActionListener(this);
 		suivant.setActionCommand("suivant");
 		
+		instructions = new JLabel("Cliquez sur les flèches de défilement pour parcourir le mode d'emploi");
 		JPanel container =new JPanel();
 		container.setLayout(new BorderLayout());
 		
@@ -67,6 +69,7 @@ public class PanelDemo extends JPanel implements ActionListener{
 		titre=new JLabel("Affichage");
 		container.add(diapositives, BorderLayout.CENTER);
 		container.add(titre, BorderLayout.SOUTH);
+		container.add(instructions, BorderLayout.NORTH);
 		
 		
 		this.add(retour);

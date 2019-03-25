@@ -158,7 +158,6 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		}
 		
 		else if(evt.getActionCommand() == "Mode Démo") {
-			System.out.println("ok");
 			new FenetreDemo();
 		}
 		

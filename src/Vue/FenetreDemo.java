@@ -14,8 +14,8 @@ public class FenetreDemo extends JFrame{
 		PanelDemo panelDemo = new PanelDemo();
 		
 		this.setContentPane(panelDemo);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(1000,600);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		this.setSize(1500,1000);
 		this.setVisible(true);
 		this.setLocation(100,100);
 		

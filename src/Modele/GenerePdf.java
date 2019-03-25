@@ -1,5 +1,6 @@
 package Modele;
 
+import java.io.File;
 import java.io.FileOutputStream;
 
 import com.itextpdf.text.Document;
@@ -36,7 +37,7 @@ public class GenerePdf {
 		document = new Document();
 		
 		try {
-			PdfWriter.getInstance(document, new FileOutputStream(nomFichier+".pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream("PDF"+File.separator+nomFichier+".pdf"));
 			document.open();
 			populate(document, histo);
 		}
