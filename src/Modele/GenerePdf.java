@@ -31,12 +31,12 @@ public class GenerePdf {
 		}
 	}
 	
-	public GenerePdf(Historique histo) {
+	public GenerePdf(Historique histo, String nomFichier) {
 		
 		document = new Document();
 		
 		try {
-			PdfWriter.getInstance(document, new FileOutputStream("Simplexe.pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream(nomFichier+".pdf"));
 			document.open();
 			populate(document, histo);
 		}

@@ -163,7 +163,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		else if(evt.getActionCommand() == "PDF") {
 			if(!this.historique.getListeSimplexe().isEmpty())
-				new GenerePdf(this.historique);
+				new GenerePdf(this.historique, nomFichier);
 			else
 				JOptionPane.showMessageDialog(null, "Pas de simplexe, pas de pdf.", "Erreur - Génération du PDF", JOptionPane.ERROR_MESSAGE);
 		}
