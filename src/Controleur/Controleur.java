@@ -11,9 +11,12 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import Modele.ContrainteExplicite;
 import Modele.FonctionEco;
 import Modele.Fraction;
+import Modele.GenerePdf;
 import Modele.Historique;
 import Modele.LectureEcriture;
 import Modele.Monome;
@@ -22,6 +25,7 @@ import Vue.PanelContraintes;
 import Vue.PanelFichier;
 import Vue.PanelGeneral;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public class Controleur implements ActionListener {
@@ -84,7 +88,7 @@ public class Controleur implements ActionListener {
 			Historique histo = new Historique();
 			histo.add(simplexe);
 			panelG.setHistorique(histo);
-			panelG.setNomFichier(null);
+			panelG.setFichierEnregistrement(null);
 			panelFichier.getPanelFormulaire().viderFormulaire();
 			
 			
@@ -116,14 +120,32 @@ public class Controleur implements ActionListener {
 		}
 		
 		if(evt.getActionCommand().equals("Charger")) {
-			System.out.println("ok");
-			File fichier = new File("simplexes"+File.separator+panelFichier.getPanelCharger().getNomFichier());
-			panelG.getPanelSimplex().remove(panelG.getPanelSimplex().getPanelH());
-			panelG.setHistorique((Historique) LectureEcriture.lecture(fichier));
-			panelG.getPanelSimplex().getPanelH().setHistorique(panelG.getHistorique());
 			
-			panelG.getPanelSimplex().add(panelG.getPanelSimplex().getPanelH(),BorderLayout.EAST);
-			panelG.setNomFichier(panelFichier.getPanelCharger().getNomFichier());
+			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l√  o√π il veut cr√©e son fichier
+			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par d√©faut on se place dans le r√©pertoire utilisateur
+			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");//on veut que le fichier soit uniquement au format pdf
+			fichier.addChoosableFileFilter(filtre);
+			
+			//on regarde si l'utilisateur a bien choisi un fichier
+			int resultat = fichier.showSaveDialog(null);
+			
+			if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) {//si c'est bon
+				
+				panelG.getPanelSimplex().remove(panelG.getPanelSimplex().getPanelH());
+				panelG.setHistorique((Historique) LectureEcriture.lecture(fichier.getSelectedFile()));
+				panelG.getPanelSimplex().getPanelH().setHistorique(panelG.getHistorique());
+				
+				panelG.getPanelSimplex().add(panelG.getPanelSimplex().getPanelH(),BorderLayout.EAST);
+				panelG.setFichierEnregistrement(fichier.getSelectedFile());
+				
+				
+			}
+			else if(resultat == JFileChooser.CANCEL_OPTION) {
+				fichier.cancelSelection();
+				fichier.setVisible(false);
+				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier sÈlectionnÈ","Erreur",JOptionPane.ERROR_MESSAGE);
+			}
+			
 		}
 		
 		if(evt.getActionCommand().equals("indice")) {

@@ -17,9 +17,7 @@ import javax.swing.border.TitledBorder;
 import Controleur.Controleur;
 
 public class PanelChargerSimplexe extends JPanel{
-	private JButton charger;
-	private JComboBox fichiers;
-	private String[] listeFichiers;
+	private JButton parcourir;
 	
 	/**
 	 * Construit un objet PanelChargerSimplexe permettant à l'utilisateur de charger un Simplexe déjà existant
@@ -34,20 +32,14 @@ public class PanelChargerSimplexe extends JPanel{
 		
 		//Création d'une etiquette
 	
-		JLabel nomDuFichier=new JLabel("Nom du fichier");
+		JLabel nomDuFichier=new JLabel("Choisissez un fichier :");
 		
-		//Création d'un fichier qui va indiquer où chercher les chronologies enregistrées
-		File repertoire = new File("simplexes");
 		
-		//Tableau instancié avec les fichiers dans le File déterminé avant
-		listeFichiers = repertoire.list();
-		
-		//Instantiation d'une JComboBox à partir de ce tableau
-		fichiers = new JComboBox(listeFichiers);
+
 		
 		//Bouton et ActionCommand
-		charger=new JButton("Charger");	
-		charger.setActionCommand("Charger");
+		parcourir=new JButton("Parcourir");	
+		parcourir.setActionCommand("Charger");
 		
 
 		
@@ -57,28 +49,15 @@ public class PanelChargerSimplexe extends JPanel{
 		contrainteEvenement.gridy=0;
 		this.add(nomDuFichier,contrainteEvenement);
 		
-		contrainteEvenement.gridx=1;
-		contrainteEvenement.gridy=0;
-		this.add(fichiers,contrainteEvenement);
+
 		
 		contrainteEvenement.gridx=0;
 		contrainteEvenement.gridy=1;
 		contrainteEvenement.insets = new Insets(20,3,3,3);
-		this.add(charger,contrainteEvenement);
+		this.add(parcourir,contrainteEvenement);
 		
 	}
 	
-	
-	//getter
-	/**
-	 * Renvoie le nom du fichier choisi dans la JComboBox
-	 * @return String
-	 */
-	public String getNomFichier(){
-		int i = fichiers.getSelectedIndex();
-		return (String) fichiers.getItemAt(i);
-		
-	}
 	
 	
 	
@@ -88,6 +67,6 @@ public class PanelChargerSimplexe extends JPanel{
 	 * @param parControleur
 	 */
 	public void enregistreEcouteur(Controleur parControleur){
-		charger.addActionListener(parControleur);
+		parcourir.addActionListener(parControleur);
 	}
 }

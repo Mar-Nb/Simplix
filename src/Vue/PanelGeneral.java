@@ -1,12 +1,19 @@
 package Vue;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import com.itextpdf.text.DocumentException;
 
 import Controleur.Controleur;
 import Modele.GenerePdf;
@@ -21,7 +28,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	private CardLayout gestionnaireCartes;
 	Controleur controleur;
 	private Historique historique;
-	private String nomFichier;
+	private File fichierEnregistrement;
 	private PanelGeneralSimplex panelSimplex;
 	private PanelFichier panelFichier;
 	
@@ -131,25 +138,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		this.add(panelFichier, intitulesPanneaux[0]);
 	}
 
-	/**
-	 * Renvoie la chaÓne de caractËres du champ "nomFichier"
-	 * @return nomFichier
-	 */
-	public String getNomFichier() {
-		return nomFichier;
-	}
-	
-	/**
-	 * Remplace le champ nomFichier par le paramËtre nomFichier en paramËtre
-	 * @param nomFichier
-	 */
 
-	public void setNomFichier(String nomFichier) {
-		this.nomFichier = nomFichier;
-	}
-
-	@Override
-	
 	/**
 	 * Permet d'Ítre ‡ l'Ècoute de tous les boutons de la fenÍtre
 	 */
@@ -173,35 +162,57 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		}
 		
 		else if(evt.getActionCommand() == "Enregistrer") {
-			if(nomFichier == null) {
-			    nomFichier = JOptionPane.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.PLAIN_MESSAGE);
-			}
-			if(nomFichier.equals("")) {
-				JOptionPane.showMessageDialog(null, "Veuillez entrer un nom de fichier valide", "Erreur", JOptionPane.ERROR_MESSAGE);
-				return;
+			if(fichierEnregistrement == null) {
+				JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l√  o√π il veut cr√©e son fichier
+				fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par d√©faut on se place dans le r√©pertoire utilisateur
+				FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");//on veut que le fichier soit uniquement au format pdf
+				fichier.addChoosableFileFilter(filtre);
+				
+				//on regarde si l'utilisateur a bien choisi un fichier
+				int resultat = fichier.showSaveDialog(null);
+				
+				if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) {//si c'est bon
+					
+					LectureEcriture.ecriture(fichier.getSelectedFile(), this.historique);
+					fichierEnregistrement=fichier.getSelectedFile();
+
+					
+				}
+				else if(resultat == JFileChooser.CANCEL_OPTION) {
+					JOptionPane.showMessageDialog(null, "Erreur, votre fichier doit avoir pour extension .ser","Erreur",JOptionPane.ERROR_MESSAGE);
+				}
+				
 			}
 			
-			File fichier;
-			
-			if(nomFichier.contains(".ser")) {
-				fichier = new File("simplexes"+File.separator+nomFichier);
-			}
 			else {
-				fichier = new File("simplexes"+File.separator+nomFichier+".ser");
+				LectureEcriture.ecriture(fichierEnregistrement, historique);
 			}
-			LectureEcriture.ecriture(fichier, historique);
-			this.miseAJourEnregistrement();
+			
+
+			
 		}
 		
 		else if(evt.getActionCommand() == "Enregistrer sous") {
-		    nomFichier = JOptionPane.showInputDialog(null, "Veuillez entrer un nom pour votre fichier", " ", JOptionPane.QUESTION_MESSAGE);
-		    if(nomFichier.equals("")) {
-				JOptionPane.showMessageDialog(null, "Veuillez entrer un nom de fichier valide", "Erreur", JOptionPane.ERROR_MESSAGE);
-				return;
+		    
+			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l√  o√π il veut cr√©e son fichier
+			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par d√©faut on se place dans le r√©pertoire utilisateur
+			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");//on veut que le fichier soit uniquement au format pdf
+			fichier.addChoosableFileFilter(filtre);
+			
+			//on regarde si l'utilisateur a bien choisi un fichier
+			int resultat = fichier.showSaveDialog(null);
+			
+			if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) {//si c'est bon
+				
+				LectureEcriture.ecriture(fichier.getSelectedFile(), this.historique);
+				fichierEnregistrement=fichier.getSelectedFile();
+
+				
 			}
-		    File fichier = new File("simplexes"+File.separator+nomFichier+".ser");
-			LectureEcriture.ecriture(fichier, historique);
-			this.miseAJourEnregistrement();
+			else if(resultat == JFileChooser.CANCEL_OPTION) {
+				JOptionPane.showMessageDialog(null, "Erreur, votre fichier doit avoir pour extension .ser","Erreur",JOptionPane.ERROR_MESSAGE);
+			}
+			
 		}
 		
 		else if(evt.getActionCommand() == "Mode DÈmo") {
@@ -213,11 +224,24 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		}
 		
 		else if(evt.getActionCommand() == "PDF") {
-			if(!this.historique.getListeSimplexe().isEmpty())
-				new GenerePdf(this.historique, nomFichier);
-			else
-				JOptionPane.showMessageDialog(null, "Pas de simplexe, pas de pdf.", "Erreur - GÈnÈration du PDF", JOptionPane.ERROR_MESSAGE);
+			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l√  o√π il veut cr√©e son fichier
+			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par d√©faut on se place dans le r√©pertoire utilisateur
+			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*pdf");//on veut que le fichier soit uniquement au format pdf
+			fichier.addChoosableFileFilter(filtre);
+			
+			//on regarde si l'utilisateur a bien choisi un fichier
+			int resultat = fichier.showSaveDialog(null);
+			
+			if(resultat == JFileChooser.APPROVE_OPTION) {//si c'est bon
+				new GenerePdf(this.historique, fichier.getSelectedFile());
+				
+			}
+			else if(resultat == JFileChooser.CANCEL_OPTION) {
+				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier sÈlectionnÈ","Erreur",JOptionPane.ERROR_MESSAGE);
+			}
 		}
+
+		
 		
 		else if(evt.getActionCommand() == "Quitter"){
 			
@@ -234,5 +258,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 					+ "Pour effectuer des Èchanges de variables, cliquez sur les boutons dans votre simplexe.\n"
 					+ "Pour obtenir des indications quant ‡ l'Èchange le plus judicieux, appuyez sur le bouton ? dans l'Affichage", "Aide", JOptionPane.INFORMATION_MESSAGE);
 		}
+	}
+	public File getFichierEnregistrement() {
+		return fichierEnregistrement;
+	}
+	public void setFichierEnregistrement(File fichierEnregistrement) {
+		this.fichierEnregistrement = fichierEnregistrement;
 	}
 }
