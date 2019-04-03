@@ -43,12 +43,13 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 		JLabel labelNb = new JLabel("Nombre de monomes : ", JLabel.CENTER);
 		contrainte.gridy = 1;
 		this.add(labelNb, contrainte);
+		
 		for(int i=0; i<10; i++) {
 			nbMonome.addItem(i+1);
 			nbContraintes.addItem(i+1);
 			box[i]=i+1;
 		}
-		
+
 		contrainte.gridx = 1; contrainte.gridwidth = 2;
 		this.add(nbMonome,contrainte);
 		
@@ -56,8 +57,10 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 		contrainte.gridx = 0; contrainte.gridy = 2;
 		contrainte.gridwidth = 1;
 		this.add(labelNbContraintes,contrainte);
+		
 		contrainte.gridx = 1; contrainte.gridwidth = 2;
 		this.add(nbContraintes,contrainte);
+		
 		ok = new JButton("Ok");
 		contrainte.gridx = 0; contrainte.gridwidth = 3;
 		contrainte.gridy = 3;
