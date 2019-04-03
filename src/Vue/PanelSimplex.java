@@ -26,8 +26,11 @@ public class PanelSimplex extends JPanel {
 	public final Font police = new Font("Times New Roman", Font.PLAIN, 20);
 	
 	JButton b;
-	JButton[][] tabBoutonsInconnues;
+	JButton[][] tabBoutonsInconnues; // Tableau contenant tous les boutons du panel
 	
+	/**
+	 * Construit un panelSimplex vide
+	 */
 	public PanelSimplex() {
 		tabBoutonsInconnues=new JButton[0][0];
 		b=new JButton("");
@@ -46,7 +49,9 @@ public class PanelSimplex extends JPanel {
 		int nbContraintes = 0;
 		int nbBoutons = 0;
 		
+		// Nombre de bouton = Nombre_de_contraintes x Nombre_de_monomes
 		tabBoutonsInconnues=new JButton[simplexe.getContraintes().size()][simplexe.getFonctionEco().getMonomes().size()];
+		
 		this.setLayout(new GridBagLayout());
 		
 		gridLim.gridwidth = 1;
@@ -55,13 +60,19 @@ public class PanelSimplex extends JPanel {
 		gridLim.gridy = 0;
 		gridLim.gridx = 0;
 
+		// On parcourt les contraintes
 		for(Iterator j = simplexe.getContraintes().iterator(); j.hasNext();) {
 			gridLim.gridx = 0;
+			
 			ContrainteExplicite ce = (ContrainteExplicite) j.next();
+			
 			JLabel lab = new JLabel(ce.getNom()+" =",JLabel.LEFT);
 			lab.setFont(police);
 			this.add(lab,gridLim);
+			
 			gridLim.gridx++;
+			
+			// On parcourt les monomes de la contrainte en cours
 			for(Object obj : ce.getMonomes().values()) {
 				Monome m = (Monome) obj;
 				String textLabel = "";
@@ -70,17 +81,18 @@ public class PanelSimplex extends JPanel {
 				if(m.getCoefficient().getNumerateur()>0 && gridLim.gridx!=1) {
 					textLabel+="+";
 				}
+				
 				//COEFF
 				if(Double.compare(m.getCoefficient().FMath(), 1)!=0 || Double.compare(m.getCoefficient().FMath(), -1)!=0 || m.getCoefficient().getNumerateur()!=0) {
 					textLabel+=m.getCoefficient().toString();
 				}
+				
 				if(m.getCoefficient().getNumerateur()!=0) {
 					lab = new JLabel(textLabel);
 					lab.setFont(police);
 					this.add(lab,gridLim);
 					gridLim.gridx++;
 				}
-				
 				
 				//BOUTON
 				
@@ -92,7 +104,6 @@ public class PanelSimplex extends JPanel {
 					nbBoutons++;
 				}
 				
-				
 				gridLim.gridx++;
 			}
 			gridLim.gridy++;
@@ -103,6 +114,7 @@ public class PanelSimplex extends JPanel {
 		
 		gridLim.gridy++;
 		gridLim.gridx = 0;
+		
 		JLabel lab = new JLabel(simplexe.getFonctionEco().toString());
 		lab.setFont(police);
 		this.add(lab,gridLim);
