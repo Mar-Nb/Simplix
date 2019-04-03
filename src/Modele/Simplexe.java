@@ -51,8 +51,8 @@ public class Simplexe implements Serializable{
 	
 	
 	/**
-	 * Remplie la String chaineFinale avec les différentes ContraintesExplicite et renvoie la chaineFinale.Cette fonction permet
-	 * un affichage en HTML
+	 * Remplie la String chaineFinale avec les différentes ContraintesExplicite et renvoie la chaineFinale.
+	 * La mise en forme de la chaine à retourner est faite en HTML.
 	 *@return String chaineFinale
 	 */
 	public String toString() {
