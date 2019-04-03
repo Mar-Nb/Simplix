@@ -34,6 +34,10 @@ public class Controleur implements ActionListener {
 	public GridBagConstraints contrainte = new GridBagConstraints() ;
 	private PanelFichier panelFichier;
 	
+	/*
+	Ce controleur est à l'écoute de tous les objets d'interaction des panels contenues par PanelFichier et 
+	PanelGeneral sauf ceux possédant leur propre actionPerformed
+	*/
 	public Controleur(PanelFichier panelFichier, PanelGeneral panelSimplex) {
 		// TODO Auto-generated constructor stub
 		this.panelFichier=panelFichier;
@@ -43,16 +47,19 @@ public class Controleur implements ActionListener {
 	}
 
 	/**
-	 * @param ActionEvent evt : un �venement correspondant au choix de l'utilisateur
-	 * Permet de g�rer les choix de l'utilisateur lors de son utilisation du programme Simplexe � partir du d�marrage du programme.
+	 * @param ActionEvent evt : un �venement correspondant au choix de l'utilisateur
+	 * Permet de g�rer les choix de l'utilisateur lors de son utilisation du programme Simplexe � partir du d�marrage du programme.
 	 */
 	public void actionPerformed(ActionEvent evt) {
 		
+		// Bouton se situant dans le panelContrainte
 		if(evt.getActionCommand().equals("Cr")) {
 			
 			JTextField[][] tabContraintes =panelFichier.getPanelFormulaire().getPanelC().getZonesEcrituresContraintes();
 			JTextField[] tabLimites=panelFichier.getPanelFormulaire().getPanelC().getZonesEcrituresValeursMaxi();
 			LinkedList<ContrainteExplicite> contraintes=new LinkedList<ContrainteExplicite>();
+			
+			// Boucle qui parcourt le formulaire pour récupérer les monomes du simplexe entrés par l'utilisateur
 			for(int i=0;i<tabContraintes.length;i++) {
 				if(tabLimites[i].getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Veuillez entrer des coefficients valides.", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -70,7 +77,7 @@ public class Controleur implements ActionListener {
 				contraintes.add(ce);
 			}
 			
-			
+			// Boucle qui parcourt le formulaire pour récupérer les monomes de la fonction éco entrés par l'utilisateur
 			FonctionEco fonctionEco = new FonctionEco();
 			JTextField[] tabMonomesFonctionEco = panelFichier.getPanelFormulaire().getPanelC().getZonesEcrituresFonctionEco();
 			for(int i=0;i<tabMonomesFonctionEco.length;i++) {
@@ -82,7 +89,7 @@ public class Controleur implements ActionListener {
 				fonctionEco.ajouterMonome(m);
 			}
 			
-			
+			// Définition du simplexe + ajout du premier dico dans l'historique
 			Simplexe simplexe = new Simplexe(contraintes, fonctionEco);
 			simplexe.passageDico1();
 			Historique histo = new Historique();
@@ -94,8 +101,10 @@ public class Controleur implements ActionListener {
 			
 		}
 		
+		// Bouton se situant dans le panelChoixMonomesContraintes
 		if(evt.getActionCommand().equals("ok")) {
 
+			// Création du formulaire panelContrainte à partir des valeurs de ce panel
 			PanelContraintes choixContraintesPanel = new PanelContraintes(panelFichier.getPanelFormulaire().getPanelCMC().getNbMonome().getItemAt(panelFichier.getPanelFormulaire().getPanelCMC().getNbMonome().getSelectedIndex()), panelFichier.getPanelFormulaire().getPanelCMC().getNbContraintes().getItemAt(panelFichier.getPanelFormulaire().getPanelCMC().getNbContraintes().getSelectedIndex()));
 			panelFichier.getPanelFormulaire().setPanelC(choixContraintesPanel);
 			panelFichier.getPanelFormulaire().enregistreEcouteurC(this);
@@ -105,11 +114,11 @@ public class Controleur implements ActionListener {
 			this.panelFichier.requestFocusInWindow();
 		}
 		
-
+		// Bouton du panelSimplexe
 		if(evt.getActionCommand().contains("monomes")){
 			JButton b = (JButton) evt.getSource();
-			String str = ""+b.getActionCommand().charAt(8);
-			int indice = Integer.parseInt(str) ;
+			String str = ""+b.getActionCommand().charAt(8); // On récupère le n° du bouton
+			int indice = Integer.parseInt(str) ; // Le n° est l'indice du bouton, sa position
 			String horsBaseindice= ((ContrainteExplicite)panelG.getPanelSimplex().getPanelSimp().getSimplexe().getContraintes().get(indice)).getNom();
 			Simplexe temp = new Simplexe(panelG.getPanelSimplex().getPanelSimp().getSimplexe());
 			temp.echanger(horsBaseindice, b.getText());
@@ -119,9 +128,10 @@ public class Controleur implements ActionListener {
 			
 		}
 		
+		// Bouton se situant dans le panelChargerSimplexe
 		if(evt.getActionCommand().equals("Charger")) {
 			
-			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l�  où il veut crée son fichier
+			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l�  où il veut crée son fichier
 			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par défaut on se place dans le répertoire utilisateur
 			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");//on veut que le fichier soit uniquement au format pdf
 			fichier.addChoosableFileFilter(filtre);
@@ -143,11 +153,12 @@ public class Controleur implements ActionListener {
 			else if(resultat == JFileChooser.CANCEL_OPTION) {
 				fichier.cancelSelection();
 				fichier.setVisible(false);
-				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier s�lectionn�","Erreur",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier s�lectionn�","Erreur",JOptionPane.ERROR_MESSAGE);
 			}
 			
 		}
 		
+		// Bouton se situant dans le panelIndications
 		if(evt.getActionCommand().equals("indice")) {
 			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().toString2());
 			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
