@@ -1,29 +1,46 @@
-# README #
+# README -- Interface graphique Simplexe
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Projet réalisé par :
+* **Claire BAUCHU**
+* **Martin-Stephen NIOMBELA**
+* **Damien CHANCEREL**
+* **Victor CHARDÉRON**
+* **Louis BIZOT**
 
-### What is this repository for? ###
+> Année 2018 - 2019
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Pourquoi ce repository ?
 
-### How do I get set up? ###
+> Quick summary
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Ce repository contient notre projet de 2ème année de DUT Informatique. Ce projet consistait à implémenter une interface graphique
+pouvant servir à des élèves pour résoudre des _simplexes_.
 
-### Contribution guidelines ###
+Nous avons aussi collaboré avec un autre groupe de projet, afin de fournir un logiciel contenant 2 interfaces graphiques : la nôtre pour les _simplexes_ et celle 
+de notre groupe partenaire pour les _matrices_.
 
-* Writing tests
-* Code review
-* Other guidelines
+### Le code
 
-### Who do I talk to? ###
+> Notre code
 
-* Repo owner or admin
-* Other community or team contact
+Notre code possède sa javadoc ainsi que des commentaires pour les passages un peu obscurs de certaines classes. Cependant, nous estimons que notre code est assez
+lisible et compréhensible à la première lecture. 
+
+Notre projet ne nécessite pas de configuration particulière. Pour avoir les classes de ce repository, il suffit seulement d'avoir Eclipse (version _Oxygen_) et de cloner
+ce repository (il est pour l'instant en privé). 
+
+### Utilisation de l'application
+
+> Télécharger l'application complète 
+
+Pour télécharger l'application que nous avons développé, vous trouverez le **.jar** [ici](https://bitbucket.org/cbauchu/simplexe/downloads/) (_Simplix.jar_).
+
+> Manuel utilisateur
+
+Notre application est facile d'utilisation et accessible à tous. Cependant, en cas de non-compréhension d'une fonctionnalité, vous pourrez toujours vous référer
+à notre manuel utilisateur (assez succinct) [ici](https://bitbucket.org/cbauchu/simplexe/manuel.md).
+Nous le laissons au format **.md**, dans l'éventualité où un utilisateur voudrait le modifier.
+
+### Un soucis ?
+
+En cas de soucis, vous pouvez envoyer un mail à cette adresse : **niombela.martin@gmail.com** .
