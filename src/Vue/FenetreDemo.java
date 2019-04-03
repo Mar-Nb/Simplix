@@ -10,7 +10,8 @@ import Modele.LectureEcriture;
 public class FenetreDemo extends JFrame{
 	
 	/**
-	 * Construction d'une nouvelle fenêtre qui peut être fermée sans terminer le programme
+	 * Construction d'une nouvelle fenêtre qui peut être fermée sans terminer le programme.
+	 * Cette fenêtre contient le panelDemo.
 	 */
 	
 	public FenetreDemo() {
