@@ -11,6 +11,10 @@ import com.itextpdf.text.Font.FontStyle;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+/**
+ * Cette classe s'appuie sur iText, qui possède des classes pour gérer tout ce qui concerne l'écriture
+ * dans un fichier pdf. Très pratique d'ailleurs, il permet aussi de faire des tableaux, ...
+ */
 public class GenerePdf {
 	
 	private Document document;
