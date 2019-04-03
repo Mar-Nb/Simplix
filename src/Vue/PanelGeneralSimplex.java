@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 import Controleur.Controleur;
 import Modele.Historique;
 
+/**
+ * Cette classe est contenue par la classe panelGeneral.
+ */
 public class PanelGeneralSimplex extends JPanel{
 	
 	PanelSimplex panelSimp;
@@ -14,7 +17,8 @@ public class PanelGeneralSimplex extends JPanel{
 	Historique historique;
 	
 	/**
-	 * Construit un objet PanelGeneralSimplex à partir d'un Historique fourni en paramètre
+	 * Construit un objet PanelGeneralSimplex à partir d'un Historique fourni en paramètre.
+	 * Il met le layout de cette classe en BorderLayout, instancie un panelSimplex au centre, un panelHistorique à droite, et un panelIndication en bas.
 	 * @param Historique historique
 	 */
 	public PanelGeneralSimplex(Historique historique) {
