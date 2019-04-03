@@ -18,27 +18,27 @@ public class FonctionEco implements Serializable{
 	}
 	
 	/**
-	 * Construit un objet FonctionEco à partir d'un autre objet FonctionEco donné en paramètre et copie son champs Map monomes
-	 * dans le champs Map monomes du nouvel objet à construire
+	 * Construit un objet FonctionEco ï¿½ partir d'un autre objet FonctionEco donnï¿½ en paramï¿½tre et copie son champs Map monomes
+	 * dans le champs Map monomes du nouvel objet ï¿½ construire
 	 * @param FonctionEco fonctionEco
 	 */
 	public FonctionEco(FonctionEco fonctionEco) {
 		monomes = new HashMap();
 		for (Iterator i = fonctionEco.monomes.keySet().iterator(); i.hasNext(); ) {
-			String clé = (String) i.next();
-			this.ajouterMonome(new Monome((Monome)fonctionEco.monomes.get(clé)));;
+			String cle = (String) i.next();
+			this.ajouterMonome(new Monome((Monome)fonctionEco.monomes.get(cle)));;
 		}
 	}
 	/**
-	 * Ajoute un Monome à la Map de monome de this
+	 * Ajoute un Monome ï¿½ la Map de monome de this
 	 * @param Monome m
 	 */
 	public void ajouterMonome(Monome m) {
-		monomes.put(m.getInconnue(), m); // transformer pour que ça s'adapte à la map
+		monomes.put(m.getInconnue(), m); // transformer pour que ï¿½a s'adapte ï¿½ la map
 	}
 	
 	/**
-	 * Renvoie une chaine de caractère correspondant à la fonction économique
+	 * Renvoie une chaine de caractï¿½re correspondant ï¿½ la fonction ï¿½conomique
 	 *@return String chaineFinale
 	 */
 	public String toString() {
@@ -46,23 +46,23 @@ public class FonctionEco implements Serializable{
 		chaineFinale +=  "z = ";
 		Iterator i = monomes.keySet().iterator(); 
 		if(i.hasNext()) {
-			String clé = (String) i.next();
-			chaineFinale+=((Monome) monomes.get(clé)).toString();
+			String cle = (String) i.next();
+			chaineFinale+=((Monome) monomes.get(cle)).toString();
 		}
 		
 		while(i.hasNext()) {
-			String clé = (String) i.next();
-			if(((Monome)monomes.get(clé)).getCoefficient().getNumerateur()>0) {
+			String cle = (String) i.next();
+			if(((Monome)monomes.get(cle)).getCoefficient().getNumerateur()>0) {
 				chaineFinale+=" +";
 			}
-			chaineFinale += " " + ((Monome) monomes.get(clé)).toString();
+			chaineFinale += " " + ((Monome) monomes.get(cle)).toString();
 		}
 		return chaineFinale;
 
 	}
 	/**
-	 * Echange la variable "inconnue" de la fonction économique avec une contrainte explicite, puis simplifie l'expression en additionnant
-	 * les monomes de même inconnue.
+	 * Echange la variable "inconnue" de la fonction ï¿½conomique avec une contrainte explicite, puis simplifie l'expression en additionnant
+	 * les monomes de mï¿½me inconnue.
 	 * @param ContrainteExplicite ce
 	 * @param String inconnue
 	 */
@@ -72,21 +72,21 @@ public class FonctionEco implements Serializable{
 		monomes.remove(inconnue);
 		
 		for (Iterator i = ce.getMonomes().keySet().iterator(); i.hasNext();) {
-			String clé = (String) i.next();
-			Monome temp = new Monome(((Monome) ce.getMonomes().get(clé)).getCoefficient().FMultiplication(coeff), ((Monome) ce.getMonomes().get(clé)).getInconnue());
-			if(monomes.get(clé)!=null) {
-				((Monome)monomes.get(clé)).additionner(temp);
+			String cle = (String) i.next();
+			Monome temp = new Monome(((Monome) ce.getMonomes().get(cle)).getCoefficient().FMultiplication(coeff), ((Monome) ce.getMonomes().get(cle)).getInconnue());
+			if(monomes.get(cle)!=null) {
+				((Monome)monomes.get(cle)).additionner(temp);
 			}
 			else {
-				Monome ajout = new Monome(coeff.FMultiplication(((Monome)ce.getMonomes().get(clé)).getCoefficient()), clé);
-				monomes.put(clé, ajout);
+				Monome ajout = new Monome(coeff.FMultiplication(((Monome)ce.getMonomes().get(cle)).getCoefficient()), cle);
+				monomes.put(cle, ajout);
 			}
 			
 		}
 		
 	}
 	/**
-	 * Renvoie le Monome de la fonction économique ayant la valeur de coefficient maximale 
+	 * Renvoie le Monome de la fonction ï¿½conomique ayant la valeur de coefficient maximale 
 	 * @return String res
 	 */
 	public String monomeCoeffMax() {
@@ -94,10 +94,10 @@ public class FonctionEco implements Serializable{
 		String res=new String();
 		
 		for (Iterator i = monomes.keySet().iterator(); i.hasNext();) {
-			String clé = (String) i.next();
-			if(((Monome)monomes.get(clé)).getCoefficient().FSup(max) && !((Monome)monomes.get(clé)).getInconnue().equals(" ")) {
-				max=new Fraction(((Monome)monomes.get(clé)).getCoefficient());
-				res=((Monome)monomes.get(clé)).getInconnue();
+			String cle = (String) i.next();
+			if(((Monome)monomes.get(cle)).getCoefficient().FSup(max) && !((Monome)monomes.get(cle)).getInconnue().equals(" ")) {
+				max=new Fraction(((Monome)monomes.get(cle)).getCoefficient());
+				res=((Monome)monomes.get(cle)).getInconnue();
 			}
 			
 		}

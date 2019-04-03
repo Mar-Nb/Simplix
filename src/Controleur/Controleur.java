@@ -4,11 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -16,7 +13,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Modele.ContrainteExplicite;
 import Modele.FonctionEco;
 import Modele.Fraction;
-import Modele.GenerePdf;
 import Modele.Historique;
 import Modele.LectureEcriture;
 import Modele.Monome;
@@ -47,8 +43,11 @@ public class Controleur implements ActionListener {
 	}
 
 	/**
-	 * @param ActionEvent evt : un �venement correspondant au choix de l'utilisateur
-	 * Permet de g�rer les choix de l'utilisateur lors de son utilisation du programme Simplexe � partir du d�marrage du programme.
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>actionPerformed</i></h1>
+	 * <h2><code>public Controleur(ActionEvent evt)</code></h2>
+	 * <p>Permet de gérer les choix de l'utilisateur lors de son utilisation du programme Simplexe à partir du démarrage du programme.</p>
+	 * @param evt : (ActionEvent) Un événement correspondant au choix de l'utilisateur
 	 */
 	public void actionPerformed(ActionEvent evt) {
 		
@@ -59,7 +58,7 @@ public class Controleur implements ActionListener {
 			JTextField[] tabLimites=panelFichier.getPanelFormulaire().getPanelC().getZonesEcrituresValeursMaxi();
 			LinkedList<ContrainteExplicite> contraintes=new LinkedList<ContrainteExplicite>();
 			
-			// Boucle qui parcourt le formulaire pour récupérer les monomes du simplexe entrés par l'utilisateur
+			// Boucle qui parcourt le formulaire pour récupérer les monomes du simplexe entré par l'utilisateur
 			for(int i=0;i<tabContraintes.length;i++) {
 				if(tabLimites[i].getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Veuillez entrer des coefficients valides.", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -131,7 +130,7 @@ public class Controleur implements ActionListener {
 		// Bouton se situant dans le panelChargerSimplexe
 		if(evt.getActionCommand().equals("Charger")) {
 			
-			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l�  où il veut crée son fichier
+			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse là  où il veut créer son fichier
 			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par défaut on se place dans le répertoire utilisateur
 			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");//on veut que le fichier soit uniquement au format pdf
 			fichier.addChoosableFileFilter(filtre);
@@ -153,7 +152,7 @@ public class Controleur implements ActionListener {
 			else if(resultat == JFileChooser.CANCEL_OPTION) {
 				fichier.cancelSelection();
 				fichier.setVisible(false);
-				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier s�lectionn�","Erreur",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier sï¿½lectionnï¿½","Erreur",JOptionPane.ERROR_MESSAGE);
 			}
 			
 		}
