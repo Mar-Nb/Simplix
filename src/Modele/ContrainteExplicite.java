@@ -9,7 +9,7 @@ import java.util.Map;
  * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
  * <h1><i>ContrainteExplicite</i></h1>
  * <h2><code>public class ContrainteExplicite implements Serializable</code></h2>
- * <p> Cette classe adopte le comportement d'une contrainte explicite mathématique..</p>
+ * <p> Cette classe adopte le comportement mathématique d'une contrainte explicite.</p>
  *
  */
 @SuppressWarnings("serial")
@@ -23,10 +23,10 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>ContrainteExplicite</i></h1>
 	 * <h2><code>public ContrainteExplicite(Fraction limite, String nom)</code></h2>
-	 * <p>Construit un objet ContrainteExplicite et remplit les champs Fraction inferieurA et String nom avec les variables
-	 * données en paramètre ( les autres champs sont une HashMap vide et un nombre d'inconnues initialisé à 0)</p>
-	 * @param Fraction limite
-	 * @param String nom
+	 * <p>Construit un objet <code>ContrainteExplicite</code> et remplit les champs <code>Fraction</code> <i>inferieurA</i> et <code>String</code> <i>nom</i> avec les variables
+	 * données en paramètre ( les autres champs sont une <code>HashMap</code> vide et un nombre d'inconnues initialisé à 0)</p>
+	 * @param limite : (Fraction)
+	 * @param nom : (String)
 	 * 
 	 * @see Fraction
 	 */
@@ -41,9 +41,9 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>ContrainteExplicite</i></h1>
 	 * <h2><code>public ContrainteExplicite(ContrainteExplicite ce)</code></h2>
-	 * <p>Construit un objet ContrainteExplicite à partir d'un autre objet ContrainteExplicite donné en paramètre et copie 
-	 * tous les champs de la ContrainteExplicite en paramètre dans le nouvel objet qui sera construit.</p>
-	 * @param ContrainteExplicite ce
+	 * <p>Construit un objet <code>ContrainteExplicite</code> à partir d'un autre objet <code>ContrainteExplicite</code> donné en paramètre et copie 
+	 * tous les champs de la <code>ContrainteExplicite</code> en paramètre dans le nouvel objet qui sera construit.</p>
+	 * @param ce : (ContrainteExplicite)
 	 */
 	public ContrainteExplicite(ContrainteExplicite ce) {
 		// TODO Auto-generated constructor stub
@@ -60,8 +60,10 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>ajouterMonome</i></h1>
 	 * <h2><code>public void ajouterMonome(Monome m)</code></h2>
-	 * <p>Permet l'ajout d'un monome dans le champs <code>monome</code>, qui est un champ de type <code>Map</code>.</p>
+	 * <p>Permet l'ajout d'un monome dans le champ <i>monome</i>, qui est un champ de type <code>Map</code>.</p>
 	 * @param m : (Monome) Monome à ajouter
+	 * 
+	 * @see Monome
 	 */
 	public void ajouterMonome(Monome m) {
 		monomes.put(m.getInconnue(), m);
@@ -148,7 +150,7 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>additionnerLigne</i></h1>
 	 * <h2><code>public void additionnerLigne(ContrainteExplicite ce)</code></h2>
-	 * <p>Parcourt la <code>HashMap</code> de <b>this</b> et additionne chaque <code>Monome</code> à celui ayant la même clé dans la <code>HashMap</code>
+	 * <p>Parcourt la <code>HashMap</code> de <i><b>this</b></i> et additionne chaque <code>Monome</code> à celui ayant la même clé dans la <code>HashMap</code>
 	 * de ContrainteExplicite donnée en paramètre.</p>
 	 * @param ce: (ContrainteExplicite) Renvoie une contrainte explicite
 	 */
@@ -165,8 +167,8 @@ public class ContrainteExplicite implements Serializable{
 	 * <h1><i>rentrerBase</i></h1>
 	 * <h2><code>public void rentrerBase(String inconnue)</code></h2>
 	 * <p>Permet de trouver la variable inconnue à sortir de la contrainte. Puis sort cette variable de la contrainte. Puis 
-	 * ajoute la variable de la contrainte dans la contrainte.<br><hr>Ex : (x1 = 4-2x3-8x2 ->rentrerBase(x3) -> x3=2-4x2-(1/2)x1 ).</p>
-	 * @param inconnue : (String) L'inconnue ("x1" par exemple) � sortir de la base
+	 * ajoute la variable de la contrainte dans la contrainte.<br><hr>Ex : (x1 = 4 - 2x3 - 8x2 -> rentrerBase(x3) -> x3 = 2 - 4x2 - (1/2) x1 ).</p>
+	 * @param inconnue : (String) L'inconnue ("x1" par exemple) à sortir de la base
 	 * 
 	 */
 	public void rentrerBase(String inconnue) {
@@ -234,8 +236,8 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>division</i></h1>
 	 * <h2><code>public void division(Fraction coeff)</code></h2>
-	 * <p>Divise tous les monomes de la contrainte <code>this</code> par <b>coeff</b>.</p>
-	 * @param Fraction coeff
+	 * <p>Divise tous les monomes de la contrainte <i><b>this</b></i> par <i>coeff</i>.</p>
+	 * @param coeff : (Fraction)
 	 * 
 	 * @see Fraction
 	 */
@@ -252,7 +254,7 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>getNom</i></h1>
 	 * <h2><code>public String getNom</code></h2>
-	 * <p>Renvoie le champ <code>nom</code> de <code>this</code>.</p>
+	 * <p>Renvoie le champ <i>nom</i> de <i><b>this</b></i>.</p>
 	 * @return nom : (String)
 	 */
 	public String getNom() {
@@ -263,7 +265,7 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>setNom</i></h1>
 	 * <h2><code>public void setNom(String nom)</code></h2>
-	 * <p>Définie le champ <code>nom</code> de <code>this</code> avec la String <code>nom</code> fournit en paramètre</p>
+	 * <p>Définie le champ <i>nom</i> de <i><b>this</b></i> avec la String <i>nom</i> fournit en paramètre</p>
 	 * @param nom : (String)
 	 */
 	public void setNom(String nom) {
@@ -274,7 +276,7 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>getMonomes</i></h1>
 	 * <h2><code>public Map getMonomes()</code></h2>
-	 * <p>Renvoie le champ <code>monomes</code> de <code>this</code>, qui est une <code>Map</code> de <code>Monome</code>.</p>
+	 * <p>Renvoie le champ <i>monomes</i> de <i><b>this</b></i>, qui est une <code>Map</code> de <code>Monome</code>.</p>
 	 * @return monomes : (Map)
 	 * 
 	 * @see Monome
@@ -288,7 +290,7 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>setMonomes</i></h1>
 	 * <h2><code>public void setMonomes(Map monomes)</code></h2>
-	 * <p>Définie le champ <code>monomes</code> de <code>this</code> avec la <code>Map</code> fournit en paramètre.</p>
+	 * <p>Définie le champ <i>monomes</i> de <i><b>this</b></i> avec la <code>Map</code> fournit en paramètre.</p>
 	 */
 	public void setMonomes(Map monomes) {
 		this.monomes = monomes;
@@ -298,7 +300,7 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>getInferieurA</i></h1>
 	 * <h2><code>public Fraction getInferieurA()</code></h2>
-	 * <p>Renvoie le champ <code>inferieurA</code> de <code>this</code>, qui est une Fraction.</p>
+	 * <p>Renvoie le champ <i>inferieurA</i> de <i><b>this</b></i>, qui est une <code>Fraction</code>.</p>
 	 * @return inferieurA : (Fraction)
 	 * 
 	 * @see Fraction
@@ -311,7 +313,7 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>setInferieurA</i></h1>
 	 * <h2><code>public void setInferieurA(Fraction inferieurA)</code></h2>
-	 * <p>Définie le champ <code>inferieurA</code> de <code>this</code> avec la Fraction fournit en paramètre.</p>
+	 * <p>Définie le champ <i>inferieurA</i> de <i><b>this</b></i> avec la <code>Fraction</code> fournit en paramètre.</p>
 	 * @param inferieurA : (Fraction)
 	 * 
 	 * @see Fraction
@@ -323,7 +325,7 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>getNombreInconnues</i></h1>
 	 * <h2><code>public int getNombreinconnues()</code></h2>
-	 * <p>Renvoie le champ <code>nombreInconnues</code> de <code>this</code>.</p>
+	 * <p>Renvoie le champ <i>nombreInconnues</i> de <i><b>this</b></i>.</p>
 	 * @return nombreInconnues : (Integer)
 	 */
 	public int getNombreInconnues() {
@@ -334,8 +336,8 @@ public class ContrainteExplicite implements Serializable{
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
 	 * <h1><i>setNombreInconnues</i></h1>
 	 * <h2><code>public void setNombreInconnues</code></h2>
-	 * <p>Définie le champ <code>nombreInconnues</code> de <code>this</code> avec l'<code>Integer</code> fournit en paramètre.</p>
-	 * @param nombreInconnues nombreInconnues
+	 * <p>Définie le champ <i>nombreInconnues</i> de <i><b>this</b></i> avec l'<code>Integer</code> fournit en paramètre.</p>
+	 * @param nombreInconnues : (Integer)
 	 */
 	public void setNombreInconnues(int nombreInconnues) {
 		this.nombreInconnues = nombreInconnues;
