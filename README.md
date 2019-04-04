@@ -1,6 +1,7 @@
-# README -- Interface graphique Simplexe
+# README -- Interface graphique **Simplexe**
 
 Projet réalisé par :
+
 * **Claire BAUCHU**
 * **Martin-Stephen NIOMBELA**
 * **Damien CHANCEREL**
