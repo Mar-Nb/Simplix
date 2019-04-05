@@ -2,42 +2,66 @@ package Modele;
 
 import java.io.Serializable;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>Fraction</i></h1>
+ * <h2><code>public class Fraction implements Serializable</code></h2>
+ * <p> Cette classe imite le comportement mathématique d'une fraction. Elle contient toutes les opérations nécessaires à la gestion des fractions par les monomes.</p>
+ */
 public class Fraction implements Serializable{
+	
 	private int numerateur;
 	private int denominateur;
 	
 	//FRACTION
 	//une fraction composee d'une numerateur et d'un denominateur
+	
 	/**
-	 * Construit un objet Fraction à partir d'un numérateur(int) et d'un dénominateur(int)
-	 * @param int parNum
-	 * @param int parDen
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>Fraction</i></h1>
+ 	 * <h2><code>public Fraction(int parNum, int parDen)</code></h2>
+	 * <p>Construit un objet <code>Fraction</code> à partir des deux valeurs passées en paramètre qui lui serviront respectivement de numérateur et de dénominateur.</p>
+	 * @param parNum : (Integer) Le numérateur
+	 * @param parDen : (Integer) Le dénominateur
 	 */
 	public Fraction(int parNum, int parDen) {
+	
 		if(parDen == 0) {
 			throw new RuntimeException("Division par zero");
 		}
+		
 		numerateur = parNum;
 		denominateur = parDen;
 		reduire();   //A voir si on veut que la fraction soit reduite directement ou non
+
 	}
+	
 	//si la fraction est un nombre entier
+	
 	/**
-	 * Construit un objet Fraction à partir d'un numérateur(int).Le dénominateur étant égal à 0, la Fraction sera en réalité 
-	 * un entier
-	 * 
-	 * @param int parVal
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>Fraction</i></h1>
+ 	 * <h2><code>public Fraction(int parVal)</code></h2>
+	 * <p>Construit un objet <code>Fraction</code> à partir de la valeur passée en paramètre. Le dénominateur est mis à 1 pour simuler un entier.</p>
+	 * @param parVal : (Integer)
 	 */
 	public Fraction(int parVal) {
+	
 		numerateur = parVal;
 		denominateur = 1;
 		reduire();
+		
 	}
+	
 	//copie d'une fraction
+	
 	/**
-	 * Construit un objet Fraction à partir d'un autre objet Fraction donné en paramètre et copie ses champs numerateur et denominateur 
-	 * dans les champs numerateur et denominateur du nouvel objet à créer
-	 * @param Fraction parFac
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>Fraction</i></h1>
+ 	 * <h2><code>public Fraction(Fraction parFac)</code></h2>
+	 * <p>Construit un objet <code>Fraction</code> à partir d'un autre objet <code>Fraction</code> donné en paramètre et copie ses champs <i>numerateur</i> et <i>denominateur</i> 
+	 * dans les champs <i>numerateur</i> et <i>denominateur</i> du nouvel objet à créer.</p>
+	 * @param parFac : (Fraction)
 	 */
 	public Fraction(Fraction parFac) {
 		numerateur = parFac.getNumerateur();
@@ -47,15 +71,22 @@ public class Fraction implements Serializable{
 	
 	//GETTER
 	/**
-	 * Renvoie le champs numerateur (int) de this
-	 * @return int numerateur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>getNumerateur</i></h1>
+ 	 * <h2><code>public int getNumerateur()</code></h2>
+	 * <p>Renvoie le champ <i>numerateur</i> de <i><b>this</b></i>.</p>
+	 * @return numerateur : (Integer)
 	 */
 	public int getNumerateur() {
 		return numerateur;
 	}
+	
 	/**
-	 * Renvoie le champs denominateur (int) de this
-	 * @return int denominateur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>getDenominateur</i></h1>
+ 	 * <h2><code>public int getDenominateur()</code></h2>
+	 * <p>Renvoie le champ <i>denominateur</i> de <i><b>this</b></i>.</p>
+	 * @return denominateur : (Integer)
 	 */
 	public int getDenominateur() {
 		return denominateur;
@@ -63,16 +94,22 @@ public class Fraction implements Serializable{
 	
 	//SETTER (ne pas oublier de recreer la fraction apres pour qu'elle soit réduite)
 	/**
-	 * Défini le champs numerateur de this avec l'int donné en paramètre
-	 * @param int parNum
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>setNumerateur</i></h1>
+	 * <h2><code>public setNumerateur(int parNum)</code></h2>
+	 * <p>Défini le champ <i>numerateur</i> de <i><b>this</b></i> avec la valeur donnée en paramètre.</p>
+	 * @param parNum : (Integer)
 	 */
 	public void setNumerateur(int parNum) {
 		this.numerateur = parNum;
 	}
 	
 	/**
-	 * Défini le champs dénominateur de this avec l'int donné en paramètre
-	 * @param int parDen
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>setDenominateur</i></h1>
+ 	 * <h2><code>public setDenominateur(int parDen)</code></h2>	
+	 * <p>Défini le champ <i>dénominateur</i> de <i><b>this</b></i> avec la valeur donnée en paramètre.</p>
+	 * @param parDen : (Integer)
 	 */
 	public void setDenominateur(int parDen) {
 		this.denominateur = parDen;
@@ -81,10 +118,14 @@ public class Fraction implements Serializable{
 	//CALCUL PGCD
 	//calcul le pgcd entre deux nombres ; utilise pour reduire une fraction
 	/**
-	 * Renvoie le PGCD(plus grand diviseur commun) du numérateur et du dénominateur fournit en paramètre
-	 * @param int Num
-	 * @param int Den
-	 * @return int CalculPGCD(Den, Num % Den)
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>CalculPGCD</i></h1>
+ 	 * <h2><code>public int CalculPGCD(int Num, int Den)</code></h2>
+	 * <p>Renvoie le PGCD(<i>plus grand diviseur commun</i>) des valeurs fournit en paramètre.</p>
+	 * @param Num : (Integer)
+	 * @param Den : (Integer)
+	 *
+	 * @return CalculPGCD(Den, Num % Den) : (Integer)
 	 */
 	public int CalculPGCD(int Num, int Den) {
 		if(Num % Den == 0) {
@@ -96,8 +137,10 @@ public class Fraction implements Serializable{
 	//REDUIRE reduit de facon definitive
 	//reduit la fraction jusqu'a ce qu'elle soit irreductible
 	/**
-	 * Reduit une fraction à partir de la méthode CalculPGCD jusqu'à la rendre irréductible
-	 *@return Fraction new Fraction
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>reduire</i></h1>
+ 	 * <h2><code>void reduire()</code></h2>
+	 * <p>Reduit une fraction à partir de la méthode <code>CalculPGCD</code> jusqu'à la rendre irréductible.</p>
 	 */
 	void reduire() {
 		if(denominateur < 0) { //pour mettre le - devant
@@ -112,9 +155,13 @@ public class Fraction implements Serializable{
 	//REDUIREV2 reduit juste pour l'affichage
 	//reduit la fraction jusqu'a ce qu'elle soit irreductible -- ne sert a rien si "reduire()" est activé dans les constructeur "Fraction"
 	/**
-	 * Reduit une Fraction dans l'affichage
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>reduireV2</i></h1>
+ 	 * <h2><code>public Fraction reduireV2(Fraction frac)</code></h2>
+	 * <p>Reduit une Fraction dans l'affichage.</p>
 	 * @param Fraction frac
-	 * @return Fraction new Fraction
+	 *
+	 * @return new Fraction
 	 */
 	public Fraction reduireV2(Fraction frac) {
 		int pgcd = CalculPGCD(frac.getNumerateur(),frac.getDenominateur());
@@ -126,8 +173,12 @@ public class Fraction implements Serializable{
 	//ECRITURE NON FRACTIONNELLE (voir si utilise float ou double)
 	//ecrit une fraction sous le format a virgule (float : 7 chiffres apres la virgule || double = 15 chiffres apres la virgule)
 	/**
-	 * Renvoie une Fraction sous forme de nombre à virgule (double : max 15 chiffres après la virgule)
-	 * @return double resultat
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>FMath()</i></h1>
+ 	 * <h2><code>public double FMath()</code></h2>
+	 * <p>Renvoie une <code>Fraction</code> sous forme de nombre à virgule.</p>
+	 *
+	 * @return resultat : (double)
 	 */
 	public double FMath() {
 		double nume = this.getNumerateur();
@@ -137,8 +188,12 @@ public class Fraction implements Serializable{
 	}
 	
 	/**
-	 * Echange le numérateur et le dénominateur d'une fonction
-	 * @return Fraction new Fraction
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>swap</i></h1>
+ 	 * <h2><code>public Fraction swap()</code></h2>
+	 * <p>Echange le numérateur et le dénominateur d'une fonction.</p>
+	 *
+	 * @return new Fraction
 	 */
 	public Fraction swap() {
 		int denominateur = this.denominateur;
@@ -149,9 +204,13 @@ public class Fraction implements Serializable{
 	//COMPARE
 	//compare deux fractions entre elles
 	/**
-	 * Compare deux Fractions.Si elles ont le même numérateur et dénominateur renvoie True, sinon False
-	 * @param Fraction f 
-	 * @return boolean True/False
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>FCompare</i></h1>
+ 	 * <h2><code>public boolean FCompare(Fraction f)</code></h2>
+	 * <p>Compare la <code>Fraction</code> passée en paramètre avec <i><b>this</b></i>. Si elles sont identiques, renvoie <code>true</code>, sinon <code>false</code>.</p>
+	 * @param f : (Fraction)
+	 * 
+	 * @return (boolean)
 	 */
 	public boolean FCompare(Fraction f) {
 		if((this.getNumerateur() == f.getNumerateur()) && (this.getDenominateur() == f.getDenominateur())) {
@@ -164,9 +223,13 @@ public class Fraction implements Serializable{
 	
 	//donne l'ordre de deux fractions ( < ou > )  true si sup
 	/**
-	 * Compare deux fractions , renvoie True si la Fraction sur laquelle la méthode est appelée est supérieure , False sinon
-	 * @param Fraction f
-	 * @return boolean True/False
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>FSup</i></h1>
+ 	 * <h2><code>public boolean FSup(Fraction f)</code></h2>
+	 * <p>Compare la <code>Fraction</code> passée en paramètre avec <i><b>this</b></i>, renvoie <code>true</code> si <i><b>this>/b></i> est supérieure , <code>false</code> sinon.</p>
+	 * @param f : (Fraction)
+	 *
+	 * @return (boolean)
 	 */
 	public boolean FSup(Fraction f) {
 		if(this.FMath() > f.FMath()) {
@@ -180,9 +243,13 @@ public class Fraction implements Serializable{
 	//ADDITION
 	//addition deux fractions entre elles
 	/**
-	 * Additionne deux Fraction entre elles
-	 * @param Fraction frac
-	 * @return Fraction new Fraction
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>FAddition</i></h1>
+ 	 * <h2><code>public Fraction FAddition(Fraction frac)</code></h2>
+	 * <p>Additionne <i<frac</i> avec <i><b>this</b></i> et retourne le résultat.</p>
+	 * @param frac : (Fraction)
+	 *
+	 * @return new Fraction
 	 */
 	public Fraction FAddition(Fraction frac) {
 		int num = ( (numerateur * frac.getDenominateur()) + (frac.getNumerateur() * denominateur) );
@@ -193,9 +260,12 @@ public class Fraction implements Serializable{
 	//SOUSTRACTION
 	//soustrait deux fractions entre elles
 	/**
-	 * Soustrait deux Fraction entre elles
-	 * @param Fraction frac
-	 * @return Fraction new Fraction
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>FSoustraction</i></h1>
+ 	 * <h2><code>public Fraction FSoustraction(Fraction frac)</code></h2>
+	 * <p>Soustrait <i>frac</i> de <i><b>this</b></i> et retourne le résultat.</p>
+	 * @param frac : (Fraction)
+	 * @return new Fraction
 	 */
 	public Fraction FSoustraction(Fraction frac) {
 		int num = ( (numerateur * frac.denominateur) - (frac.numerateur * denominateur) );
@@ -206,9 +276,13 @@ public class Fraction implements Serializable{
 	//MULTIPLICATION
 	//multiplie deux fractions entre elles
 	/**
-	 * Multiplie deux Fraction
-	 * @param Fraction frac
-	 * @return Fraction new Fraction
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>FMultiplication</i></h1>
+ 	 * <h2><code>public Fraction FMultiplication(Fraction frac)</code></h2>
+	 * <p>Multiplie <i>frac</i> et <i><b>this</b></i>.</p>
+	 * @param frac : (Fraction)
+	 *
+	 * @return new Fraction
 	 */
 	public Fraction FMultiplication(Fraction frac) {
 		int num = numerateur * frac.getNumerateur();
@@ -219,9 +293,12 @@ public class Fraction implements Serializable{
 	//DIVISION
 	//divise deux fractions entre elles
 	/**
-	 * Divise deux Fraction entre elles
-	 * @param Fraction frac
-	 * @return Fraction new Fraction
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>FDivision</i></h1>
+ 	 * <h2><code>public Fraction FDivision(Fraction frac)</code></h2>
+	 * <p>Divise <i><b>this</b></i> par <i>frac</i>.</p>
+	 * @param frac : (Fraction)
+	 * @return new Fraction
 	 */
 	public Fraction FDivision(Fraction frac) {
 		int num = numerateur * frac.getDenominateur();
@@ -232,8 +309,12 @@ public class Fraction implements Serializable{
 	//TOSTRING
 	//ecrit une fraction
 	/**
-	 * Affiche une Fraction sous la forme d'une String
-	 *@return String numerateur + "/" + denominateur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>toString</i></h1>
+ 	 * <h2><code>public String toString()</code></h2>
+	 * <p>Affiche une fraction sous la forme d'une chaîne de caractère.</p>
+	 *
+	 * @return numerateur + "/" + denominateur : (String)
 	 */
 	public String toString() {
 		if(denominateur == 1) {
@@ -243,6 +324,7 @@ public class Fraction implements Serializable{
 	}
 	
 	//TEST_MAIN
+	/*
 	public static void main(String[] args) {
 		
 		//FRACTION
@@ -357,6 +439,6 @@ public class Fraction implements Serializable{
 		System.out.println("PGCD de 125 et 475 = " + pgcd);
 		System.out.println();
 		System.out.println("-----------------------------");
-	}
+	}*/
 
 }
