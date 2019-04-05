@@ -12,13 +12,22 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 /**
- * Cette classe s'appuie sur iText, qui possède des classes pour gérer tout ce qui concerne l'écriture
- * dans un fichier pdf. Très pratique d'ailleurs, il permet aussi de faire des tableaux, ...
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>GenerePdf</i></h1>
+ * <h2><code>public class GenerePdf</code></h2>
+ * <p>Cette classe s'appuie sur iText, qui possÃ¨de des classes pour gÃ©rer tout ce qui concerne l'Ã©criture
+ * dans un fichier pdf. TrÃ¨s pratique d'ailleurs, il permet aussi de faire des tableaux, d'affficher, des images, ...</p>
  */
 public class GenerePdf {
 	
 	private Document document;
 	
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>GenerePdf</i></h1>
+ 	 * <h2><code>public GenerePdf()</code></h2>
+	 * <p>Constructeur vide de la classe GenerePdf.<br>GÃ©nÃ¨re un .pdf avec pour seul contenu "HelloiText.pdf".</p>
+	 */
 	public GenerePdf() {
 		
 		document = new Document();
@@ -37,9 +46,14 @@ public class GenerePdf {
 	}
 	
 	/**
-	 * Construit un objet GenerePdf à partir d'un Historique et d'une String donnés en paramètre, la String correspondant au nom du fichier
-	 * @param Historique histo
-	 * @param String nomFichier
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>GenerePdf</i></h1>
+ 	 * <h2><code>public GenerePdf(Historique histo, File file)</code></h2>
+	 * <p>GÃ©nÃ¨re un .pdf Ã  partir d'un l'historique et du nom de fichier donnÃ©s en paramÃ¨tre.</p> 
+	 * @param histo : (Historique) Historique du simplexe en cours
+	 * @param nomFichier : (File)
+	 * 
+	 * @see Historique
 	 */
 	
 	public GenerePdf(Historique histo, File file) {
@@ -60,33 +74,44 @@ public class GenerePdf {
 	}
 	
 	/**
-	 * Ajoute un paragraphe au document pdf 
-	 * @param Document doc
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>populate</i></h1>
+ 	 * <h2><code>public void populate(Document doc)</code></h2>
+	 * <p>Ajoute un paragrapÄ¥e "Hello iText" au document .pdf.</p>
+	 * @param doc : (Document)
+	 *
 	 * @throws DocumentException
+	 *
+	 * @see Document
 	 */
-	
 	public void populate(Document doc) throws DocumentException{
 		doc.add(new Paragraph("Hello iText"));
 	}
 	
 	/**
-	 * Ajoute des paragraphes correspondant à chaque Simplexe composant l'Historique donné en paramètre dans le document pdf
-	 * @param Document doc
-	 * @param Historique histo
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ 	 * <h1><i>populate</i></h1>
+ 	 * <h2><code>public populate(Document doc, Historique histo)</code></h2>
+	 * <p>Ajoute des paragraphes correspondant Ã  chaque <code>Simplexe</code> composant l'historique donnÃ© en paramÃ¨tre au document .pdf.</p>
+	 * @param doc : (Document)
+	 * @param histo : (Historique)
+	 *
 	 * @throws DocumentException
+	 * 
+	 * @see Historique
+	 * @see Document
 	 */
-	
 	public void populate(Document doc, Historique histo) throws DocumentException {
 		Font f = new Font(FontFamily.COURIER);
 		int i = 0;
 		doc.add(new Paragraph("Listes des dictionnaires",new Font(FontFamily.TIMES_ROMAN,20,Font.BOLD | Font.UNDERLINE)));
 		for(Simplexe s : histo.getListeSimplexe()) {
-			doc.add(new Paragraph("\n\nDictionnaire n°"+Integer.toString(i)+"\n"+s.toString2(),f));
+			doc.add(new Paragraph("\n\nDictionnaire nÂ°"+Integer.toString(i)+"\n"+s.toString2(),f));
 			i++;
 		}
 		
-		if(histo.getListeSimplexe().getLast().echangeJudicieux().contains("bénéfice")) {
-			doc.add(new Paragraph("\nBénéfice maximum : "+histo.getListeSimplexe().getLast().getFonctionEco().getMonomes().get(" "),f));
+		if(histo.getListeSimplexe().getLast().echangeJudicieux().contains("bÃ©nÃ©fice")) {
+			doc.add(new Paragraph("\nBÃ©nÃ©fice maximum : "+histo.getListeSimplexe().getLast().getFonctionEco().getMonomes().get(" "),f));
 		}
 	}
 
