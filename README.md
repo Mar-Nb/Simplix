@@ -39,7 +39,7 @@ Pour télécharger l'application que nous avons développé, vous trouverez le **.ja
 > Manuel utilisateur
 
 Notre application est facile d'utilisation et accessible à tous. Cependant, en cas de non-compréhension d'une fonctionnalité, vous pourrez toujours vous référer
-à notre manuel utilisateur (assez succinct) [ici](https://bitbucket.org/cbauchu/simplexe/manuel.md).
+à notre manuel utilisateur (assez succinct) [ici](https://bitbucket.org/cbauchu/simplexe/src/387e00e4e08ed946f6cd8055fc30a60715d515a7/manuel.md?at=master).
 Nous le laissons au format **.md**, dans l'éventualité où un utilisateur voudrait le modifier.
 
 ### Un soucis ?
