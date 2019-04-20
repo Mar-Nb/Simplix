@@ -3,8 +3,6 @@ package Modele;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,12 +13,14 @@ import java.util.Map;
  *
  * @see Simplexe
  */
+@SuppressWarnings("serial")
 public class FonctionEco implements Serializable{
+	
 	Map monomes;
 	
 	/**
 	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
-   	 * <h1><i>FonctionEco</i></h1>
+   	 * <h1><i>Contructeur</i></h1>
  	 * <h2><code>public FonctionEco()</code></h2>
 	 * <p>Construit un objet <code>FonctionEco</code> contenant une <code>HashMap</code>.</p>
 	 */
@@ -30,7 +30,7 @@ public class FonctionEco implements Serializable{
 	
 	/**
 	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
-  	 * <h1><i>FonctionEco</i></h1>
+  	 * <h1><i>Constructeur</i></h1>
  	 * <h2><code>public FonctionEco(FonctionEco fonctionEco)</code></h2>
 	 * <p>Construit un objet <code>FonctionEco</code> à partir d'un autre objet <code>FonctionEco</code> donné en paramètre et copie son champ <code>Map</code> <i>monomes</i>
 	 * dans le champ <code>Map</code> <i>monomes</i> du nouvel objet à construire.</p>
@@ -93,8 +93,6 @@ public class FonctionEco implements Serializable{
 	 * @param inconnue : (String)
 	 * 
 	 * @see ContrainteExplicite
-	 * @see Monome#getCoefficient()
-	 * @see Fraction#FMultiplication(Fraction)
 	 */
 	public void echanger(ContrainteExplicite ce, String inconnue) {
 		Monome aEchanger = ((Monome)monomes.get(inconnue));

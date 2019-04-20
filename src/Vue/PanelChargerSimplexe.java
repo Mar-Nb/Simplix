@@ -1,26 +1,31 @@
 package Vue;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.io.File;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
 
 import Controleur.Controleur;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelChargerSimplexe</i></h1>
+ * <h2><code>public class PanelChargerSimplexe extends JPanel</code></h2>
+ * <p>Cette classe permet Ã  l'utilisateur de charger un Simplexe dÃ©jÃ  existant.</p>
+ */
+@SuppressWarnings("serial")
 public class PanelChargerSimplexe extends JPanel{
 	private JButton parcourir;
 	
 	/**
-	 * Construit un objet PanelChargerSimplexe permettant à l'utilisateur de charger un Simplexe déjà existant
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelChargerSimplexe()</code></h2>
+	 * <p>Ce constructeur ajoute au panel un bouton qui ouvre un <code>JFileChooser</code> 
+	 * pour que l'utilisateur puisse sÃ©lectionner son fichier.</p>
 	 */
 	public PanelChargerSimplexe() {
 		
@@ -30,26 +35,18 @@ public class PanelChargerSimplexe extends JPanel{
 		GridBagConstraints contrainteEvenement = new GridBagConstraints();
 		contrainteEvenement.insets = new Insets(3,3,3,3);
 		
-		//Création d'une etiquette
+		//Crï¿½ation d'une etiquette
 	
 		JLabel nomDuFichier=new JLabel("Choisissez un fichier :");
-		
-		
-
 		
 		//Bouton et ActionCommand
 		parcourir=new JButton("Parcourir");	
 		parcourir.setActionCommand("Charger");
 		
-
-		
-		
-		//Ajout des éléments dans le GridBagLayout
+		//Ajout des ï¿½lï¿½ments dans le GridBagLayout
 		contrainteEvenement.gridx=0;
 		contrainteEvenement.gridy=0;
 		this.add(nomDuFichier,contrainteEvenement);
-		
-
 		
 		contrainteEvenement.gridx=0;
 		contrainteEvenement.gridy=1;
@@ -58,12 +55,9 @@ public class PanelChargerSimplexe extends JPanel{
 		
 	}
 	
-	
-	
-	
 	//ActionListener sur le bouton ajouter
 	/**
-	 * Met le controleur en paramètre à l'écoute du bouton Charger 
+	 * Met le controleur en paramï¿½tre ï¿½ l'ï¿½coute du bouton Charger 
 	 * @param parControleur
 	 */
 	public void enregistreEcouteur(Controleur parControleur){

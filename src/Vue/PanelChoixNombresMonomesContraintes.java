@@ -11,6 +11,13 @@ import javax.swing.JPanel;
 
 import Controleur.Controleur;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelChoixNombresMonomesContraintes</i></h1>
+ * <h2><code>public class PanelChoixNombresMonomesContraintes etends JPanel</code></h2>
+ * <p>Cette classe permet Ã  l'utilisateur de choisir le nombre de contraintes et de monomes souhaitÃ© dans le Simplexe.</p>
+ */
+@SuppressWarnings("serial")
 public class PanelChoixNombresMonomesContraintes extends JPanel {
 
 	JComboBox <Integer> nbMonome = new JComboBox <Integer>();
@@ -24,8 +31,11 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	JButton ok;
 	
 	/**
-	 * Construit un objet PanelChoixNombresMonomesContraintes permettant à l'utilisateur de choisir le nombre de contraintes et de 
-	 * monomes souhaité dans le Simplexe
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelChoixMonomesContraintes()</code></h2>
+	 * <p> Ce constructeur met en place un formulaire contenant deux <code>JComboBox</code> pour dÃ©signer 
+	 * le nombre de monome et de contrainte.</p>
 	 */
 	public PanelChoixNombresMonomesContraintes() {
 		//On ajoute nbMonome, nbContrainte et leur label dans la partie Nord
@@ -35,7 +45,7 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 		
 		contrainte.fill = GridBagConstraints.BOTH; contrainte.insets = new Insets(20,10,20,10);
 		
-		JLabel labelTitre = new JLabel("Formulaire de création du Simplexe",JLabel.CENTER);
+		JLabel labelTitre = new JLabel("Formulaire de crÃ©ation du Simplexe",JLabel.CENTER);
 		contrainte.gridx = 0; contrainte.gridy = 0;
 		contrainte.gridwidth = 1; contrainte.gridheight = 1;
 		this.add(labelTitre, contrainte);
@@ -70,7 +80,10 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 	
 	/**
-	 * Met le contrôleur en paramètre à l'écoute du bouton ok
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>enregistreEcouteur</i></h1>
+	 * <h2><code>public void enregistreEcouteur(Controleur parControleur)</code></h2>
+	 * <p>Met l'objet <code>Controleur</code> donnÃ© en paramÃ¨tre Ã  l'Ã©coute du bouton ok.</p>
 	 * @param parControleur
 	 */
 	public void enregistreEcouteur(Controleur parControleur) {
@@ -79,15 +92,21 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 	
 	/**
-	 * Renvoie le champ ok de this
-	 * @return JButton ok
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getBouton</i></h1>
+	 * <h2><code>public JButton getBouton()</code></h2>
+	 * <p>Renvoie le champ <i>ok<i> de <i><b>this</b></i>.</p>
+	 * @return ok : (JButton)
 	 */
 	public JButton getBouton() {
 		return ok;
 	}
 	
 	/**
-	 * remet le nombre de monomes et de contraintes souhaité à 0
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>viderFormulaire</i></h1>
+	 * <h2><code>public void viderFormulaire()</code></h2>
+	 * <p>Remet les <code>JComboBox</code> de ce panel Ã  0.</p>
 	 */
 	public void viderFormulaire() {
 		nbMonome.setSelectedIndex(0);
@@ -95,32 +114,44 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 
 	/**
-	 * Renvoie le nombre de monome choisi dans la JComboBox
-	 * @return JComboBox<Integer> nbMonome
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getNbMonome</i></h1>
+	 * <h2><code>public JComboBox getNbMonome()</code></h2>
+	 * <p>Renvoie la <code>JComboBox</code> <i>nbMonome</i>.</p>
+	 * @return nbMonome : (JComboBox)
 	 */
 	public JComboBox<Integer> getNbMonome() {
 		return nbMonome;
 	}
 
 	/**
-	 * Renvoie le nombre de contrainte choisi dans la JComboBox
-	 * @return JComboBox<Integer> nbContraintes
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getNbContraintes</i></h1>
+	 * <h2><code>public JComboBox getNbContraintes()</code></h2>
+	 * <p>Renvoie la <code>JComboBox</code> <i>nbContraintes</i>.</p>
+	 * @return nbContraintes : (JComboBox)
 	 */
 	public JComboBox<Integer> getNbContraintes() {
 		return nbContraintes;
 	}
 
 	/**
-	 * Renvoie le champ nombreMonome de this
-	 * @return Integer nombreMonome
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getNombreMonme</i></h1>
+	 * <h2><code>public Integer getNombreMonome()</code></h2>
+	 * <p>Renvoie le champ <i>nombreMonome</i> de <i><b>this</b></i>.</p>
+	 * @return nombreMonome : (Integer)
 	 */
 	public Integer getNombreMonome() {
 		return nombreMonome;
 	}
 
 	/**
-	 * Renvoie le champ nombreContraintes de this
-	 * @return Integer nombreContraintes
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getNombreContraintes</i></h1>
+	 * <h2><code>public Integer getNombreContraintes()</code></h2>
+	 * <p>Renvoie le champ <i>nombreContraintes</i> de <i><b>this</b></i>.</p>
+	 * @return nombreContraintes : (Integer)
 	 */
 	public Integer getNombreContraintes() {
 		return nombreContraintes;

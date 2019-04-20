@@ -1,7 +1,6 @@
 package Vue;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,20 +11,30 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.border.EmptyBorder;
 
 import Modele.Historique;
-import Modele.Simplexe;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelHistorique</i></h1>
+ * <h2><code>public class PanelHistorique extends JPanel</code></h2>
+ * <p>Cette classe permet d'afficher à l'utilisateur tous les dictionnaires qu'il effectuera sous la forme suivante : <br>
+ * <ul><li>Dictionnaire 0</li><hr>
+ * <li>Dictionnaire 1</li><hr>
+ * <li>Dictionnaire 2</li></ul></p>
+ */
+@SuppressWarnings("serial")
 public class PanelHistorique extends JPanel {
 	
 	private Historique historique;
 	public final Font police = new Font("Times New Roman", Font.PLAIN, 17);
 	
 	/**
-	 * Constructeur pour un historique vide
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelHistorique()</code></h2>
+	 * <p>Constructeur vide.</p>
 	 */
 	public PanelHistorique(){
 		JLabel vide = new JLabel("L'historique est vide.",JLabel.CENTER);
@@ -34,11 +43,15 @@ public class PanelHistorique extends JPanel {
 	}
 	
 	/**
-	 * Constructeur affichant les simplexes de l'historique passé en paramètre dans le panel. La mise en forme est faite en HTM%L.
-	 * @param histo : Historique contenant les dictionnaires du simplexe en cours
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>PanelHistorique</i></h1>
+	 * <h2><code>public PanelHistorique(Historique histo)</code></h2>
+	 * <p>Met en place un GridLayout contenant un <code>JScrollPane</code> faisant défiler l'ensemble des <code>Simplexe</code> contenus dans 
+	 * l'<code>Historique</code> passé en paramètre.</p>
+	 * @param histo : (Historique) Contient les dictionnaires du simplexe en cours
 	 */
 	public PanelHistorique(Historique histo) {
-		this.setLayout(new GridLayout(3, 1));
+		this.setLayout(new GridLayout(6, 1));
 		historique = histo;
 		
 		JPanel contenu = new JPanel();
@@ -51,7 +64,7 @@ public class PanelHistorique extends JPanel {
 		
 		// On parcourt les dictionnaires de l'historique
 		for(int i =0 ; i<histo.getListeSimplexe().size() ; i++) {
-			JLabel simp = new JLabel("<html><head></head><body><p> Dictionnaire n�"+Integer.toString(i)+":</p>"
+			JLabel simp = new JLabel("<html><head></head><body><p> Dictionnaire n°"+Integer.toString(i)+":</p>"
 			+histo.getListeSimplexe().get(i).toString()+"</body></html>");
 			
 			simp.setFont(police);
@@ -65,16 +78,22 @@ public class PanelHistorique extends JPanel {
 	}
 
 	/**
-	 * Getter qui renvoie l'historique du panel
-	 * @return historique
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getHistorique</i></h1>
+	 * <h2><code>public Historique getHistorique()</code></h2>
+	 * <p>Renvoie le champ <i>historique</i> de <i><b>this</b></i>.</p>
+	 * @return historique : (Historique)
 	 */
 	public Historique getHistorique() {
 		return historique;
 	}
 
 	/**
-	 * Setter qui remplace l'historique du panelHistorique par celui passé en paramètre
-	 * @param historique
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setHistorique</i></h1>
+	 * <h2><code>public void setHistorique(Historique historique)</code></h2>
+	 * <p>Remplace la valeur du champ <i>historique</i> par celle passée en paramètre.</p>
+	 * @param historique : (Historique)
 	 */
 	public void setHistorique(Historique historique) {
 		this.historique = historique;

@@ -7,7 +7,6 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
-import com.itextpdf.text.Font.FontStyle;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -16,7 +15,7 @@ import com.itextpdf.text.pdf.PdfWriter;
  * <h1><i>GenerePdf</i></h1>
  * <h2><code>public class GenerePdf</code></h2>
  * <p>Cette classe s'appuie sur iText, qui possède des classes pour gérer tout ce qui concerne l'écriture
- * dans un fichier pdf. Très pratique d'ailleurs, il permet aussi de faire des tableaux, d'affficher, des images, ...</p>
+ * dans un fichier pdf. Très pratique d'ailleurs, il permet aussi de faire des tableaux, d'afficher, des images, ...</p>
  */
 public class GenerePdf {
 	
@@ -24,7 +23,7 @@ public class GenerePdf {
 	
 	/**
 	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
- 	 * <h1><i>GenerePdf</i></h1>
+ 	 * <h1><i>Constructeur</i></h1>
  	 * <h2><code>public GenerePdf()</code></h2>
 	 * <p>Constructeur vide de la classe GenerePdf.<br>Génère un .pdf avec pour seul contenu "HelloiText.pdf".</p>
 	 */
@@ -47,7 +46,7 @@ public class GenerePdf {
 	
 	/**
 	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
- 	 * <h1><i>GenerePdf</i></h1>
+ 	 * <h1><i>Constructeur</i></h1>
  	 * <h2><code>public GenerePdf(Historique histo, File file)</code></h2>
 	 * <p>Génère un .pdf à partir d'un l'historique et du nom de fichier donnés en paramètre.</p> 
 	 * @param histo : (Historique) Historique du simplexe en cours

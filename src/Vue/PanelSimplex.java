@@ -1,8 +1,6 @@
 package Vue;
 
-import java.awt.Component;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -12,13 +10,19 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 import Controleur.Controleur;
 import Modele.ContrainteExplicite;
 import Modele.Monome;
 import Modele.Simplexe;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelSimplex</i></h1>
+ * <h2><code>public class PanelSimplex extends JPanel</code></h2>
+ * <p>Cette classe permet de faire apparaÃ®tre un simplexe avec lequel l'utilisateur peut interagir.</p>
+ */
+@SuppressWarnings("serial")
 public class PanelSimplex extends JPanel {
 	
 	private Simplexe simplexe;
@@ -29,7 +33,10 @@ public class PanelSimplex extends JPanel {
 	JButton[][] tabBoutonsInconnues; // Tableau contenant tous les boutons du panel
 	
 	/**
-	 * Construit un panelSimplex vide
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelSimplex()</code></h2>
+	 * <p>Construit un <code>PanelSimplex</code> vide.</p>
 	 */
 	public PanelSimplex() {
 		tabBoutonsInconnues=new JButton[0][0];
@@ -39,8 +46,11 @@ public class PanelSimplex extends JPanel {
 	}
 
 	/**
-	 * Construit un objet PanelSimplexe à partir d'un objet Simplexe permettant l'affichage d'un Simplexe
-	 * @param Simplexe simp
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelSimplex(Simplexe simp)</code></h2>
+	 * <p>Met en place un panel avec des <code>JLabel</code> en guise de contrainte et des <code>JButton</code> en guise de variable.</p>
+	 * @param simp : (Simplexe)
 	 */
 	public PanelSimplex(Simplexe simp) {
 		
@@ -98,7 +108,7 @@ public class PanelSimplex extends JPanel {
 				
 				if(!m.getInconnue().equals(" ") && m.getCoefficient().getNumerateur()!=0) {
 					tabBoutonsInconnues[nbContraintes][nbBoutons] = new JButton(m.getInconnue());
-					tabBoutonsInconnues[nbContraintes][nbBoutons].setToolTipText("Une variable hors base à échanger");
+					tabBoutonsInconnues[nbContraintes][nbBoutons].setToolTipText("Une variable hors base ï¿½ ï¿½changer");
 					tabBoutonsInconnues[nbContraintes][nbBoutons].setFont(police);
 					this.add(tabBoutonsInconnues[nbContraintes][nbBoutons],gridLim);
 					nbBoutons++;
@@ -123,40 +133,55 @@ public class PanelSimplex extends JPanel {
 	}
 
 	/**
-	 * Renvoie le champ simplexe de this
-	 * @return Simplexe simplexe
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getSimplexe</i></h1>
+	 * <h2><code>public Simplexe getSimplexe()</code></h2>
+	 * <p>Renvoie le champ <i>simplexe</i> de <i><b>this</b></i>.</p>
+	 * @return simplexe : (Simplexe)
 	 */
 	public Simplexe getSimplexe() {
 		return simplexe;
 	}
 
 	/**
-	 * Définit le champ simplexe de this à partir du Simplexe donné en paramètre
-	 * @param simplexe
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setSimplexe</i></h1>
+	 * <h2><code>public void setSimplexe(Simplexe simplexe)</code></h2>
+	 * <p>Remplace la valeur du champ <i>simplexe</i> par celle passÃ©e en paramÃ¨tre.</p>
+	 * @param simplexe : (Simplexe)
 	 */
 	public void setSimplexe(Simplexe simplexe) {
 		this.simplexe = simplexe;
 	}
 
 	/**
-	 * Renvoie le champ tabBoutonsInconnues de this
-	 * @return JButton[][] tabBoutonsInconnues
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getTabBoutonsInconnues</i></h1>
+	 * <h2><code>public JButton[][] getTabBoutonsInconnues()</code></h2>
+	 * <p>Renvoie le champ <i>tabBoutonsInconnues</i> de <i><b>this</b></i>.</p>
+	 * @return tabBoutonsInconnues : (JButton[][])
 	 */
 	public JButton[][] getTabBoutonsInconnues() {
 		return tabBoutonsInconnues;
 	}
 
 	/**
-	 * Définit le champ tabBoutonsInconnues de this avec le JButton[][] donné en paramètre
-	 * @param JButton[][] tabBoutonsInconnues
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setTabBoutonsInconnues</i></h1>
+	 * <h2><code>public void setTabBoutonsInconnues(JButton[][] tabBoutonsInconnues)</code></h2>
+	 * <p>Remplace la valeur du champ <i>tabBoutonsInconnues</i> par celle donnÃ©e en paramÃ¨tre.</p>
+	 * @param tabBoutonsInconnues : (JButton[][])
 	 */
 	public void setTabBoutonsInconnues(JButton[][] tabBoutonsInconnues) {
 		this.tabBoutonsInconnues = tabBoutonsInconnues;
 	}
 	
 	/**
-	 * Met le controleur donné en paramètre à l'écoute de chaque monome pour pouvoir les échanger
-	 * @param Controleur controleur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>enregistreEcouteur</i></h1>
+	 * <h2><code>public void enregistreEcouteur(Controleur controleur)</code></h2>
+	 * <p>Met le controleur donnÃ© en paramï¿½tre Ã  l'Ã©coute de tous les boutons du panel.</p>
+	 * @param controleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur controleur) {
 		for(int i = 0; i < tabBoutonsInconnues.length; i++){

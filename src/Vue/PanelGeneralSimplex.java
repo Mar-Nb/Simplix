@@ -6,9 +6,18 @@ import javax.swing.JPanel;
 import Controleur.Controleur;
 import Modele.Historique;
 
-/**
- * Cette classe est contenue par la classe panelGeneral.
+/** 
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelGeneralSimplex</i></h1>
+ * <h2><code>public class PanelGeneralSimplex extends JPanel</code></h2>
+ * <p>Cette classe est le 3e conteneur principal de l'application. C'est le panel que l'utilisateur verra le plus. <br>
+ * Elle contient un <code>PanelSimplex</code>, un <code>PanelHistorique</code> et un <code>Panelndications</code>.</p>
+ * 
+ * @see PanelSimplex
+ * @see PanelHistorique
+ * @see PanelIndications
  */
+@SuppressWarnings("serial")
 public class PanelGeneralSimplex extends JPanel{
 	
 	PanelSimplex panelSimp;
@@ -17,9 +26,15 @@ public class PanelGeneralSimplex extends JPanel{
 	Historique historique;
 	
 	/**
-	 * Construit un objet PanelGeneralSimplex à partir d'un Historique fourni en paramètre.
-	 * Il met le layout de cette classe en BorderLayout, instancie un panelSimplex au centre, un panelHistorique à droite, et un panelIndication en bas.
-	 * @param Historique historique
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelGeneralSimplex(Historique historique)</code></h2>
+	 * <p>Met en place un BorderLayout contenant un <code>PanelSimplex</code> au centre, un <code>PanelHistorique</code> Ã  droite, et un <code>PanelIndications</code> en bas.</p>
+	 * @param historique : (Historique)
+	 * 
+	 * @see PanelIndications
+	 * @see PanelHistorique
+	 * @see PanelSimplex
 	 */
 	public PanelGeneralSimplex(Historique historique) {
 		this.setLayout(new BorderLayout(20,5));
@@ -48,32 +63,44 @@ public class PanelGeneralSimplex extends JPanel{
 	}
 
 	/**
-	 * Renvoie le champ panelSimp de this
-	 * @return PanelSimplex panelSimp
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getPanelSimp</i></h1>
+	 * <h2><code>public PanelSimplex getPanelSimp()</code></h2>
+	 * <p>Renvoie le champ <i>panelSimp</i> de <i><b>this</b></i>.</p>
+	 * @return panelSimp : (PanelSimplex)
 	 */
 	public PanelSimplex getPanelSimp() {
 		return panelSimp;
 	}
 	
 	/**
-	 * Renvoie le champ panelIndi de this
-	 * @return PanelIndication panelIndi
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getPanelIndi</i></h1>
+	 * <h2><code>public PanelIndications getPanelIndi()</code></h2>
+	 * <p>Renvoie le champ <i>panelIndi</i> de <i><b>this</b></i>.</p>
+	 * @return panelIndi : (PanelIndications)
 	 */
 	public PanelIndications getPanelIndi() {
 		return panelIndi;
 	}
 
 	/**
-	 * Définit le champ panelIndi avec le PanelIndications fourni en paramètre
-	 * @param PanelIndication panelIndi
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setPanelIndi</i></h1>
+	 * <h2><code>public void setPanelIndi(PanelIndication panelIndi)</code></h2>
+	 * <p>DÃ©finit le champ <i>panelIndi</i> avec le <code>PanelIndications</i> donnÃ© en paramÃ¨tre.</p>
+	 * @param panelIndi : (PanelIndications)
 	 */
 	public void setPanelIndi(PanelIndications panelIndi) {
 		this.panelIndi = panelIndi;
 	}
 	
 	/**
-	 * Crée un nouveau panelIndi,le remplit d'un enonce(String) donné en paramètre et l'ajoute au panelGeneralSimplex
-	 * @param enonce
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setPanelIndi</i></h1>
+	 * <h2><code>public void setPanelIndi(String enonce)</code></h2>
+	 * <p>Change le texte du <code>PanelIndications</code>.</p>
+	 * @param enonce : (String)
 	 */
 	public void setPanelIndi(String enonce) {
 		this.remove(panelIndi);
@@ -83,8 +110,11 @@ public class PanelGeneralSimplex extends JPanel{
 	}
 	
 	/**
-	 * Définit le champ panelSimp de this avec le PanelSimplex donné en paramètre
-	 * @param PanelSimplex panelSimp
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setPanelSimp</i></h1>
+	 * <h2><code>public void setPanelSimp(PanelSimplex panelSimp)</code></h2>
+	 * <p>Remplace la valeur du champ <i>panelSimp</i> par celle passÃ©e en paramÃ¨tre.</p>
+	 * @param panelSimp : (PanelSimplex)
 	 */
 	public void setPanelSimp(PanelSimplex panelSimp) {
 		this.panelSimp = panelSimp;
@@ -92,40 +122,55 @@ public class PanelGeneralSimplex extends JPanel{
 
 
 	/**
-	 * Renvoie le champ panelH de this 
-	 * @return PanelHistorique panelH
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getPanelH</i></h1>
+	 * <h2><code>public PanelHistorique getPanelH()</code></h2>
+	 * <p>Renvoie le champ <i>panelH</i> de <i><b>this</b></i>.</p>
+	 * @return panelH : (PanelHistorique)
 	 */
 	public PanelHistorique getPanelH() {
 		return panelH;
 	}
 
 	/**
-	 * Définit le champ panelH de this avec le PanelHistorique donné en paramètre
-	 * @param panelH
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setPanelH</i></h1>
+	 * <h2><code>public void setPanelH(PanelHistorique panelH)</code></h2>
+	 * <p>Remplace la valeur du champ <i>panelSimp</i> par celle passÃ©e en paramÃ¨tre.</p>
+	 * @param panelH : (PanelHistorique)
 	 */
 	public void setPanelH(PanelHistorique panelH) {
 		this.panelH = panelH;
 	}
 
 	/**
-	 * Renvoie le champ historique de this 
-	 * @return Historique historique
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getHistorique</i></h1>
+	 * <h2><code>public Historique getHistorique()</code></h2>
+	 * <p>Renvoie le champ <i>historique</i> de <i><b>this</b></i>.</p>
+	 * @return historique : (Historique)
 	 */
 	public Historique getHistorique() {
 		return historique;
 	}
 
 	/**
-	 * Définit le champ historique de this avec l'Historique donné en paramètre
-	 * @param Historique historique
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setHistorique</i></h1>
+	 * <h2><code>public void setHistorique(Historique historique)</code></h2>
+	 * <p>Remplace la valeur du champ <i>historique</i> par celle passÃ©e en paramÃ¨tre.</p>
+	 * @param historique : (Historique)
 	 */
 	public void setHistorique(Historique historique) {
 		this.historique = historique;
 	}
 
 	/**
-	 * Met le controleur donné en paramètre à l'écoute des champs panelSimp et panelIndi
-	 * @param Controleur controleur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>enregistreEcouteur</i></h1>
+	 * <h2><code>public void enregistreEcouteur(Controleur controleur)</code></h2>
+	 * <p>Met le controleur donnÃ© en paramÃ¨tre Ã  l'Ã©coute du <code>PanelSimplex</code> et du <code>PanelIndications</code>.</p>
+	 * @param controleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur controleur) {
 		panelSimp.enregistreEcouteur(controleur);

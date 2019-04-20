@@ -1,9 +1,7 @@
 package Vue;
 
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +11,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>API</i></h1>
+ * <h2><code>public class API extends JFrame implements ActionListener</code></h2>
+ * <p>Cette classe constitue le point d'entr√©e de notre application et de l'application <i>Matrice</i>.</p>
+ */
+@SuppressWarnings("serial")
 public class API extends JFrame implements ActionListener{
 
 	JButton simp = new JButton("Simplexe");
@@ -21,7 +26,10 @@ public class API extends JFrame implements ActionListener{
 	public GridBagConstraints contrainte = new GridBagConstraints() ;
 	
 	/**
-	 * Construit un objet API correspondant ‡ un GridBagLayout qui est l'accueil de l'application
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public API()</code></h2>
+	 * <p>Met en place le point d'entr√©e de l'application.</p>
 	 */
 	public API() {
 		super("Accueil de l'API");
@@ -65,8 +73,11 @@ public class API extends JFrame implements ActionListener{
 	}
 
 	/**
-	 * L'utilisateur peut, gr‚ce ‡ cette mÈthode, faire le choix d'utiliser l'application dÈdiÈe aux Matrices ou au Simplexe
-	 *@param ActionEvent ev
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>actionPerformed</i></h1>
+	 * <h2><code>public void actionPerformed(ActionEvent ev)</code></h2>
+	 * <p>L'utilisateur peut, gr√¢ce √† cette m√©thode, faire le choix d'utiliser l'application d√©di√©e aux Matrices ou au Simplexe.</p>
+	 * @param ActionEvent ev
 	 */
 	public void actionPerformed(ActionEvent ev) {
 		// TODO Auto-generated method stub

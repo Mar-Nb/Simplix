@@ -2,21 +2,28 @@ package Vue;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Modele.Historique;
-import Modele.Simplexe;
-
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelDemo</i></h1>
+ * <h2><code>public class PanelDemo extends JPanel implements ActionListener</code></h2>
+ * <p> Cette classe est un panel qui fait la d√©monstration de l'utilisation que l'on peut faire de
+ * notre projet.</p>
+ */
+@SuppressWarnings("serial")
 public class PanelDemo extends JPanel implements ActionListener{
 	
 	JPanel diapositives;
@@ -24,7 +31,8 @@ public class PanelDemo extends JPanel implements ActionListener{
 	CardLayout gestionnaireDeCartes;
 	int indice=0;
 	
-	String[] titres= {"Affichage", "Charger un Simplexe (Fichier > Charger Simplexe","CrÈation d'un Simplexe (Fichier > Nouveau Simplexe)","CrÈation d'un Simplexe (partie 2) (Fichier > Nouveau Simplexe)"};
+	String[] titres= {"Affichage", "Charger un Simplexe (Fichier > Charger Simplexe"
+			,"Cr√©ation d'un Simplexe (Fichier > Nouveau Simplexe)","Cr√©ation d'un Simplexe (partie 2) (Fichier > Nouveau Simplexe)"};
 	
 	JLabel titre;
 
@@ -33,44 +41,62 @@ public class PanelDemo extends JPanel implements ActionListener{
 
 	
 	/**
-	 * GÈnËre un panel contenant un diaporama d'images du dossier "images"
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelDemo()</code></h2>
+	 * <p>G√©n√®re un panel contenant un diaporama d'images du dossier "images".</p>
 	 */
 	public PanelDemo() {
 
 		gestionnaireDeCartes=new CardLayout(5,5);
+		
 		diapositives=new JPanel();
 		diapositives.setLayout(gestionnaireDeCartes);
+		
 		retour = new JButton("<");
+		retour.setFont(new Font("Comic Sans MS", Font.BOLD, 90));
+		retour.setFocusPainted(false);
+		retour.setBorderPainted(false);
+		retour.setContentAreaFilled(false);
 		retour.addActionListener(this);
 		retour.setActionCommand("retour");
+		
 		suivant = new JButton(">");
+		suivant.setFont(new Font("Comic Sans MS",Font.BOLD, 90));
+		suivant.setFocusPainted(false);
+		suivant.setBorderPainted(false);
+		suivant.setContentAreaFilled(false);
 		suivant.addActionListener(this);
 		suivant.setActionCommand("suivant");
 		
-		instructions = new JLabel("Cliquez sur les flËches de dÈfilement pour parcourir le mode d'emploi");
+		instructions = new JLabel("Cliquez sur les fl√®ches de d√©filement pour parcourir le mode d'emploi",JLabel.CENTER);
+		instructions.setFont(new Font("Default", Font.BOLD, 30));
 		JPanel container =new JPanel();
-		container.setLayout(new BorderLayout());
+		container.setLayout(new BorderLayout(45,25));
 		
 		
 		ImageIcon image = new ImageIcon("images"+File.separator+"Simplexe.png");
-		JLabel affichage=new JLabel(image);
+		ImageIcon iconScaled = new ImageIcon(scaleImage(image.getImage(),900));
+		JLabel affichage=new JLabel(iconScaled);
 		diapositives.add(affichage, "Affichage");
 		
 		ImageIcon image3 = new ImageIcon("images"+File.separator+"chargerSimplexe.png");
-		JLabel affichage3=new JLabel(image3);
+		iconScaled = new ImageIcon(scaleImage(image3.getImage(),900));
+		JLabel affichage3=new JLabel(iconScaled);
 		diapositives.add(affichage3, "Charger un Simplexe (Fichier > Charger Simplexe)");
 
 		ImageIcon image2 = new ImageIcon("images"+File.separator+"creerSimplexe.png");
-		JLabel affichage2=new JLabel(image2);
-		diapositives.add(affichage2, "CrÈation d'un Simplexe (Fichier > Nouveau Simplexe)");
+		iconScaled = new ImageIcon(scaleImage(image2.getImage(),900));
+		JLabel affichage2=new JLabel(iconScaled);
+		diapositives.add(affichage2, "Cr√©ation d'un Simplexe (Fichier > Nouveau Simplexe)");
 		
 		ImageIcon image4 = new ImageIcon("images"+File.separator+"creerSimplexe2.png");
-		JLabel affichage4=new JLabel(image4);
-		diapositives.add(affichage4, "CrÈation d'un Simplexe (partie 2) (Fichier > Nouveau Simplexe)");
+		iconScaled = new ImageIcon(scaleImage(image4.getImage(),900));
+		JLabel affichage4=new JLabel(iconScaled);
+		diapositives.add(affichage4, "Cr√©ation d'un Simplexe (partie 2) (Fichier > Nouveau Simplexe)");
 		
 		
-		
-		titre=new JLabel("Affichage");
+		titre=new JLabel("Affichage",JLabel.CENTER);
 		container.add(diapositives, BorderLayout.CENTER);
 		container.add(titre, BorderLayout.SOUTH);
 		container.add(instructions, BorderLayout.NORTH);
@@ -83,9 +109,57 @@ public class PanelDemo extends JPanel implements ActionListener{
 		gestionnaireDeCartes.show(diapositives, "Affichage");
 		
 	}
+	
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>scaleImage</i></h1>
+	 * <h2><code>public static Image scaleImage(Image source, int width, int height)</code></h2>
+	 * @param source : (Image)
+	 * @param width : (Integer)
+	 * @param height : (Integer)
+	 * @return img : (Image)
+	 */
+	public static Image scaleImage(Image source, int width, int height) {
+	    BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D g = (Graphics2D) img.getGraphics();
+	    g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	    g.drawImage(source, 0, 0, width, height, null);
+	    g.dispose();
+	    return img;
+	}
+	
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>scaleImage</i></h1>
+	 * <h2><code>public static Image scaleImage(Image source, int size)</code></h2>
+	 * <p>Permet de calculer la taille ad√©quate pour la redimension de l'image et renvoie l'image redimensionn√©e.</p>
+	 * @param source : (Image)
+	 * @param size : (Integer)
+	 * @return scaleImage(source, width, height) : (Image)
+	 */
+	public static Image scaleImage(Image source, int size) {
+	    int width = source.getWidth(null);
+	    int height = source.getHeight(null);
+	    double f = 0;
+	    if (width < height) { 
+	    	// Portrait
+	        f = (double) height / (double) width;
+	        width = (int) (size / f);
+	        height = size;
+	    } else { 
+	    	// Paysage
+	        f = (double) width / (double) height;
+	        width = size;
+	        height = (int) (size / f);
+	    }
+	    return scaleImage(source, width, height);
+	}
 
 	/**
-	 * Permet le dÈfilement du diaporama
+	 * <style> body{ margin-left: 15px; margin-right: 15px; }</style>
+	 * <h1><i>actionPerformed</i></h1>
+	 * <h2><code>public void actionPerformed(ActionEvent evt)</code></h2>
+	 * <p>Permet le d√©filement du diaporama.</p>
 	 */
 	@Override
 	public void actionPerformed(ActionEvent evt) {

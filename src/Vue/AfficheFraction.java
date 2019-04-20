@@ -6,14 +6,26 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>AfficheFraction</i></h1>
+ * <h2><code>public class AfficheFraction extends JPanel</code></h2>
+ * <p>Cette classe permet d'afficher un panel contenant une fraction écrite verticalement.<br><br><i>
+ * Cette classe n'a pas été utilisé dans le projet.</i></p>
+ */
+@SuppressWarnings("serial")
 public class AfficheFraction extends JPanel {
 	
 	JLabel frac;
 	
 	/**
-	 * Construit un objet AfficheFraction correspondant � un BorderLayout dans lequel sera afficher une fraction
-	 * @param int num
-	 * @param int denom
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public AfficheFraction(int num, int denom)</code></h2>
+	 * <p>Construit un objet <code>AfficheFraction</code> correspondant à un <code>BorderLayout</code> dans 
+	 * lequel sera affiché une fraction.</p>
+	 * @param num : (Integer)
+	 * @param denom : (Integer)
 	 */
 	public AfficheFraction(int num,int denom) {
 		this.setLayout(new BorderLayout());

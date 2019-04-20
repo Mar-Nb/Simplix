@@ -24,6 +24,16 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>Controleur</i></h1>
+ * <h2><code>public class Controleur implements ActionListener</code></h2>
+ * <p>Cette classe permet de mettre à l'écoute les deux principaux conteneurs de l'application : <i><code>PanelFichier</code></i>
+ * et <i><code>PanelGeneral</code></i>.</p>
+ * 
+ * @see PanelFichier
+ * @see PanelGeneral
+ */
 public class Controleur implements ActionListener {
 	private PanelGeneral panelG;
 	
@@ -34,6 +44,13 @@ public class Controleur implements ActionListener {
 	Ce controleur est à l'écoute de tous les objets d'interaction des panels contenues par PanelFichier et 
 	PanelGeneral sauf ceux possédant leur propre actionPerformed
 	*/
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public Controleur(PanelFichier panelFichier, PanelGeneral panelSimplex)</code></h2>
+	 * @param panelFichier
+	 * @param panelSimplex
+	 */
 	public Controleur(PanelFichier panelFichier, PanelGeneral panelSimplex) {
 		// TODO Auto-generated constructor stub
 		this.panelFichier=panelFichier;
@@ -152,7 +169,7 @@ public class Controleur implements ActionListener {
 			else if(resultat == JFileChooser.CANCEL_OPTION) {
 				fichier.cancelSelection();
 				fichier.setVisible(false);
-				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier sï¿½lectionnï¿½","Erreur",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier sélectionné","Erreur",JOptionPane.ERROR_MESSAGE);
 			}
 			
 		}

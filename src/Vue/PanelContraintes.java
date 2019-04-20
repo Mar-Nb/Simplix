@@ -11,6 +11,15 @@ import javax.swing.JTextField;
 
 import Controleur.Controleur;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelContraintes</i></h1>
+ * <h2><code>public class PanelContraintes extends JPanel</code></h2>
+ * <p> Cette classe dÃ©pend de la classe <i>PanelChoixMonomesContraintes</i> pour se construire. Elle sert 
+ * de formulaire dans lequel l'utilisateur rentre toutes les valeurs des monomes de chaque contrainte et de 
+ * la fonction Ã©conomique.</p>
+ */
+@SuppressWarnings("serial")
 public class PanelContraintes extends JPanel {
 	
 	
@@ -22,10 +31,13 @@ public class PanelContraintes extends JPanel {
 	int nombreMonome;
 	
 	/**
-	 * Construit un objet PanelContraintes à partir des paramètres nombreMonome(Integer) et nombreContraintes(Integer).
-	 * Ce panel permet à l'utilisateur de choisir les valeurs des coefficients de chaque monome et de la fonction économique.
-	 * @param Integer nombreMonome
-	 * @param Integer nombreContraintes
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelContraintes(Integer nombreMonome, Integer nombreContraintes)</code></h2>
+	 * <p>Met en place un formulaire de <i>nombreContraintes</i> lignes et de <i>nombreMonome</i> colonnes.<br>
+	 * Ce panel permet Ã  l'utilisateur de choisir les valeurs des coefficients de chaque monome et de la fonction Ã©conomique.</p>
+	 * @param nombreMonome : (Integer)
+	 * @param nombreContraintes : (Integer)
 	 */
 	public PanelContraintes(Integer nombreMonome, Integer nombreContraintes) {
 		this.nombreMonome=nombreMonome;
@@ -93,13 +105,16 @@ public class PanelContraintes extends JPanel {
 		contrainte.gridx =1;
 		contrainte.gridy+=3;
 		contrainte.anchor = GridBagConstraints.CENTER;
-		boutonCreer = new JButton("Créer");
+		boutonCreer = new JButton("Crï¿½er");
 		this.add(boutonCreer, contrainte);
 
 	}
 	
 	/**
-	 * Permet de remettre les valeurs des champs du formulaire à 0
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>viderFormulaire</i></h1>
+	 * <h2><code>public void viderFormulaire()</code></h2>
+	 * <p>Met tout les <code>JTextField</code> Ã  <code><b>null</b></code>.</p>
 	 */
 	public void viderFormulaire() {
 		
@@ -118,23 +133,29 @@ public class PanelContraintes extends JPanel {
 	}
 	
 	/**
-	 * Renvoie le champ nombreMonome de this
-	 * @return int nombreMonome
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getNombreMonome</i></h1>
+	 * <h2><code>public int getNombreMonome()</code></h2>
+	 * </p>Renvoie le champ <i>nombreMonome</i> de <i><b>this</b></i>.</p>
+	 * @return nombreMonome : (Integer)
 	 */
 	public int getNombreMonome() {
 		return nombreMonome;
 	}
 
 	/**
-	 * Définit le champ nombreMonome avec la valeur fournit en paramètre
-	 * @param int nombreMonome
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setNombreMonome</i></h1>
+	 * <h2><code>public void setNombreMonome(int nombreMonome)</code></h2>
+	 * <p>DÃ©finit le champ <i>nombreMonome</i> avec la valeur fournit en paramÃ¨tre.</p>
+	 * @param nombreMonome : (Integer)
 	 */
 	public void setNombreMonome(int nombreMonome) {
 		this.nombreMonome = nombreMonome;
 	}
 
 	/**
-	 * Met le Controleur en paramètre à l'écoute du bouton boutonCreer
+	 * Met le Controleur en paramï¿½tre ï¿½ l'ï¿½coute du bouton boutonCreer
 	 * @param Controleur parControleur
 	 */
 	public void enregistreEcouteur(Controleur parControleur) {
@@ -143,39 +164,54 @@ public class PanelContraintes extends JPanel {
 	}
 	
 	/**
-	 * Lorsque cette méthode est appelée,le Controleur fourni en paramètre n'est plus à l'écoute du bouton boutonCreer
-	 * @param Controleur parControleur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>desenregistreEcouteur</i></h1>
+	 * <h2><code>public void desenregistreEcouteur()</code></h2>
+	 * <p>EnlÃ¨ve l'objet <code>Controleur</code> fourni en paramÃ¨tre des objets Ã  l'Ã©coute du bouton <i>boutonCreer</i>.</p>
+	 * @param parControleur : (Controleur)
 	 */
 	public void desenregistreEcouteur(Controleur parControleur) {
 		boutonCreer.removeActionListener(parControleur);
 	}
 
 	/**
-	 * Renvoie le champ zonesEcrituresContraintes de this
-	 * @return JTextField[][] zonesEcrituresContraintes
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getZonesEcrituresContraintes</i></h1>
+	 * <h2><code>public JTextField[][] getZonesEcrituresContraintes()</code></h2>
+	 * <p>Renvoie le champ <i>zonesEcrituresContraintes</i> de <i><b>this</b></i>.</p>
+	 * @return zonesEcrituresContraintes : (JTextField [][])
 	 */
 	public JTextField[][] getZonesEcrituresContraintes() {
 		return zonesEcrituresContraintes;
 	}
 
 	/**
-	 * Renvoie le champ zonesEcrituresFonctionEco de this
-	 * @return JTextField[] zonesEcrituresFonctionEco
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getZonesEcrituresFonctionEco</i></h1>
+	 * <h2><code>public JTextField[] getZonesEcrituresFonctionEco()</code></h2>
+	 * <p>Renvoie le champ <i>zonesEcrituresFonctionEco</i> de <i><b>this</b></i>.</p>
+	 * @return zonesEcrituresFonctionEco : (JTextField [])
 	 */
 	public JTextField[] getZonesEcrituresFonctionEco() {
 		return zonesEcrituresFonctionEco;
 	}
 	
 	/**
-	 * Renvoie le champ zonesEcrituresValeursMaxi de this
-	 * @return JTextField[] zoneEcrituresValeursMaxi
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getZonesEcrituresValeursMaxi</i></h1>
+	 * <h2><code>public JTextField[] getZonesEcrituresValeursMaxi()</code></h2>
+	 * <p>Renvoie le champ <i>zonesEcrituresValeursMaxi</i> de <i><b>this</b></i>.</p>
+	 * @return zoneEcrituresValeursMaxi : (JTextField [])
 	 */
 	public JTextField[] getZonesEcrituresValeursMaxi() {
 		return zonesEcrituresValeursMaxi;
 	}
 	
 	/**
-	 * Renvoie le champ boutonCreer de this
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getBouton</i></h1>
+	 * <h2><code>public JButton getBouton()</code></h2>
+	 * <p>Renvoie le champ <i>boutonCreer</i> de <i><b>this</b></i>.</p>
 	 * @return JButton boutonCreer
 	 */
 	public JButton getBouton() {

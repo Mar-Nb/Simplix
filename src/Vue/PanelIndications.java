@@ -9,13 +9,24 @@ import javax.swing.JPanel;
 
 import Controleur.Controleur;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelIndications</i></h1>
+ * <h2><code>public class PanelIndications extends JPanel</code></h2>
+ * <p>Cette classe permet de fournir des indices sur la rÃ©solution du simplexe.<br><br>
+ * <i>Il faut noter que les indications ne sont pas toujours exactes, pour des raisons pÃ©dagogiques.</i></p>
+ */
+@SuppressWarnings("serial")
 public class PanelIndications extends JPanel{
 
 	JButton indice;
 	GridBagConstraints contrainte = new GridBagConstraints();
 	
 	/**
-	 * Construit un objet PanelIndication utilisé pour donner les indices à l'utilisateur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelIndications()</code></h2>
+	 * <p>Constructeur de base du <code>PanelIndications</code>.</p>
 	 */
 	public PanelIndications() {
 		this.setLayout(new GridBagLayout());
@@ -30,8 +41,11 @@ public class PanelIndications extends JPanel{
 	}
 	
 	/**
-	 * Construit un objet PanelIndication à partir d'une String enonce,utilisée pour donner les indices à l'utilisateur
-	 * @param String enonce
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelIndications(String enonce)</code></h2>
+	 * <p>Met en place un <i><b>this</b></i> avec pour texte <code>enonce</code>.</p>
+	 * @param enonce : (String)
 	 */
 	public PanelIndications(String enonce) {
 		this.setLayout(new GridBagLayout());
@@ -47,8 +61,11 @@ public class PanelIndications extends JPanel{
 	}
 	
 	/**
-	 * Met le controleur donné en paramètre à l'écoute du bouton indice
-	 * @param Controleur parControleur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>enregistreEcouteur</i></h1>
+	 * <h2><code>public void enregistreEcouteur(Controleur parControleur)</code></h2>
+	 * <p>Met le controleur donnÃ© en paramÃ¨tre Ã  l'Ã©coute du bouton de ce panel.</p>
+	 * @param parControleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur parControleur) {
 		indice.setActionCommand("indice");

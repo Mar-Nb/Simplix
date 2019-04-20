@@ -1,29 +1,36 @@
 package Vue;
 
-import java.io.File;
-
 import javax.swing.JFrame;
 
-import Modele.Historique;
-import Modele.LectureEcriture;
-
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>FenetreDemo</i></h1>
+ * <h2><code>public class FenetreDemo extends JFrame</code></h2>
+ * <p>Cette classe montre Ã  l'utilisateur comment se servir de l'application.</p>
+ */
+@SuppressWarnings("serial")
 public class FenetreDemo extends JFrame{
 	
 	/**
-	 * Construction d'une nouvelle fenêtre qui peut être fermée sans terminer le programme.
-	 * Cette fenêtre contient le panelDemo.
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public FenetreDemo()</code></h2>
+	 * <p>Cette fenÃªtre contient le panelDemo.</p>
 	 */
-	
 	public FenetreDemo() {
-		super("Démonstration");
+		super("DÃ©monstration");
 		
 		PanelDemo panelDemo = new PanelDemo();
 		
 		this.setContentPane(panelDemo);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		this.setSize(1500,1000);
+		this.setSize(1200,800);
 		this.setVisible(true);
-		this.setLocation(100,100);
+		this.setLocation(5,25);
 		
+	}
+	
+	public static void main(String [] args) {
+		new FenetreDemo();
 	}
 }

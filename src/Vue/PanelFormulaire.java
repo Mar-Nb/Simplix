@@ -5,6 +5,16 @@ import javax.swing.JPanel;
 
 import Controleur.Controleur;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelFormulaire</i></h1>
+ * <h2><code>public class PanelFormulaire extends JPanel</code></h2>
+ * <p>Ce panel contient les deux formulaires de crÃ©ation de simplexe de l'application : <code>PanelChoixNombresMonomesContraintes</code> et
+ * <code>PanelContraintes</code>.<br><br> Il est contenu par la classe <code>PanelFichier</code>.</p>
+ * 
+ * @see PanelFichier
+ */
+@SuppressWarnings("serial")
 public class PanelFormulaire extends JPanel{
 
 	private CardLayout gestionnaireDeCartes ;
@@ -12,7 +22,10 @@ public class PanelFormulaire extends JPanel{
 	PanelChoixNombresMonomesContraintes panelCMC;
 	
 	/**
-	 * Construit un objet PanelFormulaire contenant un CardLayout et s'ajoute au PanelChoixNombresMonomesContraintes
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelFormulaire()</code></h2>
+	 * <p>Met en place un CardLayout contenant un <code>PanelChoixNombresMonomesContraintes</code>.</p>
 	 */
 	public PanelFormulaire() {
 		/*LAYOUT*/
@@ -25,8 +38,11 @@ public class PanelFormulaire extends JPanel{
 	}
 
 	/**
-	 * Met le Controleur en paramètre à l'écoute de panelCMC
-	 * @param Controleur controleur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>enregistreEcouteur</i></h1>
+	 * <h2><code>public void enregistreEcouteur(Controleur controleur)</code></h2>
+	 * <p>Met le paramÃ¨tre <code>controleur</code> Ã  l'Ã©coute du champ <i>panelCMC</i> de <i><b>this</b></i>.</p>
+	 * @param controleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur controleur) {
 		// TODO Auto-generated method stub
@@ -36,7 +52,10 @@ public class PanelFormulaire extends JPanel{
 	}
 	
 	/**
-	 * Appelle les méthodes viderFormulaire de panelC et panelCMC
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>viderFormulaire</i></h1>
+	 * <h2><code>public void viderFormulaire()</code></h2>
+	 * <p>Appelle les mÃ©thodes viderFormulaire des champs <i>panelC</i> et <i>panelCMC</i> de <i><b>this</b></i>.</p>
 	 */
 	public void viderFormulaire() {
 		panelC.viderFormulaire();
@@ -45,40 +64,55 @@ public class PanelFormulaire extends JPanel{
 	}
 	
 	/**
-	 * Met le Controleur en paramètre à l'écoute de panelC
-	 * @param controleur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>enregistreEcouteur</i></h1>
+	 * <h2><code>public void enregistreEcouteur(Controleur controleur)</code></h2>
+	 * <p>Met le paramÃ¨tre <code>controleur</code> Ã  l'Ã©coute du champ <i>panelC</i> de <i><b>this</b></i>.</p>
+	 * @param controleur : (Controleur)
 	 */
 	public void enregistreEcouteurC(Controleur controleur) {
 		panelC.enregistreEcouteur(controleur);
 	}
 
 	/**
-	 * Renvoie le champ gestionnaireDeCartes de this
-	 * @return CardLayout gestionnaireDeCartes
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getGestionnaireDeCartes</i></h1>
+	 * <h2><code>public CardLayout getGestionnaireDeCartes()</code></h2>
+	 * <p>Renvoie le champ <i>gestionnaireDeCartes</i> de <i><b>this</b></i>.</p>
+	 * @return gestionnaireDeCartes : (CardLayout)
 	 */
 	public CardLayout getGestionnaireDeCartes() {
 		return gestionnaireDeCartes;
 	}
 
 	/**
-	 * Renvoie le champ panelC de this
-	 * @return PanelContraintes panelC
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getPanelC</i></h1>
+	 * <h2><code>public PanelContraintes getPanelC()</code></h2>
+	 * <p>Renvoie le champ <i>panelC</i> de <i><b>this</b></i>.</p>
+	 * @return panelC : (PanelContraintes)
 	 */
 	public PanelContraintes getPanelC() {
 		return panelC;
 	}
 	
 	/**
-	 * Définit le champ panelC de this avec le PanelContraintes fourni en paramètre
-	 * @param PanelContraintes panC
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setPanelC</i></h1>
+ 	 * <h2><code>public void setPanelC(PanelContraintes panC)</code></h2>
+	 * <p>DÃ©finit le champ <i>panelC</i> de <i><b>this</b></i> avec le <code>PanelContraintes</code> donnÃ© en paramï¿½tre.</p>
+	 * @param panC : (PanelContraintes)
 	 */
 	public void setPanelC(PanelContraintes panC) {
 		this.panelC = panC;
 	}
 
 	/**
-	 * Renvoie le champ panelCMC de this
-	 * @return PanelChoixNombresMonomesContraintes panelCMC
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getPanelCMC</i></h1>
+	 * <h2><code>public PanelChoixNombresMonomesContraintes getPanelCMC()</code></h2>
+	 * <p>Renvoie le champ <i>panelCMC</i> de <i><b>this</b></i>.</p>
+	 * @return panelCMC : (PanelChoixNombresMonomesContraintes)
 	 */
 	public PanelChoixNombresMonomesContraintes getPanelCMC() {
 		return panelCMC;

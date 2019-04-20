@@ -21,7 +21,7 @@ public class ContrainteExplicite implements Serializable{
 	
 	/**
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
-	 * <h1><i>ContrainteExplicite</i></h1>
+	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public ContrainteExplicite(Fraction limite, String nom)</code></h2>
 	 * <p>Construit un objet <code>ContrainteExplicite</code> et remplit les champs <code>Fraction</code> <i>inferieurA</i> et <code>String</code> <i>nom</i> avec les variables
 	 * données en paramètre ( les autres champs sont une <code>HashMap</code> vide et un nombre d'inconnues initialisé à 0)</p>
@@ -39,7 +39,7 @@ public class ContrainteExplicite implements Serializable{
 	
 	/**
 	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
-	 * <h1><i>ContrainteExplicite</i></h1>
+	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public ContrainteExplicite(ContrainteExplicite ce)</code></h2>
 	 * <p>Construit un objet <code>ContrainteExplicite</code> à partir d'un autre objet <code>ContrainteExplicite</code> donné en paramètre et copie 
 	 * tous les champs de la <code>ContrainteExplicite</code> en paramètre dans le nouvel objet qui sera construit.</p>

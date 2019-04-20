@@ -1,30 +1,35 @@
 package Vue;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import com.itextpdf.text.DocumentException;
-
 import Controleur.Controleur;
 import Modele.GenerePdf;
 import Modele.Historique;
 import Modele.LectureEcriture;
 
+/**
+ * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <h1><i>PanelGeneral</i></h1>
+ * <h2><code>public class PanelGeneral extends JPanel implements ActionListener</code></h2>
+ * <p>Cette classe est le conteneur principal de l'application.<br> Il contient les conteneurs principaux <code>PanelFichier</code>
+ * et <code>PanelGeneralSimplex</code>.</p>
+ * 
+ * @see PanelGeneralSimplex
+ * @see PanelFichier
+ */
 @SuppressWarnings("serial")
 public class PanelGeneral extends JPanel implements ActionListener {
 	
 	String[] intitulesPanneaux = {"Fichier","Affichage", "Annuler", "Quitter", "?"};
-	String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous", "Mode DÈmo"};
+	String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous", "Mode D√©mo"};
 	private CardLayout gestionnaireCartes;
 	Controleur controleur;
 	private Historique historique;
@@ -33,10 +38,12 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	private PanelFichier panelFichier;
 	
 	/**
-	 * Construit un objet PanelGeneral qui contient tous les autres panels
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public PanelGeneral()</code></h2>
+	 * <p>Met en place un CardLayout contenant un <code>PanelFichier</code> et un <code>PanelGeneralSimplex</code>. Instancie un controleur √† l'√©coute
+	 * du <code>PanelFichier</code> et de <i><b>this</b></i>.</p>
 	 */
-	
-	
 	public PanelGeneral(){
 		
 		//Instantiation de la chronologie
@@ -46,7 +53,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		gestionnaireCartes=new CardLayout(2,2);
 		this.setLayout(gestionnaireCartes);
 		
-		//Ajout des deux panels empilÈs
+		//Ajout des deux panels empilÔøΩs
 		
 		panelFichier=new PanelFichier();
 		this.add(panelFichier, intitulesPanneaux[0]);
@@ -57,54 +64,70 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		
 	}
-/**
- * Renvoie le panelGeneralSimplex du champ panelSimplex
- * @return
- */
 
-
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getPanelSimplex</i></h1>
+	 * <h2><code>public PanelGeneralSimplex getPanelSimplex()</code></h2>
+	 * <p>Renvoie le champ <i>panelSimplex</i> de <i><b>this</b></i>.</p>
+	 * @return panelSimplex : (PanelGeneralSimplex)
+	 */
 	public PanelGeneralSimplex getPanelSimplex() {
 		return panelSimplex;
 	}
 
 
-/**
- * Remplace le panelGeneralSimplex du champ panelSimplex par un nouveau panel passÈ en paramËtre
- * @param panelSimplex
- */
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setPanelSimplex</i></h1>
+	 * <h2><code>public void setPanelSimplex(PanelGeneralSimplex panelSimplex)</code></h2>
+	 * <p>Remplace le panelGeneralSimplex du champ panelSimplex par un nouveau panel passÔøΩ en paramÔøΩtre.</p>
+	 * @param panelSimplex : (PanelGeneralSimplex)
+	 */
 	public void setPanelSimplex(PanelGeneralSimplex panelSimplex) {
 		this.panelSimplex = panelSimplex;
 	}
 
 
-/**
- * Renvoie le panelFichier du champ PanelFichier
- * @return
- */
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getPanelFichier</i></h1>
+	 * <h2><code>public PanelFichier getPanelFichier()</code></h2>
+	 * <p>Renvoie le champ <i>panelFichier</i> de <i><b>this</b></i>.</p>
+	 * @return panelFichier : (PanelFichier)
+	 */
 	public PanelFichier getPanelFichier() {
 		return panelFichier;
 	}
 
-/**
- * Remplace le panel du champ panelFichier par le panel passÈ en paramËtre
- * @param panelFichier
- */
-
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setPanelFichier</i></h1>
+	 * <h2><code>public void setPanelFichier(PanelFichier panelFichier)</code></h2>
+	 * <p>Remplace la valeur du champ <i>panelFichier</i> par celle donn√©e en param√®tre.</p>
+	 * @param panelFichier : (PanelFichier)
+	 */
 	public void setPanelFichier(PanelFichier panelFichier) {
 		this.panelFichier = panelFichier;
 	}
 
 	/**
-	 * Renvoie l'Historique du champ historique
-	 * @return
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>getHistorique</i></h1>
+	 * <h2><code>public Historique getHistorique()</code></h2>
+	 * <p>Renvoie le champ <i>historique</i> de <i><b>this</b></i>.</p>
+	 * @return historique : (Historique)
 	 */
 	public Historique getHistorique() {
 		return historique;
 	}
 	
 	/**
-	 * Met ‡ jour le panel Indications dans le panelSimplexe, puis recharge le panelSimplexe.
-	 * @param message
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>miseAJourIndication</i></h1>
+	 * <h2><code>public void miseAjourIndication(String message)</code></h2>
+	 * <p>Change le message que contient le <code>PanelIndication</code> du <code>PanelGeneralSimplex</code>.</p>
+	 * @param message : (String)
 	 */
 
 	public void miseAJourIndication(String message) {
@@ -116,8 +139,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * Remplace l'historique dans le champ historique par l'Historique passÈ en paramËtre. Met ensuite ‡ jour le panelSimplex
-	 * @param historique
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>setHistorique</i></h1>
+	 * <h2><code>public void setHistorique(Historique historique)</code></h2>
+	 * <p>Remplace la valeur du champ <i>historique</i> par pass√©e en param√®tre. Met ensuite √† jour le <code>PanelGeneralSimplex</code>.</p>
+	 * @param historique : (Historique)
 	 */
 	public void setHistorique(Historique historique) {
 		
@@ -129,7 +155,10 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	}
 	
 	/**
-	 * Recharge un nouveau panelFichier, et remet le controleur ‡ l'Ècoute de ce panel
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>miseAJourEnregistrement</i></h1>
+	 * <h2><code>public void miseAJourEnregistrement()</code></h2>
+	 * <p>Recharge un nouveau panelFichier.</p>
 	 */
 	
 	public void miseAJourEnregistrement() {
@@ -140,20 +169,23 @@ public class PanelGeneral extends JPanel implements ActionListener {
 
 
 	/**
-	 * Permet d'Ítre ‡ l'Ècoute de tous les boutons de la fenÍtre
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <h1><i>actionPerformed</i></h1>
+	 * <h2><code>public void actionPerformed(ActionEvent evt)</code></h2>
+	 * <p>Permet d'√™tre √† l'√©coute de tous les boutons de la de la barre de menu.</p>
 	 */
 	public void actionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
 		if(evt.getActionCommand() == "Nouveau Simplexe"){
+			// Montre d'abord le panelCreation puis get son cardLayout pour afficher le bon panel fils de panelCreation
 			gestionnaireCartes.show(this, intitulesPanneaux[0]);
 			panelFichier.getGestionnaireDeCartes().show(panelFichier, itemsCreation[0]);
-			//Montre d'abord le panelCreation puis get son cardLayout pour afficher le bon panel fils de panelCreation
 		}
 		
 		if(evt.getActionCommand() == "Charger Simplexe"){
+			// Montre d'abord le panelCreation puis get son cardLayout pour afficher le bon panel fils de panelCreation
 			gestionnaireCartes.show(this, intitulesPanneaux[0]);
 			panelFichier.getGestionnaireDeCartes().show(panelFichier, itemsCreation[1]);
-			//Montre d'abord le panelCreation puis get son cardLayout pour afficher le bon panel fils de panelCreation
 		}
 	
 		else if(evt.getActionCommand() == "Annuler") {
@@ -163,15 +195,15 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		else if(evt.getActionCommand() == "Enregistrer") {
 			if(fichierEnregistrement == null) {
-				JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l√  o√π il veut cr√©e son fichier
-				fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par d√©faut on se place dans le r√©pertoire utilisateur
-				FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");//on veut que le fichier soit uniquement au format pdf
+				JFileChooser fichier = new JFileChooser(); // Pour que l'utilisateur choisisse o√π il veut cr√©er son fichier
+				fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); // Par d√©faut on se place dans le r√©pertoire utilisateur
+				FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");// On veut que le fichier soit uniquement au format .ser
 				fichier.addChoosableFileFilter(filtre);
 				
-				//on regarde si l'utilisateur a bien choisi un fichier
+				// On regarde si l'utilisateur a bien choisi un fichier
 				int resultat = fichier.showSaveDialog(null);
 				
-				if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) {//si c'est bon
+				if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) {// Si c'est bon
 					
 					LectureEcriture.ecriture(fichier.getSelectedFile(), this.historique);
 					fichierEnregistrement=fichier.getSelectedFile();
@@ -194,15 +226,15 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		else if(evt.getActionCommand() == "Enregistrer sous") {
 		    
-			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l√  o√π il veut cr√©e son fichier
-			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par d√©faut on se place dans le r√©pertoire utilisateur
-			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");//on veut que le fichier soit uniquement au format pdf
+			JFileChooser fichier = new JFileChooser(); // Pour que l'utilisateur choisisse l√† o√π il veut cr√©e son fichier
+			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); // Par d√©faut on se place dans le r√©pertoire utilisateur
+			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser"); // On veut que le fichier soit uniquement au format pdf
 			fichier.addChoosableFileFilter(filtre);
 			
-			//on regarde si l'utilisateur a bien choisi un fichier
+			// On regarde si l'utilisateur a bien choisi un fichier
 			int resultat = fichier.showSaveDialog(null);
 			
-			if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) {//si c'est bon
+			if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) { // Si c'est bon
 				
 				LectureEcriture.ecriture(fichier.getSelectedFile(), this.historique);
 				fichierEnregistrement=fichier.getSelectedFile();
@@ -215,7 +247,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 			
 		}
 		
-		else if(evt.getActionCommand() == "Mode DÈmo") {
+		else if(evt.getActionCommand() == "Mode DÔøΩmo") {
 			new FenetreDemo();
 		}
 		
@@ -224,20 +256,20 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		}
 		
 		else if(evt.getActionCommand() == "PDF") {
-			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse l√  o√π il veut cr√©e son fichier
-			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par d√©faut on se place dans le r√©pertoire utilisateur
-			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*pdf");//on veut que le fichier soit uniquement au format pdf
+			JFileChooser fichier = new JFileChooser(); // Pour que l'utilisateur choisisse l√†  o√π il veut cr√©e son fichier
+			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); // Par d√©faut on se place dans le r√©pertoire utilisateur
+			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*pdf"); // On veut que le fichier soit uniquement au format pdf
 			fichier.addChoosableFileFilter(filtre);
 			
-			//on regarde si l'utilisateur a bien choisi un fichier
+			// On regarde si l'utilisateur a bien choisi un fichier
 			int resultat = fichier.showSaveDialog(null);
 			
-			if(resultat == JFileChooser.APPROVE_OPTION) {//si c'est bon
+			if(resultat == JFileChooser.APPROVE_OPTION) { // Si c'est bon
 				new GenerePdf(this.historique, fichier.getSelectedFile());
 				
 			}
 			else if(resultat == JFileChooser.CANCEL_OPTION) {
-				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier sÈlectionnÈ","Erreur",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier s√©lectionn√©","Erreur",JOptionPane.ERROR_MESSAGE);
 			}
 		}
 
@@ -245,7 +277,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		else if(evt.getActionCommand() == "Quitter"){
 			
-			int code= JOptionPane.showConfirmDialog(null, "Voulez vous vraiment quitter?","ArrÍt du programme",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+			int code= JOptionPane.showConfirmDialog(null, "Voulez vous vraiment quitter?","Arr√™t du programme",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 			if(code== JOptionPane.OK_OPTION) {
 				System.exit(code);
 			} // Pop up avec confirmation du choix
@@ -254,9 +286,9 @@ public class PanelGeneral extends JPanel implements ActionListener {
 		
 		else if(evt.getActionCommand() == "?") {
 			JOptionPane.showMessageDialog(null, "Cette application vous permet de manipuler des Simplexes.\n"
-					+ "Pour crÈer ou charger un simplexe, dÈroulez le menu Fichier et sÈlectionnez une option.\n"
-					+ "Pour effectuer des Èchanges de variables, cliquez sur les boutons dans votre simplexe.\n"
-					+ "Pour obtenir des indications quant ‡ l'Èchange le plus judicieux, appuyez sur le bouton ? dans l'Affichage", "Aide", JOptionPane.INFORMATION_MESSAGE);
+					+ "Pour crÔøΩer ou charger un simplexe, d√©roulez le menu Fichier et s√©lectionnez une option.\n"
+					+ "Pour effectuer des ÔøΩchanges de variables, cliquez sur les boutons dans votre simplexe.\n"
+					+ "Pour obtenir des indications quant √† l'√©change le plus judicieux, appuyez sur le bouton ? dans l'Affichage", "Aide", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	public File getFichierEnregistrement() {
