@@ -15,13 +15,13 @@ Une fois les valeurs sélectionnées, l'utilisateur peut appuyer sur le bouton **O
 
 Après avoir appuyé sur **OK**, un autre panel s'affiche. Ce nouveau panel contient le nombre exact de champ nécessaire pour que l'utilisateur puisse saisir les valeurs de chaque monome.
 
-![panel de création du simplexe 2](images/creerSimplexe2.png)
+![panel de création du simplexe 2](images/creerSimplexe2.PNG)
 
 > Figure 2 : Deuxième panel de création d'un simplexe --- Saisie des monomes
 
 Si les valeurs saisies ne sont pas des nombres ou si un ou plusieurs champs sont laissés vides, une fenêtre d'erreur s'affichera.
 
-![erreur de saisie lors de la création du simplexe](images/erreur-creerSimplexe2.png)
+![erreur de saisie lors de la création du simplexe](images/erreur-creerSimplexe2.PNG)
 
 > Figure 3 : Deuxième panel de création d'un simplexe --- Fenêtre d'erreur
 
