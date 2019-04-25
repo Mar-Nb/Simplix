@@ -16,11 +16,11 @@ import Modele.Historique;
 import Modele.LectureEcriture;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>PanelGeneral</i></h1>
  * <h2><code>public class PanelGeneral extends JPanel implements ActionListener</code></h2>
- * <p>Cette classe est le conteneur principal de l'application.<br> Il contient les conteneurs principaux <code>PanelFichier</code>
- * et <code>PanelGeneralSimplex</code>.</p>
+ * <p>Cette classe est le conteneur principal de l'application.<br> Il contient les conteneurs principaux <code class='name'>PanelFichier</code>
+ * et <code class='name'>PanelGeneralSimplex</code>.</p>
  * 
  * @see PanelGeneralSimplex
  * @see PanelFichier
@@ -38,11 +38,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	private PanelFichier panelFichier;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public PanelGeneral()</code></h2>
-	 * <p>Met en place un CardLayout contenant un <code>PanelFichier</code> et un <code>PanelGeneralSimplex</code>. Instancie un controleur à l'écoute
-	 * du <code>PanelFichier</code> et de <i><b>this</b></i>.</p>
+	 * <p>Met en place un CardLayout contenant un <code class='name'>PanelFichier</code> et un <code class='name'>PanelGeneralSimplex</code>. Instancie un controleur à l'écoute
+	 * du <code class='name'>PanelFichier</code> et de <i><b>this</b></i>.</p>
 	 */
 	public PanelGeneral(){
 		
@@ -66,10 +66,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getPanelSimplex</i></h1>
 	 * <h2><code>public PanelGeneralSimplex getPanelSimplex()</code></h2>
 	 * <p>Renvoie le champ <i>panelSimplex</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return panelSimplex : (PanelGeneralSimplex)
 	 */
 	public PanelGeneralSimplex getPanelSimplex() {
@@ -78,10 +79,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setPanelSimplex</i></h1>
-	 * <h2><code>public void setPanelSimplex(PanelGeneralSimplex panelSimplex)</code></h2>
-	 * <p>Remplace le panelGeneralSimplex du champ panelSimplex par un nouveau panel pass� en param�tre.</p>
+	 * <h2><code>public void setPanelSimplex(<span class='name'>PanelGeneralSimplex</span> panelSimplex)</code></h2>
+	 * <p>Remplace le <i>panelGeneralSimplex</i> du champ <i>panelSimplex</i> par un nouveau panel passé en paramètre.</p>
+	 * 
 	 * @param panelSimplex : (PanelGeneralSimplex)
 	 */
 	public void setPanelSimplex(PanelGeneralSimplex panelSimplex) {
@@ -90,10 +92,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getPanelFichier</i></h1>
 	 * <h2><code>public PanelFichier getPanelFichier()</code></h2>
 	 * <p>Renvoie le champ <i>panelFichier</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return panelFichier : (PanelFichier)
 	 */
 	public PanelFichier getPanelFichier() {
@@ -101,10 +104,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setPanelFichier</i></h1>
-	 * <h2><code>public void setPanelFichier(PanelFichier panelFichier)</code></h2>
+	 * <h2><code>public void setPanelFichier(<span class='name'>PanelFichier</span> panelFichier)</code></h2>
 	 * <p>Remplace la valeur du champ <i>panelFichier</i> par celle donnée en paramètre.</p>
+	 * 
 	 * @param panelFichier : (PanelFichier)
 	 */
 	public void setPanelFichier(PanelFichier panelFichier) {
@@ -112,10 +116,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getHistorique</i></h1>
 	 * <h2><code>public Historique getHistorique()</code></h2>
 	 * <p>Renvoie le champ <i>historique</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return historique : (Historique)
 	 */
 	public Historique getHistorique() {
@@ -123,13 +128,13 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>miseAJourIndication</i></h1>
-	 * <h2><code>public void miseAjourIndication(String message)</code></h2>
-	 * <p>Change le message que contient le <code>PanelIndication</code> du <code>PanelGeneralSimplex</code>.</p>
+	 * <h2><code>public void miseAjourIndication(<span class='name'>String</span> message)</code></h2>
+	 * <p>Change le message que contient le <code class='name'>PanelIndication</code> du <code class='name'>PanelGeneralSimplex</code>.</p>
+	 * 
 	 * @param message : (String)
 	 */
-
 	public void miseAJourIndication(String message) {
 		panelSimplex.setPanelIndi(message);
 		panelSimplex.getPanelIndi().enregistreEcouteur(controleur);
@@ -139,10 +144,11 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setHistorique</i></h1>
-	 * <h2><code>public void setHistorique(Historique historique)</code></h2>
-	 * <p>Remplace la valeur du champ <i>historique</i> par passée en paramètre. Met ensuite à jour le <code>PanelGeneralSimplex</code>.</p>
+	 * <h2><code>public void setHistorique(<span class='name'>Historique</span> historique)</code></h2>
+	 * <p>Remplace la valeur du champ <i>historique</i> par passée en paramètre. Met ensuite à jour le <code class='name'>PanelGeneralSimplex</code>.</p>
+	 * 
 	 * @param historique : (Historique)
 	 */
 	public void setHistorique(Historique historique) {
@@ -155,7 +161,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>miseAJourEnregistrement</i></h1>
 	 * <h2><code>public void miseAJourEnregistrement()</code></h2>
 	 * <p>Recharge un nouveau panelFichier.</p>
@@ -169,9 +175,9 @@ public class PanelGeneral extends JPanel implements ActionListener {
 
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>actionPerformed</i></h1>
-	 * <h2><code>public void actionPerformed(ActionEvent evt)</code></h2>
+	 * <h2><code>public void actionPerformed(<span class='name'>ActionEvent</span> evt)</code></h2>
 	 * <p>Permet d'être à l'écoute de tous les boutons de la de la barre de menu.</p>
 	 */
 	public void actionPerformed(ActionEvent evt) {

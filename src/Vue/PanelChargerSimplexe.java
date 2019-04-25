@@ -11,9 +11,9 @@ import javax.swing.JPanel;
 import Controleur.Controleur;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>PanelChargerSimplexe</i></h1>
- * <h2><code>public class PanelChargerSimplexe extends JPanel</code></h2>
+ * <h2><code>public class PanelChargerSimplexe extends <span class='name'>JPanel</span></code></h2>
  * <p>Cette classe permet à l'utilisateur de charger un Simplexe déjà existant.</p>
  */
 @SuppressWarnings("serial")
@@ -21,10 +21,10 @@ public class PanelChargerSimplexe extends JPanel{
 	private JButton parcourir;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public PanelChargerSimplexe()</code></h2>
-	 * <p>Ce constructeur ajoute au panel un bouton qui ouvre un <code>JFileChooser</code> 
+	 * <p>Ce constructeur ajoute au panel un bouton qui ouvre un <code class='name'>JFileChooser</code> 
 	 * pour que l'utilisateur puisse sélectionner son fichier.</p>
 	 */
 	public PanelChargerSimplexe() {
@@ -57,8 +57,8 @@ public class PanelChargerSimplexe extends JPanel{
 	
 	//ActionListener sur le bouton ajouter
 	/**
-	 * Met le controleur en param�tre � l'�coute du bouton Charger 
-	 * @param parControleur
+	 * Met le controleur en paramètre à l'écoute du bouton Charger 
+	 * @param parControleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur parControleur){
 		parcourir.addActionListener(parControleur);

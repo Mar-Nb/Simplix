@@ -12,10 +12,10 @@ import javax.swing.JTextField;
 import Controleur.Controleur;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>PanelContraintes</i></h1>
- * <h2><code>public class PanelContraintes extends JPanel</code></h2>
- * <p> Cette classe dépend de la classe <i>PanelChoixMonomesContraintes</i> pour se construire. Elle sert 
+ * <h2><code>public class PanelContraintes extends <span class='name'>JPanel</span></code></h2>
+ * <p> Cette classe dépend de la classe <i class='name'>PanelChoixMonomesContraintes</i> pour se construire. Elle sert 
  * de formulaire dans lequel l'utilisateur rentre toutes les valeurs des monomes de chaque contrainte et de 
  * la fonction économique.</p>
  */
@@ -31,11 +31,12 @@ public class PanelContraintes extends JPanel {
 	int nombreMonome;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public PanelContraintes(Integer nombreMonome, Integer nombreContraintes)</code></h2>
+	 * <h2><code>public PanelContraintes(<span class='name'>Integer</span> nombreMonome, <span class='name'>Integer</span> nombreContraintes)</code></h2>
 	 * <p>Met en place un formulaire de <i>nombreContraintes</i> lignes et de <i>nombreMonome</i> colonnes.<br>
 	 * Ce panel permet à l'utilisateur de choisir les valeurs des coefficients de chaque monome et de la fonction économique.</p>
+	 * 
 	 * @param nombreMonome : (Integer)
 	 * @param nombreContraintes : (Integer)
 	 */
@@ -111,10 +112,10 @@ public class PanelContraintes extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>viderFormulaire</i></h1>
 	 * <h2><code>public void viderFormulaire()</code></h2>
-	 * <p>Met tout les <code>JTextField</code> à <code><b>null</b></code>.</p>
+	 * <p>Met tout les <code class='name'>JTextField</code> à <code><b>null</b></code>.</p>
 	 */
 	public void viderFormulaire() {
 		
@@ -133,10 +134,11 @@ public class PanelContraintes extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getNombreMonome</i></h1>
 	 * <h2><code>public int getNombreMonome()</code></h2>
 	 * </p>Renvoie le champ <i>nombreMonome</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return nombreMonome : (Integer)
 	 */
 	public int getNombreMonome() {
@@ -144,10 +146,11 @@ public class PanelContraintes extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setNombreMonome</i></h1>
-	 * <h2><code>public void setNombreMonome(int nombreMonome)</code></h2>
+	 * <h2><code>public void setNombreMonome(<span class='name'>int</span> nombreMonome)</code></h2>
 	 * <p>Définit le champ <i>nombreMonome</i> avec la valeur fournit en paramètre.</p>
+	 * 
 	 * @param nombreMonome : (Integer)
 	 */
 	public void setNombreMonome(int nombreMonome) {
@@ -155,8 +158,12 @@ public class PanelContraintes extends JPanel {
 	}
 
 	/**
-	 * Met le Controleur en param�tre � l'�coute du bouton boutonCreer
-	 * @param Controleur parControleur
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
+	 * <h1><i>enregistreEcouteur</i></h1>
+	 * <h2><code>public void enregistreEcouteur(<span class='name'>Controleur</span> parControleur)</code></h2>
+	 * <p>Met le <code class='name'>Controleur</code> en paramètre à l'écoute du bouton <i>boutonCreer</i>.</p>
+	 * 
+	 * @param parControleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur parControleur) {
 		boutonCreer.setActionCommand("Cr");
@@ -164,10 +171,11 @@ public class PanelContraintes extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>desenregistreEcouteur</i></h1>
 	 * <h2><code>public void desenregistreEcouteur()</code></h2>
-	 * <p>Enlève l'objet <code>Controleur</code> fourni en paramètre des objets à l'écoute du bouton <i>boutonCreer</i>.</p>
+	 * <p>Enlève l'objet <code class='name'>Controleur</code> fourni en paramètre des objets à l'écoute du bouton <i>boutonCreer</i>.</p>
+	 * 
 	 * @param parControleur : (Controleur)
 	 */
 	public void desenregistreEcouteur(Controleur parControleur) {
@@ -175,10 +183,11 @@ public class PanelContraintes extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getZonesEcrituresContraintes</i></h1>
 	 * <h2><code>public JTextField[][] getZonesEcrituresContraintes()</code></h2>
 	 * <p>Renvoie le champ <i>zonesEcrituresContraintes</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return zonesEcrituresContraintes : (JTextField [][])
 	 */
 	public JTextField[][] getZonesEcrituresContraintes() {
@@ -186,10 +195,11 @@ public class PanelContraintes extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getZonesEcrituresFonctionEco</i></h1>
 	 * <h2><code>public JTextField[] getZonesEcrituresFonctionEco()</code></h2>
 	 * <p>Renvoie le champ <i>zonesEcrituresFonctionEco</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return zonesEcrituresFonctionEco : (JTextField [])
 	 */
 	public JTextField[] getZonesEcrituresFonctionEco() {
@@ -197,10 +207,11 @@ public class PanelContraintes extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getZonesEcrituresValeursMaxi</i></h1>
 	 * <h2><code>public JTextField[] getZonesEcrituresValeursMaxi()</code></h2>
 	 * <p>Renvoie le champ <i>zonesEcrituresValeursMaxi</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return zoneEcrituresValeursMaxi : (JTextField [])
 	 */
 	public JTextField[] getZonesEcrituresValeursMaxi() {
@@ -208,10 +219,11 @@ public class PanelContraintes extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getBouton</i></h1>
 	 * <h2><code>public JButton getBouton()</code></h2>
 	 * <p>Renvoie le champ <i>boutonCreer</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return JButton boutonCreer
 	 */
 	public JButton getBouton() {

@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 import Controleur.Controleur;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>PanelChoixNombresMonomesContraintes</i></h1>
- * <h2><code>public class PanelChoixNombresMonomesContraintes etends JPanel</code></h2>
+ * <h2><code>public class PanelChoixNombresMonomesContraintes extends <span class='name'>JPanel</span></code></h2>
  * <p>Cette classe permet à l'utilisateur de choisir le nombre de contraintes et de monomes souhaité dans le Simplexe.</p>
  */
 @SuppressWarnings("serial")
@@ -31,10 +31,10 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	JButton ok;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public PanelChoixMonomesContraintes()</code></h2>
-	 * <p> Ce constructeur met en place un formulaire contenant deux <code>JComboBox</code> pour désigner 
+	 * <p> Ce constructeur met en place un formulaire contenant deux <code class='name'>JComboBox</code> pour désigner 
 	 * le nombre de monome et de contrainte.</p>
 	 */
 	public PanelChoixNombresMonomesContraintes() {
@@ -80,11 +80,12 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>enregistreEcouteur</i></h1>
-	 * <h2><code>public void enregistreEcouteur(Controleur parControleur)</code></h2>
-	 * <p>Met l'objet <code>Controleur</code> donné en paramètre à l'écoute du bouton ok.</p>
-	 * @param parControleur
+	 * <h2><code>public void enregistreEcouteur(<span class='name'>Controleur</span> parControleur)</code></h2>
+	 * <p>Met l'objet <code class='name'>Controleur</code> donné en paramètre à l'écoute du bouton ok.</p>
+	 * 
+	 * @param parControleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur parControleur) {
 		ok.setActionCommand("ok");
@@ -92,10 +93,11 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getBouton</i></h1>
 	 * <h2><code>public JButton getBouton()</code></h2>
-	 * <p>Renvoie le champ <i>ok<i> de <i><b>this</b></i>.</p>
+	 * <p>Renvoie le champ <i>ok</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return ok : (JButton)
 	 */
 	public JButton getBouton() {
@@ -103,10 +105,10 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>viderFormulaire</i></h1>
 	 * <h2><code>public void viderFormulaire()</code></h2>
-	 * <p>Remet les <code>JComboBox</code> de ce panel à 0.</p>
+	 * <p>Remet les <code class='name'>JComboBox</code> de ce panel à 0.</p>
 	 */
 	public void viderFormulaire() {
 		nbMonome.setSelectedIndex(0);
@@ -114,10 +116,11 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getNbMonome</i></h1>
 	 * <h2><code>public JComboBox getNbMonome()</code></h2>
-	 * <p>Renvoie la <code>JComboBox</code> <i>nbMonome</i>.</p>
+	 * <p>Renvoie la <code class='name'>JComboBox</code> <i>nbMonome</i>.</p>
+	 * 
 	 * @return nbMonome : (JComboBox)
 	 */
 	public JComboBox<Integer> getNbMonome() {
@@ -125,10 +128,11 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getNbContraintes</i></h1>
 	 * <h2><code>public JComboBox getNbContraintes()</code></h2>
-	 * <p>Renvoie la <code>JComboBox</code> <i>nbContraintes</i>.</p>
+	 * <p>Renvoie la <code class='name'>JComboBox</code> <i>nbContraintes</i>.</p>
+	 * 
 	 * @return nbContraintes : (JComboBox)
 	 */
 	public JComboBox<Integer> getNbContraintes() {
@@ -136,10 +140,11 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getNombreMonme</i></h1>
 	 * <h2><code>public Integer getNombreMonome()</code></h2>
 	 * <p>Renvoie le champ <i>nombreMonome</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return nombreMonome : (Integer)
 	 */
 	public Integer getNombreMonome() {
@@ -147,10 +152,11 @@ public class PanelChoixNombresMonomesContraintes extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getNombreContraintes</i></h1>
 	 * <h2><code>public Integer getNombreContraintes()</code></h2>
 	 * <p>Renvoie le champ <i>nombreContraintes</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return nombreContraintes : (Integer)
 	 */
 	public Integer getNombreContraintes() {

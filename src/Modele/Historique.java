@@ -6,10 +6,10 @@ import java.util.LinkedList;
 import Modele.Simplexe;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>Historique</i></h1>
- * <h2><code>public class Historique implements Serializable</code></h2>
- * <p>Cette classe contient les différents <i>dictionnaires</i> du simplexe en cours : <b>c'est une liste de <code>Simplexe</code></b>.</p>
+ * <h2><code>public class Historique implements <span class='name'>Serializable</span></code></h2>
+ * <p>Cette classe contient les différents <i>dictionnaires</i> du simplexe en cours : <b>c'est une liste de <code class='name'>Simplexe</code></b>.</p>
  */
 @SuppressWarnings("serial")
 public class Historique implements Serializable{
@@ -17,21 +17,23 @@ public class Historique implements Serializable{
 	private LinkedList <Simplexe> listeSimplexe;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
- 	 * <h1><i>Historique(LinkedList\<Simplexe\> liste)</i></h1>
-	 * <h2><code>public Historique(LinkedList\<Simplexe\> liste)</code></h2>
-	 * <p>Construit un objet <code>Historique</code> à partir d'une liste de <code>Simplexe</code> donnée en paramètre.</p>
-	 * @param liste : (LinkedList\<Simplexe\>)
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
+ 	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public Historique(<span class='name'>LinkedList</span> liste)</code></h2>
+	 * <p>Remplie le champ <i>listeSimplexe</i> de <i><b>this</b></i> à partir d'une liste de <code class='name'>Simplexe</code> donnée en paramètre.</p>
+	 * 
+	 * @param liste : (LinkedList)
 	 */
 	public Historique(LinkedList<Simplexe> liste) {
 		listeSimplexe = liste;
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
- 	 * <h1><i>Historique</i></h1>
-	 * <h2><code>public Historique(Historique histo)</code></h2>
-	 * </p>Construit un objet <code>Historique</code> à partir d'un autre objet <code>Historique</code> donné en paramètre.
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
+ 	 * <h1><i>Constructeur</i></h1>
+	 * <h2><code>public Historique(<span class='name'>Historique</span> histo)</code></h2>
+	 * <p>Met en place un historique à partir de l'<code class='name'>Historique</code> donné en paramètre.</p>
+	 * 
 	 * @param histo : (Historique)
 	 */
 	public Historique(Historique histo) {
@@ -43,21 +45,20 @@ public class Historique implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
- 	 * <h1><i>Historique</i></h1>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
+ 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public Historique()</code></h2>
-	 * <p>Construit un objet <code>Historique</code> contenant une liste de <code>Simplexe</code> vide.</p>
 	 */
 	public Historique() {
 		listeSimplexe = new LinkedList<Simplexe>();
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getListeSimplexe</i></h1>
- 	 * <h2><code>public LinkedList\<Simplexe\> getListeSimplexe()</code></h2>
-	 * <p>Renvoie le champ <i>listeSimplexe</i> de <i><b>this</b></i>, qui est une liste de Simplexe.</p>
-	 * @return listeSimplexe : (LinkedList)
+ 	 * <h2><code>public LinkedList getListeSimplexe()</code></h2>
+	 * <p>Renvoie le champ <i>listeSimplexe</i> de <i><b>this</b></i>.</p>
+	 * @return listeSimplexe : (LinkedList) Liste de Simplexe
 	 *
 	 * @see Simplexe
 	 */
@@ -66,10 +67,11 @@ public class Historique implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>add</i></h1>
-	 * <h2><code>public void add(Simplexe simplexe)</code></h2>
-	 * <p>Ajoute un <code>Simplexe</code> à la <i>listeSimplexe</i> de <i><b>this</b></i>.</p>
+	 * <h2><code>public void add(<span class='name'>Simplexe</span> simplexe)</code></h2>
+	 * <p>Ajoute un <code class='name'>Simplexe</code> à la <i>listeSimplexe</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @param simplexe : (Simplexe)
 	 */
 	public void add(Simplexe simplexe) {
@@ -77,11 +79,12 @@ public class Historique implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>toString</i></h1>
 	 * <h2><code>public String toString()</code></h2>
-	 * <p>Parcourt la <i>listeSimplexe</i> de <i><b>this</b></i> et renvoie les <code>Simplexe</code> de la liste sous 
+	 * <p>Parcourt la <i>listeSimplexe</i> de <i><b>this</b></i> et renvoie les <code class='name'>Simplexe</code> de la liste sous 
 	 * forme de chaîne de caractère.</p>
+	 * 
 	 * @return chaineFinale : (String)
 	 * 
 	 * @see Simplexe#toString2()
@@ -95,10 +98,10 @@ public class Historique implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
- 	 * <h1><i>setListeSimplexe(LinkedList\<Simplexe\> listeSimplexe)</i></h1>
-	 * <h2><code>public void add(Simplexe simplexe)</code></h2>
-	 * <p>Défini le champ <i>listeSimplexe</i> de <i><b>this</b></i> avec la <code>LinkedList</code> donnée en paramètre.</p>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
+ 	 * <h1><i>setListeSimplexe</i></h1>
+	 * <h2><code>public void setListeSimplexe(<span class='name'>LinkedList</span> listeSimplexe)</code></h2>
+	 * <p>Défini le champ <i>listeSimplexe</i> de <i><b>this</b></i> avec la <code class='name'>LinkedList</code> donnée en paramètre.</p>
 	 * @param listeSimplexe : (LinkedList)
 	 */
 	public void setListeSimplexe(LinkedList<Simplexe> listeSimplexe) {
@@ -106,7 +109,7 @@ public class Historique implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
  	 * <h1><i>etapePrecedente()</i></h1>
 	 * <h2><code>public void void etapePrecedente()</code></h2>
 	 * <p>Supprime le dernier simplexe de la <i>listeSimplexe</i> de <i><b>this</b></i> (si il y a plus d'un simplexe).</p>

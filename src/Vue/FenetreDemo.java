@@ -3,16 +3,16 @@ package Vue;
 import javax.swing.JFrame;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; }</style>
  * <h1><i>FenetreDemo</i></h1>
- * <h2><code>public class FenetreDemo extends JFrame</code></h2>
+ * <h2><code>public class FenetreDemo extends <span class='name'>JFrame</span></code></h2>
  * <p>Cette classe montre à l'utilisateur comment se servir de l'application.</p>
  */
 @SuppressWarnings("serial")
 public class FenetreDemo extends JFrame{
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; }</style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public FenetreDemo()</code></h2>
 	 * <p>Cette fenêtre contient le panelDemo.</p>

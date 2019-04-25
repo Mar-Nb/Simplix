@@ -7,9 +7,9 @@ import javax.swing.JPanel;
 import Controleur.Controleur;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>PanelFichier</i></h1>
- * <h2><code>public class PanelFichier extends JPanel</code></h2>
+ * <h2><code>public class PanelFichier extends <span class='name'>JPanel</span></code></h2>
  * <p>Ce panel est le 2e conteneur principal de l'application. Il contient tous les panels ayant un rapport avec la création ou
  * le chargement d'un simplexe.</p>
  * 
@@ -23,10 +23,10 @@ public class PanelFichier extends JPanel{
 	private CardLayout gestionnaireDeCartes;
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public PanelChoixMonomesContraintes()</code></h2>
-	 * <p>Met en place un diaporama de 2 panels : <code>PanelFormulaire</code> et <code>PanelChargerSimplexe</code>.</p>
+	 * <p>Met en place un diaporama de 2 panels : <code class='name'>PanelFormulaire</code> et <code class='name'>PanelChargerSimplexe</code>.</p>
 	 */
 	public PanelFichier(){
 		
@@ -49,10 +49,11 @@ public class PanelFichier extends JPanel{
 	
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getGestionnaireDeCartes</i></h1>
 	 * <h2><code>public Cardlayout getGestionnaireDeCartes()</code></h2>
 	 * <p>Renvoie le champ <i>gestionnaireDeCartes</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return gestionnaireDeCartes : (CardLayout)
 	 */
 	public CardLayout getGestionnaireDeCartes() {
@@ -61,10 +62,11 @@ public class PanelFichier extends JPanel{
 	
 	//EnregistreEcouteur qui appelle les enregistreEcouteurs des panelFils
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>enregistreEcouteur</i></h1>
-	 * <h2><code>public void enregistreEcouteur(Controleur parControleur)</code></h2>
+	 * <h2><code>public void enregistreEcouteur(<span class='name'>Controleur</span> parControleur)</code></h2>
 	 * <p>Permet de mettre <i>parControleur</i> à l'écoute de tous les panels fils.</p>
+	 * 
 	 * @param parControleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur parControleur){
@@ -75,10 +77,11 @@ public class PanelFichier extends JPanel{
 
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getPanelFormulaire</i></h1>
 	 * <h2><code>public PanelFormulaire getPanelFormulaire()</code></h2>
 	 * <p>Renvoie le champ <i>panelFormulaire</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return panelFormulaire : (PanelFormulaire)
 	 */
 	public PanelFormulaire getPanelFormulaire() {
@@ -87,10 +90,11 @@ public class PanelFichier extends JPanel{
 
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getPanelCharger</i></h1>
 	 * <h2><code>public PanelChargerSimplexe getPanelCharger()</code></h2>
 	 * <p>Renvoie le champ <i>panelCharger</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return panelCharger : (PanelChargerSimplexe)
 	 */
 	public PanelChargerSimplexe getPanelCharger() {
@@ -99,10 +103,11 @@ public class PanelFichier extends JPanel{
 
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setPanelCharger</i></h1>
-	 * <h2><code>public void setPanelCharger(PanelChargerSimplexe panelCharger)</code></h2>
-	 * <p>Définit le champ <i>panelCharger</i> de <i><b>this</b></i> avec le <code>PanelChargerSimplexe</code> donné en paramètre.</p>
+	 * <h2><code>public void setPanelCharger(<span class='name'>PanelChargerSimplexe</span> panelCharger)</code></h2>
+	 * <p>Définit le champ <i>panelCharger</i> de <i><b>this</b></i> avec le <code class='name'>PanelChargerSimplexe</code> donné en paramètre.</p>
+	 * 
 	 * @param panelCharger : (PanelChargerSimplexe)
 	 */
 	public void setPanelCharger(PanelChargerSimplexe panelCharger) {
@@ -111,10 +116,11 @@ public class PanelFichier extends JPanel{
 
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 *<style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setPanelFormulaire</i></h1>
-	 * <h2><code>public void setPanelFormulaire(PanelFormulaire panelFormulaire)</code></h2>
-	 * <p>Défini le champ <i>panelFormulaire</i> de <i><b>this</b></i> avec le <code>PanelFormulaire</code> donné en paramètre.</p>
+	 * <h2><code>public void setPanelFormulaire(<span class='name'>PanelFormulaire</span> panelFormulaire)</code></h2>
+	 * <p>Défini le champ <i>panelFormulaire</i> de <i><b>this</b></i> avec le <code class='name'>PanelFormulaire</code> donné en paramètre.</p>
+	 * 
 	 * @param panelFormulaire : (PanelFormulaire)
 	 */
 	public void setPanelFormulaire(PanelFormulaire panelFormulaire) {

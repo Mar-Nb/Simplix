@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>ContrainteExplicite</i></h1>
- * <h2><code>public class ContrainteExplicite implements Serializable</code></h2>
+ * <h2><code>public class ContrainteExplicite implements <span class='name'>Serializable</span></code></h2>
  * <p> Cette classe adopte le comportement mathématique d'une contrainte explicite.</p>
  *
  */
@@ -20,11 +20,13 @@ public class ContrainteExplicite implements Serializable{
 	int nombreInconnues;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public ContrainteExplicite(Fraction limite, String nom)</code></h2>
-	 * <p>Construit un objet <code>ContrainteExplicite</code> et remplit les champs <code>Fraction</code> <i>inferieurA</i> et <code>String</code> <i>nom</i> avec les variables
-	 * données en paramètre ( les autres champs sont une <code>HashMap</code> vide et un nombre d'inconnues initialisé à 0)</p>
+	 * <h2><code>public ContrainteExplicite(<span class='name'>Fraction</span> limite, <span class='name'>String</span> nom)</code></h2>
+	 * <p>Construit un objet <code class='name'>ContrainteExplicite</code> et remplit les champs <code class='name'>Fraction</code> <i>inferieurA</i> et 
+	 * <code class='name'>String</code> <i>nom</i> avec les variables données en paramètre (les autres champs sont une <code class='name'>HashMap</code> vide 
+	 * et un nombre d'inconnues initialisé à 0)</p>
+	 * 
 	 * @param limite : (Fraction)
 	 * @param nom : (String)
 	 * 
@@ -38,11 +40,12 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public ContrainteExplicite(ContrainteExplicite ce)</code></h2>
-	 * <p>Construit un objet <code>ContrainteExplicite</code> à partir d'un autre objet <code>ContrainteExplicite</code> donné en paramètre et copie 
-	 * tous les champs de la <code>ContrainteExplicite</code> en paramètre dans le nouvel objet qui sera construit.</p>
+	 * <h2><code>public ContrainteExplicite(<span class='name'>ContrainteExplicite</span> ce)</code></h2>
+	 * <p>Construit un objet <code class='name'>ContrainteExplicite</code> à partir d'un autre objet <code class='name'>ContrainteExplicite</code> donné en paramètre et copie 
+	 * tous les champs de la <code class='name'>ContrainteExplicite</code> en paramètre dans le nouvel objet qui sera construit.</p>
+	 * 
 	 * @param ce : (ContrainteExplicite)
 	 */
 	public ContrainteExplicite(ContrainteExplicite ce) {
@@ -57,10 +60,11 @@ public class ContrainteExplicite implements Serializable{
 		}
 	}
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>ajouterMonome</i></h1>
-	 * <h2><code>public void ajouterMonome(Monome m)</code></h2>
-	 * <p>Permet l'ajout d'un monome dans le champ <i>monome</i>, qui est un champ de type <code>Map</code>.</p>
+	 * <h2><code>public void ajouterMonome(<span class='name'>Monome</span> m)</code></h2>
+	 * <p>Permet l'ajout d'un monome dans le champ <i>monome</i>, qui est un champ de type <code class='name'>Map</code>.</p>
+	 * 
 	 * @param m : (Monome) Monome à ajouter
 	 * 
 	 * @see Monome
@@ -70,7 +74,7 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>passageDico1</i></h1>
 	 * <h2><code>public void passageDico1()</code></h2>
 	 * <p>Permet de former le dictionnaire n°1 : on rentre les limites dans chaque contrainte.</p>
@@ -84,13 +88,12 @@ public class ContrainteExplicite implements Serializable{
 		this.ajouterMonome(m);
 	}
 	
-	/* toString pour le dictionnaire 0 (sans les "=", seulement les contraintes avec les "<=")*/
-	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>toStringDico1</i></h1>
 	 * <h2><code>public String toStringDico1</code></h2>
 	 * <p>Affiche le premier dictionnaire, qui correspond au dictionnaire où chaque contrainte doit être inférieure à une limite.</p>
+	 * 
 	 * @return chaineFinale : (String) 
 	 */
 	
@@ -113,13 +116,12 @@ public class ContrainteExplicite implements Serializable{
 		return chaineFinale;
 	}
 	
-	/* toString pour les autres dictionnaires (avec les "=")*/
-	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>toString</i></h1>
 	 * <h2><code>public String toString()</code></h2>
 	 * <p>Permet l'affichage des autres dictionnaires (autre que le dictionnaire n°1).</p>
+	 * 
 	 * @return chaineFinale: (String) Renvoie une chaine de caractères correspondant à un dictionnaire ( autre que le dictionnaire n°1)
 	 */
 	public String toString() {
@@ -147,12 +149,13 @@ public class ContrainteExplicite implements Serializable{
 	 */
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>additionnerLigne</i></h1>
-	 * <h2><code>public void additionnerLigne(ContrainteExplicite ce)</code></h2>
-	 * <p>Parcourt la <code>HashMap</code> de <i><b>this</b></i> et additionne chaque <code>Monome</code> à celui ayant la même clé dans la <code>HashMap</code>
-	 * de ContrainteExplicite donnée en paramètre.</p>
-	 * @param ce: (ContrainteExplicite) Renvoie une contrainte explicite
+	 * <h2><code>public void additionnerLigne(<span class='name'>ContrainteExplicite</span> ce)</code></h2>
+	 * <p>Parcourt la <code class='name'>HashMap</code> de <i><b>this</b></i> et additionne chaque <code class='name'>Monome</code> à celui ayant la même clé dans 
+	 * la <code class='name'>HashMap</code> du paramètre <i>ce</i>.</p>
+	 * 
+	 * @param ce : (ContrainteExplicite) Renvoie une contrainte explicite
 	 */
 	public void additionnerLigne(ContrainteExplicite ce) {
 		Iterator i = monomes.keySet().iterator(); 
@@ -163,11 +166,14 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }
+	 * .ex{ font-family: Courier; font-size: 1.2em; }</style>
 	 * <h1><i>rentrerBase</i></h1>
-	 * <h2><code>public void rentrerBase(String inconnue)</code></h2>
+	 * <h2><code>public void rentrerBase(<span class='name'>String</span> inconnue)</code></h2>
 	 * <p>Permet de trouver la variable inconnue à sortir de la contrainte. Puis sort cette variable de la contrainte. Puis 
-	 * ajoute la variable de la contrainte dans la contrainte.<br><hr>Ex : (x1 = 4 - 2x3 - 8x2 -> rentrerBase(x3) -> x3 = 2 - 4x2 - (1/2) x1 ).</p>
+	 * ajoute la variable de la contrainte dans la contrainte.</p><br>Ex :<br><span class='ex'>x1 = 4 - 2x3 - 8x2 <br>-> rentrerBase(x3) <br>-> x3 = 2 - 4x2 - (1/2) x1.
+	 * </span>
+	 * 
 	 * @param inconnue : (String) L'inconnue ("x1" par exemple) à sortir de la base
 	 * 
 	 */
@@ -189,12 +195,13 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>echanger</i></h1>
-	 * <h2><code>public void echanger(ContrainteExplicite ce, String inconnue)</code></h2>
+	 * <h2><code>public void echanger(<span class='name'>ContrainteExplicite</span> ce, <span class='name'>String</span> inconnue)</code></h2>
 	 * <p>Permet de remplacer une inconnue par une contrainte explicite, puis d'additionner les monomes de même inconnue.</p>
+	 * 
 	 * @param ce : (ContrainteExplicite) Une autre contrainte explicite
-	 * @param inconnue : (String) L'inconnue à échanger avec <b>ce</b>
+	 * @param inconnue : (String) L'inconnue à échanger avec <i>ce</i>
 	 */
 	public void echanger(ContrainteExplicite ce, String inconnue) {
 		Monome aEchanger = ((Monome)monomes.get(inconnue));
@@ -217,10 +224,11 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>majorant</i></h1>
-	 * <h2><code>public double majorant</code></h2>
+	 * <h2><code>public double majorant(<span class='name'>String</span> inconnue)</code></h2>
 	 * <p>Calcul le majorant à partir de la constante et du coefficient de l'inconnue fourni en paramètre.</p>
+	 * 
 	 * @param inconnue : (String)
 	 * @return (double) Valeur absolue de "<code>constante / coeffInconnue</code>".
 	 * 
@@ -233,9 +241,9 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>division</i></h1>
-	 * <h2><code>public void division(Fraction coeff)</code></h2>
+	 * <h2><code>public void division(<span class='name'>Fraction</span> coeff)</code></h2>
 	 * <p>Divise tous les monomes de la contrainte <i><b>this</b></i> par <i>coeff</i>.</p>
 	 * @param coeff : (Fraction)
 	 * 
@@ -251,10 +259,11 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getNom</i></h1>
-	 * <h2><code>public String getNom</code></h2>
+	 * <h2><code>public String getNom()</code></h2>
 	 * <p>Renvoie le champ <i>nom</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return nom : (String)
 	 */
 	public String getNom() {
@@ -262,10 +271,11 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setNom</i></h1>
-	 * <h2><code>public void setNom(String nom)</code></h2>
-	 * <p>Définie le champ <i>nom</i> de <i><b>this</b></i> avec la String <i>nom</i> fournit en paramètre</p>
+	 * <h2><code>public void setNom(<span class='name'>String</span> nom)</code></h2>
+	 * <p>Définie le champ <i>nom</i> de <i><b>this</b></i> avec la <span class='name'>String</span> <i>nom</i> donnée en paramètre</p>
+	 * 
 	 * @param nom : (String)
 	 */
 	public void setNom(String nom) {
@@ -273,10 +283,11 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getMonomes</i></h1>
 	 * <h2><code>public Map getMonomes()</code></h2>
-	 * <p>Renvoie le champ <i>monomes</i> de <i><b>this</b></i>, qui est une <code>Map</code> de <code>Monome</code>.</p>
+	 * <p>Renvoie le champ <i>monomes</i> de <i><b>this</b></i>, qui est une <code class='name'>Map</code> de <code class='name'>Monome</code>.</p>
+	 * 
 	 * @return monomes : (Map)
 	 * 
 	 * @see Monome
@@ -287,20 +298,23 @@ public class ContrainteExplicite implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setMonomes</i></h1>
-	 * <h2><code>public void setMonomes(Map monomes)</code></h2>
-	 * <p>Définie le champ <i>monomes</i> de <i><b>this</b></i> avec la <code>Map</code> fournit en paramètre.</p>
+	 * <h2><code>public void setMonomes(<span class='name'>Map</span> monomes)</code></h2>
+	 * <p>Définie le champ <i>monomes</i> de <i><b>this</b></i> avec la <code class='name'>Map</code> donnée en paramètre.</p>
+	 * 
+	 * @param monomes : (Map)
 	 */
 	public void setMonomes(Map monomes) {
 		this.monomes = monomes;
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getInferieurA</i></h1>
 	 * <h2><code>public Fraction getInferieurA()</code></h2>
-	 * <p>Renvoie le champ <i>inferieurA</i> de <i><b>this</b></i>, qui est une <code>Fraction</code>.</p>
+	 * <p>Renvoie le champ <i>inferieurA</i> de <i><b>this</b></i>, qui est une <code class='name'>Fraction</code>.</p>
+	 * 
 	 * @return inferieurA : (Fraction)
 	 * 
 	 * @see Fraction
@@ -310,10 +324,11 @@ public class ContrainteExplicite implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setInferieurA</i></h1>
-	 * <h2><code>public void setInferieurA(Fraction inferieurA)</code></h2>
-	 * <p>Définie le champ <i>inferieurA</i> de <i><b>this</b></i> avec la <code>Fraction</code> fournit en paramètre.</p>
+	 * <h2><code>public void setInferieurA(<span class='name'>Fraction</span> inferieurA)</code></h2>
+	 * <p>Définie le champ <i>inferieurA</i> de <i><b>this</b></i> avec la <code class='name'>Fraction</code> donnée en paramètre.</p>
+	 * 
 	 * @param inferieurA : (Fraction)
 	 * 
 	 * @see Fraction
@@ -322,10 +337,11 @@ public class ContrainteExplicite implements Serializable{
 		this.inferieurA = inferieurA;
 	}
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getNombreInconnues</i></h1>
 	 * <h2><code>public int getNombreinconnues()</code></h2>
 	 * <p>Renvoie le champ <i>nombreInconnues</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return nombreInconnues : (Integer)
 	 */
 	public int getNombreInconnues() {
@@ -333,10 +349,11 @@ public class ContrainteExplicite implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px;} </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setNombreInconnues</i></h1>
 	 * <h2><code>public void setNombreInconnues</code></h2>
-	 * <p>Définie le champ <i>nombreInconnues</i> de <i><b>this</b></i> avec l'<code>Integer</code> fournit en paramètre.</p>
+	 * <p>Définie le champ <i>nombreInconnues</i> de <i><b>this</b></i> avec l'<code class='name'>Integer</code> donné en paramètre.</p>
+	 * 
 	 * @param nombreInconnues : (Integer)
 	 */
 	public void setNombreInconnues(int nombreInconnues) {

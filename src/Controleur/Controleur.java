@@ -25,11 +25,11 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>Controleur</i></h1>
- * <h2><code>public class Controleur implements ActionListener</code></h2>
- * <p>Cette classe permet de mettre à l'écoute les deux principaux conteneurs de l'application : <i><code>PanelFichier</code></i>
- * et <i><code>PanelGeneral</code></i>.</p>
+ * <h2><code>public class Controleur implements <span class='name'>ActionListener</span></code></h2>
+ * <p>Cette classe permet de mettre à l'écoute les deux principaux conteneurs de l'application : <i class='name'><code>PanelFichier</code></i>
+ * et <i class='name'><code>PanelGeneral</code></i>.</p>
  * 
  * @see PanelFichier
  * @see PanelGeneral
@@ -40,16 +40,15 @@ public class Controleur implements ActionListener {
 	public GridBagConstraints contrainte = new GridBagConstraints() ;
 	private PanelFichier panelFichier;
 	
-	/*
-	Ce controleur est à l'écoute de tous les objets d'interaction des panels contenues par PanelFichier et 
-	PanelGeneral sauf ceux possédant leur propre actionPerformed
-	*/
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public Controleur(PanelFichier panelFichier, PanelGeneral panelSimplex)</code></h2>
-	 * @param panelFichier
-	 * @param panelSimplex
+	 * <h2><code>public Controleur(<span class='name'>PanelFichier</span> panelFichier, <span class='name'>PanelGeneral</span> panelSimplex)</code></h2>
+	 * <p>Ce controleur est à l'écoute de tous les objets d'interaction des panels contenues par <span class='name'>PanelFichier</span> et <span class='name'>PanelGeneral</span> 
+	 * sauf ceux possédant leur propre <i>actionPerformed()</i>.</p>
+	 * 
+	 * @param panelFichier : (PanelFichier)
+	 * @param panelSimplex : (PanelGeneral)
 	 */
 	public Controleur(PanelFichier panelFichier, PanelGeneral panelSimplex) {
 		// TODO Auto-generated constructor stub
@@ -60,10 +59,11 @@ public class Controleur implements ActionListener {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>actionPerformed</i></h1>
-	 * <h2><code>public Controleur(ActionEvent evt)</code></h2>
+	 * <h2><code>public Controleur(<span class='name'>ActionEvent</span> evt)</code></h2>
 	 * <p>Permet de gérer les choix de l'utilisateur lors de son utilisation du programme Simplexe à partir du démarrage du programme.</p>
+	 * 
 	 * @param evt : (ActionEvent) Un événement correspondant au choix de l'utilisateur
 	 */
 	public void actionPerformed(ActionEvent evt) {

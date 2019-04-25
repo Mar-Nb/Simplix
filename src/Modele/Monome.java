@@ -3,11 +3,11 @@ package Modele;
 import java.io.Serializable;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>Monome</i></h1>
- * <h2><code>public class Monome implements Serializable</code></h2>
+ * <h2><code>public class Monome implements <span class='name'>Serializable</span></code></h2>
  * <p> Cette classe compose les contrainte explicites et la fonction économique. Elle imite le comportement
- * mathématiques d'un monome et est composée d'une coefficient, qui est une <code>Fraction</code>, et d'une <code>String</code>
+ * mathématiques d'un monome et est composée d'une coefficient, qui est une <code class='name'>Fraction</code>, et d'une <code class='name'>String</code>
  * pour l'inconnue.</p>
  * 
  * @see ContrainteExplicite
@@ -21,11 +21,12 @@ public class Monome implements Serializable{
 	String inconnue;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public Monome(Fraction coeff, String inconnue</code></h2>
-	 * <p>Construit un objet <code>Monome</code> à partir d'une <code>Fraction</code> et d'une <code>String</code> données
+	 * <h2><code>public Monome(<span class='name'>Fraction</span> coeff, <span class='name'>String</span> inconnue</code></h2>
+	 * <p>Construit un objet <code class='name'>Monome</code> à partir d'une <code class='name'>Fraction</code> et d'une <code class='name'>String</code> données
 	 * en paramètre.</p>
+	 * 
 	 * @param coeff : (Fraction)
 	 * @param inconnue : (String)
 	 */
@@ -35,10 +36,11 @@ public class Monome implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public Monome(Monome monome)</code></h2>
-	 * <p>Construit un objet <code>Monome</code> à partir du monome donné en paramètre.</p>
+	 * <h2><code>public Monome(<span class='name'>Monome</span> monome)</code></h2>
+	 * <p>Construit un objet <code class='name'>Monome</code> à partir de celui donné en paramètre.</p>
+	 * 
 	 * @param monome : (Monome)
 	 */
 	public Monome(Monome monome) {
@@ -47,11 +49,12 @@ public class Monome implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
  	 * <h1><i>toString</i></h1>
 	 * <h2><code>public String toString()</code></h2>
 	 * <p>Affiche le monome sous forme de chaîne de caractère.</p>
-	 *@return String 
+	 * 
+	 *@return String
 	 */
 	public String toString() {
 		if(coefficient.toString().equals("1") && inconnue.equals(" ")==false) {
@@ -72,11 +75,12 @@ public class Monome implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>additionner</i></h1>
-	 * <h2><code>public void additionner(Monome m)</code></h2>
+	 * <h2><code>public void additionner(<span class='name'>Monome</span> m)</code></h2>
 	 * <p>Ajoute <i>m</i> à <i><b>this</b></i>.</p>
-	 * @param Monome m
+	 * 
+	 * @param m : (Monome)
 	 */
 	public void additionner(Monome m) {
 		this.coefficient = this.coefficient.FAddition(m.getCoefficient());
@@ -84,10 +88,11 @@ public class Monome implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>multiplier</i></h1>
-	 * <h2><code>public void multiplier(Fraction constante)</code></h2>
+	 * <h2><code>public void multiplier(<span class='name'>Fraction</span> constante)</code></h2>
 	 * <p>Multiplie <i><b>this</b></i> par <i>constante</i>.</p>
+	 * 
 	 * @param constante : (Fraction)
 	 */
 	public void multiplier(Fraction constante) { // ADD FRACTION
@@ -95,10 +100,11 @@ public class Monome implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
  	 * <h1><i>getCoefficient</i></h1>
 	 * <h2><code>public Fraction getCoefficient()</code></h2>
 	 * <p>Renvoie le champ <i>coefficient</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return coefficient : (Fraction)
 	 */
 	public Fraction getCoefficient() {
@@ -106,10 +112,11 @@ public class Monome implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>setCoefficient</i></h1>
-	 * <h2><code>public void setCoefficient(Fraction coefficient)</code></h2>
-	 * <p>Définie le champ <i>coefficient</i> de <i><b>this</b></i> avec la <code>Fraction</code> donnée en paramètre.</p>
+	 * <h2><code>public void setCoefficient(<span class='name'>Fraction</span> coefficient)</code></h2>
+	 * <p>Définie le champ <i>coefficient</i> de <i><b>this</b></i> avec la <code class='name'>Fraction</code> donnée en paramètre.</p>
+	 * 
 	 * @param coefficient : (Fraction)
 	 */
 	public void setCoefficient(Fraction coefficient) {
@@ -117,10 +124,11 @@ public class Monome implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
  	 * <h1><i>getInconnue</i></h1>
 	 * <h2><code>public String getInconnue()</code></h2>
 	 * <p>Renvoie le champ <i>>inconnue</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return inconnue : (String)
 	 */
 	public String getInconnue() {
@@ -128,10 +136,11 @@ public class Monome implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>setInconnue</i></h1>
-	 * <h2><code>public void setInconnue(String inconnue)</code></h2>
-	 * <p>Définie le champ <i>inconnue</i> de <i><b>this</b></i> avec la <code>String</code> donnée en paramètre.</p>
+	 * <h2><code>public void setInconnue(<span class='name'>String</span> inconnue)</code></h2>
+	 * <p>Définie le champ <i>inconnue</i> de <i><b>this</b></i> avec la <code class='name'>String</code> donnée en paramètre.</p>
+	 * 
 	 * @param inconnue : (String)
 	 */
 	public void setInconnue(String inconnue) {

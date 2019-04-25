@@ -7,11 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>AfficheFraction</i></h1>
- * <h2><code>public class AfficheFraction extends JPanel</code></h2>
- * <p>Cette classe permet d'afficher un panel contenant une fraction écrite verticalement.<br><br><i>
- * Cette classe n'a pas été utilisé dans le projet.</i></p>
+ * <h2><code>public class AfficheFraction extends <span class='name'>JPanel</span></code></h2>
+ * <p>Cette classe permet d'afficher un panel contenant une fraction écrite verticalement.<br><br><b><i>
+ * Cette classe n'a pas été utilisé dans le projet.</i></b></p>
  */
 @SuppressWarnings("serial")
 public class AfficheFraction extends JPanel {
@@ -19,11 +19,12 @@ public class AfficheFraction extends JPanel {
 	JLabel frac;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public AfficheFraction(int num, int denom)</code></h2>
-	 * <p>Construit un objet <code>AfficheFraction</code> correspondant à un <code>BorderLayout</code> dans 
+	 * <h2><code>public AfficheFraction(<span class='name'>int</span> num, <span class='name'>int</span> denom)</code></h2>
+	 * <p>Construit un objet <code class='name'>AfficheFraction</code> correspondant à un <code class='name'>BorderLayout</code> dans 
 	 * lequel sera affiché une fraction.</p>
+	 * 
 	 * @param num : (Integer)
 	 * @param denom : (Integer)
 	 */

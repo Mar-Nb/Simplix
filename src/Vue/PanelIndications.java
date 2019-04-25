@@ -10,9 +10,9 @@ import javax.swing.JPanel;
 import Controleur.Controleur;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>PanelIndications</i></h1>
- * <h2><code>public class PanelIndications extends JPanel</code></h2>
+ * <h2><code>public class PanelIndications extends <span class='name'>JPanel</span></code></h2>
  * <p>Cette classe permet de fournir des indices sur la résolution du simplexe.<br><br>
  * <i>Il faut noter que les indications ne sont pas toujours exactes, pour des raisons pédagogiques.</i></p>
  */
@@ -23,10 +23,10 @@ public class PanelIndications extends JPanel{
 	GridBagConstraints contrainte = new GridBagConstraints();
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public PanelIndications()</code></h2>
-	 * <p>Constructeur de base du <code>PanelIndications</code>.</p>
+	 * <p>Constructeur de base du <code class='name'>PanelIndications</code>.</p>
 	 */
 	public PanelIndications() {
 		this.setLayout(new GridBagLayout());
@@ -41,10 +41,11 @@ public class PanelIndications extends JPanel{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public PanelIndications(String enonce)</code></h2>
-	 * <p>Met en place un <i><b>this</b></i> avec pour texte <code>enonce</code>.</p>
+	 * <h2><code>public PanelIndications(<span class='name'>String</span> enonce)</code></h2>
+	 * <p>Met en place un <i><b>this</b></i> avec pour texte <i>enonce</i>.</p>
+	 * 
 	 * @param enonce : (String)
 	 */
 	public PanelIndications(String enonce) {
@@ -61,10 +62,11 @@ public class PanelIndications extends JPanel{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>enregistreEcouteur</i></h1>
-	 * <h2><code>public void enregistreEcouteur(Controleur parControleur)</code></h2>
+	 * <h2><code>public void enregistreEcouteur(<span class='name'>Controleur</span> parControleur)</code></h2>
 	 * <p>Met le controleur donné en paramètre à l'écoute du bouton de ce panel.</p>
+	 * 
 	 * @param parControleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur parControleur) {

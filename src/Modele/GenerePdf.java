@@ -11,10 +11,10 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>GenerePdf</i></h1>
  * <h2><code>public class GenerePdf</code></h2>
- * <p>Cette classe s'appuie sur iText, qui possède des classes pour gérer tout ce qui concerne l'écriture
+ * <p>Cette classe s'appuie sur <b><span class='name'>iText</span></b>, qui possède des classes pour gérer tout ce qui concerne l'écriture
  * dans un fichier pdf. Très pratique d'ailleurs, il permet aussi de faire des tableaux, d'afficher, des images, ...</p>
  */
 public class GenerePdf {
@@ -22,10 +22,10 @@ public class GenerePdf {
 	private Document document;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>Constructeur</i></h1>
  	 * <h2><code>public GenerePdf()</code></h2>
-	 * <p>Constructeur vide de la classe GenerePdf.<br>Génère un .pdf avec pour seul contenu "HelloiText.pdf".</p>
+	 * <p>Constructeur vide de la classe GenerePdf.<br>Génère un <b>.pdf</b> avec pour seul contenu "HelloiText.pdf".</p>
 	 */
 	public GenerePdf() {
 		
@@ -45,16 +45,16 @@ public class GenerePdf {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>Constructeur</i></h1>
- 	 * <h2><code>public GenerePdf(Historique histo, File file)</code></h2>
-	 * <p>Génère un .pdf à partir d'un l'historique et du nom de fichier donnés en paramètre.</p> 
+ 	 * <h2><code>public GenerePdf(<span class='name'>Historique</span> histo, <span class='name'>File</span> file)</code></h2>
+	 * <p>Génère un <b>.pdf</b> à partir de l'historique et du nom de fichier donnés en paramètre.</p> 
+	 * 
 	 * @param histo : (Historique) Historique du simplexe en cours
-	 * @param nomFichier : (File)
+	 * @param file : (File)
 	 * 
 	 * @see Historique
 	 */
-	
 	public GenerePdf(Historique histo, File file) {
 		
 		document = new Document();
@@ -73,13 +73,13 @@ public class GenerePdf {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>populate</i></h1>
- 	 * <h2><code>public void populate(Document doc)</code></h2>
-	 * <p>Ajoute un paragrapĥe "Hello iText" au document .pdf.</p>
+ 	 * <h2><code>public void populate(<span class='name'>Document</span> doc)</code></h2>
+	 * <p>Ajoute un paragrapĥe "Hello iText" au document <b>.pdf</b>.</p>
 	 * @param doc : (Document)
 	 *
-	 * @throws DocumentException
+	 * @throws DocumentException : Exception concernant une erreur lors de la génération du pdf
 	 *
 	 * @see Document
 	 */
@@ -88,14 +88,15 @@ public class GenerePdf {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  	 * <h1><i>populate</i></h1>
- 	 * <h2><code>public populate(Document doc, Historique histo)</code></h2>
-	 * <p>Ajoute des paragraphes correspondant à chaque <code>Simplexe</code> composant l'historique donné en paramètre au document .pdf.</p>
+ 	 * <h2><code>public populate(<span class='name'>Document</span> doc, <span class='name'>Historique</span> histo)</code></h2>
+	 * <p>Ajoute des paragraphes correspondant à chaque <code class='name'>Simplexe</code> composant l'historique donné en paramètre au document <b>.pdf</b>.</p>
+	 * 
 	 * @param doc : (Document)
 	 * @param histo : (Historique)
 	 *
-	 * @throws DocumentException
+	 * @throws DocumentException : Exception concernant les erreurs de génération du pdf
 	 * 
 	 * @see Historique
 	 * @see Document

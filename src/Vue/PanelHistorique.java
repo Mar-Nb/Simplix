@@ -16,13 +16,13 @@ import javax.swing.ScrollPaneConstants;
 import Modele.Historique;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>PanelHistorique</i></h1>
- * <h2><code>public class PanelHistorique extends JPanel</code></h2>
- * <p>Cette classe permet d'afficher à l'utilisateur tous les dictionnaires qu'il effectuera sous la forme suivante : <br>
+ * <h2><code>public class PanelHistorique extends <span class='name'>JPanel</span></code></h2>
+ * <p>Cette classe permet d'afficher à l'utilisateur tous les dictionnaires qu'il effectuera sous la forme suivante : </p><br>
  * <ul><li>Dictionnaire 0</li><hr>
  * <li>Dictionnaire 1</li><hr>
- * <li>Dictionnaire 2</li></ul></p>
+ * <li>Dictionnaire 2</li></ul>
  */
 @SuppressWarnings("serial")
 public class PanelHistorique extends JPanel {
@@ -31,7 +31,7 @@ public class PanelHistorique extends JPanel {
 	public final Font police = new Font("Times New Roman", Font.PLAIN, 17);
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public PanelHistorique()</code></h2>
 	 * <p>Constructeur vide.</p>
@@ -43,11 +43,12 @@ public class PanelHistorique extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>PanelHistorique</i></h1>
-	 * <h2><code>public PanelHistorique(Historique histo)</code></h2>
-	 * <p>Met en place un GridLayout contenant un <code>JScrollPane</code> faisant défiler l'ensemble des <code>Simplexe</code> contenus dans 
-	 * l'<code>Historique</code> passé en paramètre.</p>
+	 * <h2><code>public PanelHistorique(<span class='name'>Historique</span> histo)</code></h2>
+	 * <p>Met en place un GridLayout contenant un <code class='name'>JScrollPane</code> faisant défiler l'ensemble des <code class='name'>Simplexe</code> contenus dans 
+	 * l'<code class='name'>Historique</code> passé en paramètre.</p>
+	 * 
 	 * @param histo : (Historique) Contient les dictionnaires du simplexe en cours
 	 */
 	public PanelHistorique(Historique histo) {
@@ -78,10 +79,11 @@ public class PanelHistorique extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getHistorique</i></h1>
 	 * <h2><code>public Historique getHistorique()</code></h2>
 	 * <p>Renvoie le champ <i>historique</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return historique : (Historique)
 	 */
 	public Historique getHistorique() {
@@ -89,10 +91,11 @@ public class PanelHistorique extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setHistorique</i></h1>
-	 * <h2><code>public void setHistorique(Historique historique)</code></h2>
+	 * <h2><code>public void setHistorique(<span class='name'>Historique</span> historique)</code></h2>
 	 * <p>Remplace la valeur du champ <i>historique</i> par celle passée en paramètre.</p>
+	 * 
 	 * @param historique : (Historique)
 	 */
 	public void setHistorique(Historique historique) {

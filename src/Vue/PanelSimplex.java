@@ -17,9 +17,9 @@ import Modele.Monome;
 import Modele.Simplexe;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>PanelSimplex</i></h1>
- * <h2><code>public class PanelSimplex extends JPanel</code></h2>
+ * <h2><code>public class PanelSimplex extends <span class='name'>JPanel</span></code></h2>
  * <p>Cette classe permet de faire apparaître un simplexe avec lequel l'utilisateur peut interagir.</p>
  */
 @SuppressWarnings("serial")
@@ -33,10 +33,10 @@ public class PanelSimplex extends JPanel {
 	JButton[][] tabBoutonsInconnues; // Tableau contenant tous les boutons du panel
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public PanelSimplex()</code></h2>
-	 * <p>Construit un <code>PanelSimplex</code> vide.</p>
+	 * <p>Construit un <code class='name'>PanelSimplex</code> vide.</p>
 	 */
 	public PanelSimplex() {
 		tabBoutonsInconnues=new JButton[0][0];
@@ -46,10 +46,11 @@ public class PanelSimplex extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public PanelSimplex(Simplexe simp)</code></h2>
-	 * <p>Met en place un panel avec des <code>JLabel</code> en guise de contrainte et des <code>JButton</code> en guise de variable.</p>
+	 * <h2><code>public PanelSimplex(<span class='name'>Simplexe</span> simp)</code></h2>
+	 * <p>Met en place un panel avec des <code class='name'>JLabel</code> en guise de contrainte et des <code class='name'>JButton</code> en guise de variable.</p>
+	 * 
 	 * @param simp : (Simplexe)
 	 */
 	public PanelSimplex(Simplexe simp) {
@@ -133,10 +134,11 @@ public class PanelSimplex extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>getSimplexe</i></h1>
 	 * <h2><code>public Simplexe getSimplexe()</code></h2>
 	 * <p>Renvoie le champ <i>simplexe</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return simplexe : (Simplexe)
 	 */
 	public Simplexe getSimplexe() {
@@ -144,10 +146,11 @@ public class PanelSimplex extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setSimplexe</i></h1>
-	 * <h2><code>public void setSimplexe(Simplexe simplexe)</code></h2>
+	 * <h2><code>public void setSimplexe(<span class='name'>Simplexe</span> simplexe)</code></h2>
 	 * <p>Remplace la valeur du champ <i>simplexe</i> par celle passée en paramètre.</p>
+	 * 
 	 * @param simplexe : (Simplexe)
 	 */
 	public void setSimplexe(Simplexe simplexe) {
@@ -155,10 +158,11 @@ public class PanelSimplex extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getTabBoutonsInconnues</i></h1>
 	 * <h2><code>public JButton[][] getTabBoutonsInconnues()</code></h2>
 	 * <p>Renvoie le champ <i>tabBoutonsInconnues</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return tabBoutonsInconnues : (JButton[][])
 	 */
 	public JButton[][] getTabBoutonsInconnues() {
@@ -166,10 +170,11 @@ public class PanelSimplex extends JPanel {
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setTabBoutonsInconnues</i></h1>
-	 * <h2><code>public void setTabBoutonsInconnues(JButton[][] tabBoutonsInconnues)</code></h2>
+	 * <h2><code>public void setTabBoutonsInconnues(<span class='name>'JButton</span>[][] tabBoutonsInconnues)</code></h2>
 	 * <p>Remplace la valeur du champ <i>tabBoutonsInconnues</i> par celle donnée en paramètre.</p>
+	 * 
 	 * @param tabBoutonsInconnues : (JButton[][])
 	 */
 	public void setTabBoutonsInconnues(JButton[][] tabBoutonsInconnues) {
@@ -177,10 +182,11 @@ public class PanelSimplex extends JPanel {
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>enregistreEcouteur</i></h1>
-	 * <h2><code>public void enregistreEcouteur(Controleur controleur)</code></h2>
-	 * <p>Met le controleur donné en param�tre à l'écoute de tous les boutons du panel.</p>
+	 * <h2><code>public void enregistreEcouteur(<span class='name'>Controleur</span> controleur)</code></h2>
+	 * <p>Met le controleur donné en paramètre à l'écoute de tous les boutons du panel.</p>
+	 * 
 	 * @param controleur : (Controleur)
 	 */
 	public void enregistreEcouteur(Controleur controleur) {

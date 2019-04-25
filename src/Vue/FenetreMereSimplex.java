@@ -12,9 +12,9 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>FenetreMereSimplex</i></h1>
- * <h2><code>public class FenetreMereSimplex extends JFrame</code></h2>
+ * <h2><code>public class FenetreMereSimplex extends <span class='name'>JFrame</span></code></h2>
  * <p>Cette classe est la fenêtre principale qui contient toute l'application <i>Simplexe</i>.</p>
  */
 @SuppressWarnings("serial")
@@ -38,7 +38,7 @@ public class FenetreMereSimplex extends JFrame {
 		menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
 		menuBar.setBackground(Color.WHITE);
 		
-		//JMenu Cr�ation
+		//JMenu Création
 		JMenu menuCreation=new JMenu("Fichier");
 		menuCreation.setBackground(Color.LIGHT_GRAY);
 		menuCreation.setMnemonic('F');
@@ -47,7 +47,7 @@ public class FenetreMereSimplex extends JFrame {
 		String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous", "Mode D�mo"};
 		JMenuItem[] menuItemsCreation = new JMenuItem[itemsCreation.length];
 		
-		// Les items de la JMenuBar sont ajout�s et mis �cout� par le contr�leur
+		// Les items de la JMenuBar sont ajoutés et mis écouté par le contrôleur
 		for(int i=0; i<itemsCreation.length;i++) {
 			menuItemsCreation[i]=new JMenuItem(itemsCreation[i]);
 			menuCreation.add(menuItemsCreation[i]);

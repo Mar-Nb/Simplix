@@ -5,11 +5,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>Simplexe</i></h1>
- * <h2><code>public class Simplexe implements Serializable</code></h2>
- * <p> Cette classe imite le comportement mathématique d'un simplexe. Il est composé d'une liste de <code>ContrainteExplicite</code>
- * et d'une <code>FonctionEco</code>.</p>
+ * <h2><code>public class Simplexe implements <span class='name'>Serializable</span></code></h2>
+ * <p> Cette classe imite le comportement mathématique d'un simplexe. Il est composé d'une liste de <code class='name'>ContrainteExplicite</code>
+ * et d'une <code class='name'>FonctionEco</code>.</p>
  * 
  * @see ContrainteExplicite
  * @see FonctionEco
@@ -21,10 +21,11 @@ public class Simplexe implements Serializable{
 	FonctionEco fonctionEco;
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public Simplexe(List contraintes, FonctionEco fonctionEco)</code></h2>
-	 * <p>Construit un objet <code>Simplexe</code> à partir d'une liste de contrainte et d'une fonction économique données en paramètre.</p>
+	 * <h2><code>public Simplexe(<span class='name'>List</span> contraintes, <span class='name'>FonctionEco</span> fonctionEco)</code></h2>
+	 * <p>Construit un objet <code class='name'>Simplexe</code> à partir d'une liste de contrainte et d'une fonction économique données en paramètre.</p>
+	 * 
 	 * @param contraintes : (List)
 	 * @param fonctionEco : (FonctionEco)
 	 * 
@@ -36,7 +37,7 @@ public class Simplexe implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public Simplexe()</code></h2>
 	 * <p>Constructeur vide.</p>
@@ -46,10 +47,11 @@ public class Simplexe implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>Constructeur</i></h1>
-	 * <h2><code>public Simplexe(Simplexe simp)</code></h2>
-	 * <p>Construit un objet <code>Simplexe</code> à partir du simplexe donné en paramètre.</p>
+	 * <h2><code>public Simplexe(<span class='name'>Simplexe</span> simp)</code></h2>
+	 * <p>Construit un objet <code class='name'>Simplexe</code> à partir du simplexe donné en paramètre.</p>
+	 * 
 	 * @param simp : (Simplexe)
 	 */
 	public Simplexe(Simplexe simp) {
@@ -64,7 +66,7 @@ public class Simplexe implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>passageDico1</i></h1>
 	 * <h2><code>public void passageDico1()</code></h2>
 	 * <p>Permet le passage au dictionnaire n°1 de <i><b>this</b></i>.</p>
@@ -77,11 +79,12 @@ public class Simplexe implements Serializable{
 	
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>toString</i></h1>
 	 * <h2><code>public String toString()</code></h2>
-	 * <p>Renvoie une chaîne de caractère contenant les <code>ContraintesExplicite</code> et la <code>FonctionEco</code>
+	 * <p>Renvoie une chaîne de caractère contenant les <code class='name'>ContraintesExplicite</code> et la <code class='name'>FonctionEco</code>
 	 * qui compose <i><b>this</b></i>.<br><br>La mise en forme de la chaine à retourner est faite en HTML.</p>
+	 * 
 	 * @return chaineFinale : (String)
 	 */
 	public String toString() {
@@ -94,11 +97,12 @@ public class Simplexe implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>toString2</i></h1>
 	 * <h2><code>public String toString2()</code></h2>
-	 * <p>Renvoie une chaîne de caractère contenant les <code>ContraintesExplicite</code> et la <code>FonctionEco</code>
+	 * <p>Renvoie une chaîne de caractère contenant les <code class='name'>ContraintesExplicite</code> et la <code class='name'>FonctionEco</code>
 	 * qui compose <i><b>this</b></i>.</p>
+	 * 
 	 * @return chaineFinale : (String)
 	 */
 	public String toString2() {
@@ -112,12 +116,13 @@ public class Simplexe implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>echangeJudicieux</i></h1>
 	 * <h2><code>public String echangeJudicieux()</code></h2>
 	 * <p>Utilisée lors des indices qui sont demandés par l'utilisateur, cette fonction affiche quel est l'échange de variable dans la base
 	 * et hors base qu'il est préférable d'effectuer afin de se rapprocher au plus près du bénéfice maximal.</p>
-	 * @return "Echange à effectuer : " + <i>inconnueBase</i> + " & " + inconnueHorsBase : (String)
+	 * 
+	 * @return "Echange à effectuer : " + <i>inconnueBase</i> + " & " + <i>inconnueHorsBase</i> : (String)
 	 */
 	public String echangeJudicieux() {
 		String inconnueBase = fonctionEco.monomeCoeffMax();
@@ -143,10 +148,11 @@ public class Simplexe implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>echanger</i></h1>
-	 * <h2><code>public void echanger(String inconnueHorsBase, String inconnueBase)</code></h2>
+	 * <h2><code>public void echanger(<span class='name'>String</span> inconnueHorsBase, <span class='name'>String</span> inconnueBase)</code></h2>
 	 * <p>Permet l'échange d'une variable hors base et d'une variable dans la base dans <i><b>this</b></i>.</p>
+	 * 
 	 * @param inconnueHorsBase : (String)
 	 * @param inconnueBase : (String)
 	 */
@@ -170,10 +176,11 @@ public class Simplexe implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getContraintes</i></h1>
 	 * <h2><code>public List getContraintes()</code></h2>
 	 * <p>Renvoie le champ <i>contraintes</i> de <i><b>>this</b></i>.</p>
+	 * 
 	 * @return contraintes : (List)
 	 */
 	public List getContraintes() {
@@ -181,10 +188,11 @@ public class Simplexe implements Serializable{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setContraintes</i></h1>
-	 * <h2><code>public void setContraintes(List contraintes)</code></h2>
+	 * <h2><code>public void setContraintes(<span class='name'>List</span> contraintes)</code></h2>
 	 * <p>Défini le champ <i>contraintes</i> de <i><b>this</b></i> avec la liste de contraintes donnée en paramètre.</p>
+	 * 
 	 * @param contraintes : (List)
 	 */
 	public void setContraintes(List contraintes) {
@@ -192,10 +200,11 @@ public class Simplexe implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>getFonctionEco</i></h1>
 	 * <h2><code>public FonctionEco getFonctionEco()</code></h2>
 	 * <p>Renvoie le champ <i>fonctionEco</i> de <i><b>this</b></i>.</p>
+	 * 
 	 * @return fonctionEco : (FonctionEco)
 	 */
 	public FonctionEco getFonctionEco() {
@@ -203,10 +212,11 @@ public class Simplexe implements Serializable{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>setFonctionEco</i></h1>
-	 * <h2><code>public void setFonctionEco(FonctionEco fonctionEco)</code></h2>
+	 * <h2><code>public void setFonctionEco(<span class='name'>FonctionEco</span> fonctionEco)</code></h2>
 	 * <p>Défini le champ <i>fonctionEco</i> de <i><b>this</b></i> avec la fonction économique donnée en paramètre.</p>
+	 * 
 	 * @param fonctionEco : (FonctionEco)
 	 */
 	public void setFonctionEco(FonctionEco fonctionEco) {

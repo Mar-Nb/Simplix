@@ -17,9 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+ * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
  * <h1><i>PanelDemo</i></h1>
- * <h2><code>public class PanelDemo extends JPanel implements ActionListener</code></h2>
+ * <h2><code>public class PanelDemo extends JPanel implements <span class='name'>ActionListener</span></code></h2>
  * <p> Cette classe est un panel qui fait la démonstration de l'utilisation que l'on peut faire de
  * notre projet.</p>
  */
@@ -41,10 +41,10 @@ public class PanelDemo extends JPanel implements ActionListener{
 
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } </style>
 	 * <h1><i>Constructeur</i></h1>
 	 * <h2><code>public PanelDemo()</code></h2>
-	 * <p>Génère un panel contenant un diaporama d'images du dossier "images".</p>
+	 * <p>Génère un panel contenant un diaporama d'images du dossier <code>"images"</code>.</p>
 	 */
 	public PanelDemo() {
 
@@ -111,9 +111,10 @@ public class PanelDemo extends JPanel implements ActionListener{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>scaleImage</i></h1>
-	 * <h2><code>public static Image scaleImage(Image source, int width, int height)</code></h2>
+	 * <h2><code>public static Image scaleImage(<span class='name'>Image</span> source, <span class='name'>int</span> width, <span class='name'>int</span> height)</code></h2>
+	 * 
 	 * @param source : (Image)
 	 * @param width : (Integer)
 	 * @param height : (Integer)
@@ -129,10 +130,11 @@ public class PanelDemo extends JPanel implements ActionListener{
 	}
 	
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; } </style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>scaleImage</i></h1>
-	 * <h2><code>public static Image scaleImage(Image source, int size)</code></h2>
+	 * <h2><code>public static Image scaleImage(<span class='name'>Image</span> source, <span class='name'>int</span> size)</code></h2>
 	 * <p>Permet de calculer la taille adéquate pour la redimension de l'image et renvoie l'image redimensionnée.</p>
+	 * 
 	 * @param source : (Image)
 	 * @param size : (Integer)
 	 * @return scaleImage(source, width, height) : (Image)
@@ -156,9 +158,9 @@ public class PanelDemo extends JPanel implements ActionListener{
 	}
 
 	/**
-	 * <style> body{ margin-left: 15px; margin-right: 15px; }</style>
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
 	 * <h1><i>actionPerformed</i></h1>
-	 * <h2><code>public void actionPerformed(ActionEvent evt)</code></h2>
+	 * <h2><code>public void actionPerformed(<span class='name'>ActionEvent</span> evt)</code></h2>
 	 * <p>Permet le défilement du diaporama.</p>
 	 */
 	@Override
