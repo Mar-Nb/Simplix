@@ -52,7 +52,7 @@ public class PanelHistorique extends JPanel {
 	 * @param histo : (Historique) Contient les dictionnaires du simplexe en cours
 	 */
 	public PanelHistorique(Historique histo) {
-		this.setLayout(new GridLayout(6, 1));
+		this.setLayout(new GridLayout(0, 1));
 		historique = histo;
 		
 		JPanel contenu = new JPanel();

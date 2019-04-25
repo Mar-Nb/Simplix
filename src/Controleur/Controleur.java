@@ -147,15 +147,15 @@ public class Controleur implements ActionListener {
 		// Bouton se situant dans le panelChargerSimplexe
 		if(evt.getActionCommand().equals("Charger")) {
 			
-			JFileChooser fichier = new JFileChooser(); //pour que l'utilisateur choisisse là  où il veut créer son fichier
-			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); //par défaut on se place dans le répertoire utilisateur
-			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");//on veut que le fichier soit uniquement au format pdf
+			JFileChooser fichier = new JFileChooser(); // Pour que l'utilisateur choisisse là  où il veut créer son fichier
+			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); // Par défaut on se place dans le répertoire utilisateur
+			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");// On veut que le fichier soit uniquement au format pdf
 			fichier.addChoosableFileFilter(filtre);
 			
-			//on regarde si l'utilisateur a bien choisi un fichier
+			// On regarde si l'utilisateur a bien choisi un fichier
 			int resultat = fichier.showSaveDialog(null);
 			
-			if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) {//si c'est bon
+			if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) {// Si c'est bon
 				
 				panelG.getPanelSimplex().remove(panelG.getPanelSimplex().getPanelH());
 				panelG.setHistorique((Historique) LectureEcriture.lecture(fichier.getSelectedFile()));

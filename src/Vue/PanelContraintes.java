@@ -106,7 +106,7 @@ public class PanelContraintes extends JPanel {
 		contrainte.gridx =1;
 		contrainte.gridy+=3;
 		contrainte.anchor = GridBagConstraints.CENTER;
-		boutonCreer = new JButton("Cr�er");
+		boutonCreer = new JButton("Créer");
 		this.add(boutonCreer, contrainte);
 
 	}
