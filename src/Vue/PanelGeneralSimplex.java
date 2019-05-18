@@ -2,6 +2,7 @@ package Vue;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import Controleur.Controleur;
 import Modele.Historique;
@@ -54,7 +55,10 @@ public class PanelGeneralSimplex extends JPanel{
 		}
 		
 
-		this.add(panelSimp,BorderLayout.CENTER);
+		JScrollPane scroll = new JScrollPane(panelSimp,
+				JScrollPane.VERTICAL_SCROLLBAR_NEVER,
+				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		this.add(scroll,BorderLayout.CENTER);
 
 		this.add(panelH, BorderLayout.EAST);
 		

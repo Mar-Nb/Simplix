@@ -1,5 +1,6 @@
 package Vue;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -7,6 +8,7 @@ import java.awt.Insets;
 import java.util.Iterator;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -59,6 +61,9 @@ public class PanelSimplex extends JPanel {
 		
 		int nbContraintes = 0;
 		int nbBoutons = 0;
+		int positionSigne = 0;
+		
+		Box [] lignes = new Box[simplexe.getContraintes().size()];
 		
 		// Nombre de bouton = Nombre_de_contraintes x Nombre_de_monomes
 		tabBoutonsInconnues=new JButton[simplexe.getContraintes().size()][simplexe.getFonctionEco().getMonomes().size()];
@@ -67,21 +72,22 @@ public class PanelSimplex extends JPanel {
 		
 		gridLim.gridwidth = 1;
 		gridLim.gridheight = 1;
-		gridLim.insets = new Insets(10,5,10,5);
+		gridLim.insets = new Insets(10,0,10,5);
 		gridLim.gridy = 0;
 		gridLim.gridx = 0;
 
 		// On parcourt les contraintes
 		for(Iterator j = simplexe.getContraintes().iterator(); j.hasNext();) {
-			gridLim.gridx = 0;
-			
+			positionSigne = 0;
 			ContrainteExplicite ce = (ContrainteExplicite) j.next();
 			
+			lignes[nbContraintes] = Box.createHorizontalBox();
 			JLabel lab = new JLabel(ce.getNom()+" =",JLabel.LEFT);
 			lab.setFont(police);
-			this.add(lab,gridLim);
+			lignes[nbContraintes].add(lab);
+			lignes[nbContraintes].add(Box.createRigidArea(new Dimension(5,0)));
 			
-			gridLim.gridx++;
+			positionSigne++;
 			
 			// On parcourt les monomes de la contrainte en cours
 			for(Object obj : ce.getMonomes().values()) {
@@ -89,7 +95,7 @@ public class PanelSimplex extends JPanel {
 				String textLabel = "";
 				
 				//SIGNES
-				if(m.getCoefficient().getNumerateur()>0 && gridLim.gridx!=1) {
+				if(m.getCoefficient().getNumerateur()>0 && positionSigne!=1) {
 					textLabel+="+";
 				}
 				
@@ -101,30 +107,33 @@ public class PanelSimplex extends JPanel {
 				if(m.getCoefficient().getNumerateur()!=0) {
 					lab = new JLabel(textLabel);
 					lab.setFont(police);
-					this.add(lab,gridLim);
-					gridLim.gridx++;
+					lignes[nbContraintes].add(lab);
+					lignes[nbContraintes].add(Box.createRigidArea(new Dimension(5,0)));
+					positionSigne++;
 				}
 				
 				//BOUTON
 				
 				if(!m.getInconnue().equals(" ") && m.getCoefficient().getNumerateur()!=0) {
 					tabBoutonsInconnues[nbContraintes][nbBoutons] = new JButton(m.getInconnue());
-					tabBoutonsInconnues[nbContraintes][nbBoutons].setToolTipText("Une variable hors base � �changer");
+					tabBoutonsInconnues[nbContraintes][nbBoutons].setToolTipText("Une variable hors base à échanger");
 					tabBoutonsInconnues[nbContraintes][nbBoutons].setFont(police);
-					this.add(tabBoutonsInconnues[nbContraintes][nbBoutons],gridLim);
+					lignes[nbContraintes].add(tabBoutonsInconnues[nbContraintes][nbBoutons]);
+					lignes[nbContraintes].add(Box.createRigidArea(new Dimension(5,0)));
 					nbBoutons++;
 				}
 				
-				gridLim.gridx++;
+				positionSigne++;
 			}
 			gridLim.gridy++;
-			gridLim.gridx = 0;
+			positionSigne = 0;
 			nbBoutons=0;
+			this.add(lignes[nbContraintes],gridLim);
 			nbContraintes++;
 		}
 		
 		gridLim.gridy++;
-		gridLim.gridx = 0;
+		positionSigne = 0;
 		
 		JLabel lab = new JLabel(simplexe.getFonctionEco().toString());
 		lab.setFont(police);
