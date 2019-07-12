@@ -42,7 +42,6 @@ public class PanelSimplex extends JPanel {
 	 */
 	public PanelSimplex() {
 		tabBoutonsInconnues=new JButton[0][0];
-		b=new JButton("");
 		this.add(new JLabel("Panel Simplexe"),JLabel.CENTER);
 		this.setBorder(BorderFactory.createLoweredBevelBorder());
 	}

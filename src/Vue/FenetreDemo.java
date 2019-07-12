@@ -20,14 +20,15 @@ public class FenetreDemo extends JFrame{
 	public FenetreDemo() {
 		super("Démonstration");
 		
-		PanelDemo panelDemo = new PanelDemo();
+		PanelDemo panelDemo = null;
+		panelDemo = new PanelDemo();
 		
 		this.setContentPane(panelDemo);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setSize(1200,800);
 		this.setVisible(true);
 		this.setLocation(5,25);
-		
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 	
 	public static void main(String [] args) {

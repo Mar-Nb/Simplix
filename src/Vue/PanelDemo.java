@@ -2,15 +2,19 @@ package Vue;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -24,15 +28,15 @@ import javax.swing.JPanel;
  * notre projet.</p>
  */
 @SuppressWarnings("serial")
-public class PanelDemo extends JPanel implements ActionListener{
+public class PanelDemo extends JPanel implements ActionListener, MouseListener{
 	
 	JPanel diapositives;
 	JLabel instructions;
 	CardLayout gestionnaireDeCartes;
 	int indice=0;
 	
-	String[] titres= {"Affichage", "Charger un Simplexe (Fichier > Charger Simplexe"
-			,"Création d'un Simplexe (Fichier > Nouveau Simplexe)","Création d'un Simplexe (partie 2) (Fichier > Nouveau Simplexe)"};
+	String[] titres= {"Affichage [1]", "Charger un Simplexe (Fichier > Charger Simplexe)[2]"
+			,"Création d'un Simplexe (Fichier > Nouveau Simplexe)[3]","Création d'un Simplexe (partie 2) (Fichier > Nouveau Simplexe)[4]"};
 	
 	JLabel titre;
 
@@ -59,6 +63,7 @@ public class PanelDemo extends JPanel implements ActionListener{
 		retour.setBorderPainted(false);
 		retour.setContentAreaFilled(false);
 		retour.addActionListener(this);
+		retour.addMouseListener(this);
 		retour.setActionCommand("retour");
 		
 		suivant = new JButton(">");
@@ -67,6 +72,7 @@ public class PanelDemo extends JPanel implements ActionListener{
 		suivant.setBorderPainted(false);
 		suivant.setContentAreaFilled(false);
 		suivant.addActionListener(this);
+		suivant.addMouseListener(this);
 		suivant.setActionCommand("suivant");
 		
 		instructions = new JLabel("Cliquez sur les flèches de défilement pour parcourir le mode d'emploi",JLabel.CENTER);
@@ -74,25 +80,28 @@ public class PanelDemo extends JPanel implements ActionListener{
 		JPanel container =new JPanel();
 		container.setLayout(new BorderLayout(45,25));
 		
-		
-		ImageIcon image = new ImageIcon("images"+File.separator+"Simplexe.png");
+		ImageIcon image = new ImageIcon("imagesDemo/Simplexe.png");
 		ImageIcon iconScaled = new ImageIcon(scaleImage(image.getImage(),900));
 		JLabel affichage=new JLabel(iconScaled);
+		affichage.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		diapositives.add(affichage, "Affichage");
 		
-		ImageIcon image3 = new ImageIcon("images"+File.separator+"chargerSimplexe.png");
+		ImageIcon image3 = new ImageIcon("imagesDemo/chargerSimplexe.png");
 		iconScaled = new ImageIcon(scaleImage(image3.getImage(),900));
 		JLabel affichage3=new JLabel(iconScaled);
+		affichage3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		diapositives.add(affichage3, "Charger un Simplexe (Fichier > Charger Simplexe)");
 
-		ImageIcon image2 = new ImageIcon("images"+File.separator+"creerSimplexe.png");
+		ImageIcon image2 = new ImageIcon("imagesDemo/creerSimplexe.png");
 		iconScaled = new ImageIcon(scaleImage(image2.getImage(),900));
 		JLabel affichage2=new JLabel(iconScaled);
+		affichage2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		diapositives.add(affichage2, "Création d'un Simplexe (Fichier > Nouveau Simplexe)");
 		
-		ImageIcon image4 = new ImageIcon("images"+File.separator+"creerSimplexe2.png");
+		ImageIcon image4 = new ImageIcon("imagesDemo/creerSimplexe2.png");
 		iconScaled = new ImageIcon(scaleImage(image4.getImage(),900));
 		JLabel affichage4=new JLabel(iconScaled);
+		affichage4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		diapositives.add(affichage4, "Création d'un Simplexe (partie 2) (Fichier > Nouveau Simplexe)");
 		
 		
@@ -183,6 +192,54 @@ public class PanelDemo extends JPanel implements ActionListener{
 			titre.setText(titres[indice]);
 			
 		}
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
+	 * <h1><i>mouseEntered</i></h1>
+	 * <h2><code>public void mouseEntered(<span class='name'>MouseEvent</span> arg0)</code></h2>
+	 * <p>Change la couleur de la flèche de gauche en rouge.</p>
+	 */
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		if (arg0.getSource().equals(retour)) {
+			((JButton)arg0.getSource()).setForeground(Color.GRAY);
+		} else if (arg0.getSource().equals(suivant)) {
+			((JButton)arg0.getSource()).setForeground(Color.GRAY);
+		}
+	}
+
+	/**
+	 * <style> body{ margin-left: 15px; margin-right: 15px; } code{ font-family: Consolas; } h1{ text-decoration: underline; } .name{ color: #4286f4; }</style>
+	 * <h1><i>mouseExited</i></h1>
+	 * <h2><code>public void mouseExited(<span class='name'>MouseEvent</span> arg0)</code></h2>
+	 * <p>Change la couleur de la flèche de gauche en noir.</p>
+	 */
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		if (arg0.getSource().equals(retour)) {
+			((JButton)arg0.getSource()).setForeground(Color.BLACK);
+		} else if (arg0.getSource().equals(suivant)) {
+			((JButton)arg0.getSource()).setForeground(Color.BLACK);
+		}
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
 		
 	}
 }

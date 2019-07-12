@@ -149,8 +149,10 @@ public class Controleur implements ActionListener {
 			
 			JFileChooser fichier = new JFileChooser(); // Pour que l'utilisateur choisisse là  où il veut créer son fichier
 			fichier.setCurrentDirectory(new File(System.getProperty("user.home"))); // Par défaut on se place dans le répertoire utilisateur
-			FileNameExtensionFilter filtre = new FileNameExtensionFilter(null, "*ser");// On veut que le fichier soit uniquement au format pdf
-			fichier.addChoosableFileFilter(filtre);
+			FileNameExtensionFilter filtre = new FileNameExtensionFilter("Format Simplexe", "ser");// On veut que le fichier soit uniquement au format pdf
+			fichier.setFileFilter(filtre);
+			fichier.setAcceptAllFileFilterUsed(false);
+			fichier.setFileHidingEnabled(true);
 			
 			// On regarde si l'utilisateur a bien choisi un fichier
 			int resultat = fichier.showSaveDialog(null);
@@ -165,20 +167,19 @@ public class Controleur implements ActionListener {
 				panelG.setFichierEnregistrement(fichier.getSelectedFile());
 				
 				
-			}
-			else if(resultat == JFileChooser.CANCEL_OPTION) {
+			} else if(resultat == JFileChooser.ERROR_OPTION) {
 				fichier.cancelSelection();
 				fichier.setVisible(false);
 				JOptionPane.showMessageDialog(null, "Erreur, mauvais fichier sélectionné","Erreur",JOptionPane.ERROR_MESSAGE);
 			}
-			
 		}
 		
 		// Bouton se situant dans le panelIndications
-		if(evt.getActionCommand().equals("indice")) {
-			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().toString2());
-			System.out.println(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
+		if(evt.getActionCommand().equals("indice") && panelG.getPanelSimplex().getPanelSimp().getSimplexe() != null) {
 			panelG.miseAJourIndication(panelG.getPanelSimplex().getPanelSimp().getSimplexe().echangeJudicieux());
+		} else if (evt.getActionCommand().equals("indice")) {
+			// Pas de simplexe, pas d'indice
+			JOptionPane.showMessageDialog(null, "Aucun simplexe défini", "Action impossible", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}

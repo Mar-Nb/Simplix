@@ -27,7 +27,7 @@ public class FenetreMereSimplex extends JFrame {
 		
 		contentPane = new PanelGeneral();
 		this.setContentPane(contentPane);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setSize(1000,600);
 		this.setVisible(true);
 		this.setLocation(100,100);
@@ -44,7 +44,7 @@ public class FenetreMereSimplex extends JFrame {
 		menuCreation.setMnemonic('F');
 		menuBar.add(menuCreation);
 		
-		String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous", "Mode Démo"};
+		String[] itemsCreation = {"Nouveau Simplexe", "Charger Simplexe", "Enregistrer", "Enregistrer sous", "Mode Demo"};
 		JMenuItem[] menuItemsCreation = new JMenuItem[itemsCreation.length];
 		
 		// Les items de la JMenuBar sont ajoutés et mis écouté par le contrôleur
