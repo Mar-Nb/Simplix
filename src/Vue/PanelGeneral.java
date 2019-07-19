@@ -8,6 +8,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Controleur.Controleur;
@@ -231,7 +232,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 			
 			int code= JOptionPane.showConfirmDialog(null, "Voulez vous vraiment quitter ?","Arrêt du programme",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 			if(code== JOptionPane.OK_OPTION) {
-				System.exit(code);
+				SwingUtilities.getWindowAncestor(this).dispose();
 			} // Pop up avec confirmation du choix
 			
 		}
