@@ -281,7 +281,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 			String nomFichier = fichier.getSelectedFile().getName();
 			if (isPDF) {
 				// On vérifie que le fichier possède l'extension .pdf à la fin
-				if (nomFichier.contains(".pdf")) {
+				if (nomFichier.endsWith(".pdf")) {
 					new GenerePdf(this.historique, fichier.getSelectedFile());
 				} else {
 					// Pas d'extension ? On l'ajoute !
@@ -289,7 +289,7 @@ public class PanelGeneral extends JPanel implements ActionListener {
 				}
 			} else {
 				// On vérifie que le fichier possède l'extension .ser à la fin
-				if (nomFichier.contains(".ser")) {
+				if (nomFichier.endsWith(".ser")) {
 					LectureEcriture.ecriture(fichier.getSelectedFile(), this.historique);
 					fichierEnregistrement = fichier.getSelectedFile();
 				} else {

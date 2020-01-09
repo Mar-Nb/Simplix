@@ -157,7 +157,7 @@ public class Controleur implements ActionListener {
 			// On regarde si l'utilisateur a bien choisi un fichier
 			int resultat = fichier.showSaveDialog(null);
 			
-			if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().contains(".ser")) {// Si c'est bon
+			if(resultat == JFileChooser.APPROVE_OPTION && fichier.getSelectedFile().getName().endsWith(".ser")) {// Si c'est bon
 				
 				panelG.getPanelSimplex().remove(panelG.getPanelSimplex().getPanelH());
 				panelG.setHistorique((Historique) LectureEcriture.lecture(fichier.getSelectedFile()));
